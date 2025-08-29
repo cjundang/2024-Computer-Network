@@ -1,14 +1,15 @@
 # Computer Network
 
-## resoure for 
+## resoures for 
 - CME66-311 Computer Network System
 - IMI62-232 Computer Network
 
 ## Instructor
 
 **Assist. Prof. Dr. Chanankorn Jandaeng**
+
 School of Informatics, Walailak University
-Email: [cjundang@gmail.com](mailto:cjundang@gmail.com)
+
 
 ## Credit Hours
 
