@@ -1,4 +1,4 @@
-# Charpter 4 - Network Architecture
+# Chapter 4 - Network Architecture
 
 ## Learning Outcomes
 

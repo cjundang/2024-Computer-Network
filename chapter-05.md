@@ -1,4 +1,4 @@
-# Charpter 5 LAN Design and Implementation
+# Chapter 5 LAN Design and Implementation
 
 ## Subtopics
 

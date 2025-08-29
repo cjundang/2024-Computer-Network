@@ -1,5 +1,5 @@
 
-# Charpter 1 — Introduction to Networking
+# Chapter 1 — Introduction to Networking
 
 ## Subtopics
 

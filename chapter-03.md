@@ -1,4 +1,4 @@
-# Charpter 3 -  Network Devices
+# Chapter 3 -  Network Devices
 
 ## Topics
 
