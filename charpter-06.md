@@ -17,6 +17,9 @@ An IPv4 address is a 32-bit identifier written in dotted-decimal (e.g., `192.168
 
 **Theory deep-dive.**
 
+ ![](figure/06/ip-address.png)
+
+
 * **Binary structure.** A `/n` mask fixes the leftmost *n* bits; remaining bits enumerate hosts.
 * **Address classes (legacy).** While classful A/B/C ranges exist historically, modern design uses CIDR exclusively for efficiency and summarization.
 * **Special addresses.** Network (all host bits `0`), broadcast (all host bits `1`), and loopback (`127.0.0.1`) support subnet identity, local broadcast, and local-stack testing, respectively.
@@ -36,6 +39,10 @@ Subnetting partitions a larger block into multiple logical networks to improve a
 ### 6.2.2 Masks and CIDR
 
 CIDR uses “slash” notation to mark network bits (e.g., `/24`→256 total, `/26`→64 total, `/32`→single host). These values inform pool sizing and DHCP scope planning seen later in the chapter.&#x20;
+
+ ![](figure/06/netmark.png)
+
+ ![](figure/06/cidr.png)
 
 **Worked example.**
 Given `192.168.28.8/23`, the network spans `192.168.28.0`–`192.168.29.255`, with usable hosts from `.1` to `.254` in each /24 half. The slide calls out this `/23` case explicitly.&#x20;
@@ -137,22 +144,3 @@ Static routes are administrator-defined, simple, predictable, and low overhead�
 
 Use **show ip route** to verify static (“S”) and connected (“C”) entries; **show ip interface brief** for L1/L2 status; **traceroute** to confirm actual next-hop selection. (These checks are emphasized around the interface and routing sequences in the slides.) &#x20;
 
----
-
-## 6.7 Putting It Together: A Lab Pattern (from slides)
-
-1. Cable and bring links up; identify DCE/DTE and set clock rate on DCE. 2) Address router interfaces and **no shutdown**. 3) Add static routes (and a default where appropriate). 4) Configure DHCP (exclusions → pool → options) and verify bindings. 5) Set host gateways/DNS; test with `ping`/`traceroute`.    &#x20;
-
----
-
-## Key Terms
-
-CIDR, subnet mask, default gateway, DCE/DTE, clock rate, next-hop route, network-specific route, host-specific (/32) route, DHCP exclusion, DHCP binding, longest-prefix match, administrative distance.  &#x20;
-
----
-
-## Summary
-
-This chapter reframes the slide material into a coherent workflow: establish interfaces (including serial clocking where required), configure IP addressing, automate hosts via DHCP (with proper exclusions), and construct the routing view using static routes—then verify end-to-end. Added theoretical scaffolding (binary/CIDR reasoning, longest-prefix match, control vs. forwarding plane, and AD) clarifies why the slide procedures work and how to generalize them to larger designs.   &#x20;
-
-If you want, I can supplement this chapter with a small set of end-of-chapter exercises (short problems on `/23` subnetting, default-route behavior, and DCE/DTE diagnostics) keyed to the same slide excerpts.
