@@ -229,7 +229,7 @@ Copy the blue bits and **force the yellow bits to 11111111**.
 * **Last host** = broadcast − 1 → `192.168.56.254`
   (The **third diagram** shows those last-octet bits as `11111110`.)
 
-![](figure/06/cal-last-address.png){width=50%}
+![](figure/06/cal-last-address.png)
 **Usable range:** `192.168.56.1 – 192.168.56.254`
 
 
@@ -253,3 +253,197 @@ Host bits = 32 − 24 = **8** → `2^8 − 2 = 254` usable addresses
 
 Use whichever method you prefer: **bit view** (as in your diagrams) or the **block-size shortcut**. They’re the same logic—set host bits to all 0s for the network and all 1s for the broadcast, with first/last hosts just inside that boundary.
 
+### shortcut method
+
+### 1) The tiny table (for the *interesting octet*)
+
+When the prefix (/p) doesn’t end exactly on an octet boundary, it falls inside one octet—the *interesting octet*.
+From the number of **host bits left in that octet**, pick the pair:
+
+![](figure/06/cal-table.png)
+
+
+Equivalently: **h = 2^(8 – r)** and **mask = 256 – h**, where **r = p mod 8** is the number of network bits used in that octet.
+
+### 2) Two one-line formulas
+
+Let **a** be the decimal value of the interesting octet in the IP address, and **h** the block size from the table.
+
+* **Network octet**:  $N = \big\lfloor \dfrac{a}{h} \big\rfloor \times h$
+* **Broadcast octet**: $B = N + h - 1$
+
+All octets **to the left** of the interesting octet stay the same as the IP.
+All octets **to the right** are **0** for the network address and **255** for the broadcast.
+First host = network + 1, last host = broadcast − 1.
+
+### 3) Worked examples  
+
+### Example A — 205.26.37.29/**28**
+
+* /28 ⇒  8 + 8 + 8 + **4** bits in 4th octet ⇒ **r = 4**, so **h = 16**, mask octet **240** → **255.255.255.240**.
+* Interesting octet = **29**.
+  $N = \lfloor 29/16 \rfloor \times 16 = 1 \times 16 = \mathbf{16}$
+  $B = 16 + 16 - 1 = \mathbf{31}$
+* **Network** = 205.26.37.**16**
+  **Broadcast** = 205.26.37.**31**
+  **Usable hosts** = .17 – .30 (14 hosts)
+
+### Example B — 205.26.**23**.29/**21**
+
+* /21 ⇒ 8 + 8 + **5**  + 0 in 3rd octet ⇒ **r = 5**, so **h = 32**? Careful: with 5 network bits used, **host bits left in that octet = 3**, so **h = 8**, mask octet **248** → **255.255.248.0**.
+* Interesting octet = **23** (the 3rd octet).
+  $N = \lfloor 23/8 \rfloor \times 8 = 2 \times 8 = \mathbf{16}$
+  $B = 16 + 8 - 1 = \mathbf{23}$
+* **Network** = 205.26.**16**.0
+  **Broadcast** = 205.26.**23**.255
+  **Usable hosts** = 205.26.16.1 – 205.26.23.254 (2046 hosts)
+
+
+### 4) Quick checklist you can say while teaching
+
+1. **Find the interesting octet** (where /p lands).
+2. **Compute r = p mod 8**, then take **h = 2^(8−r)** and **mask octet = 256−h** (or read both from the table).
+3. **Divide that octet’s value by h**, take the **floor**, multiply back → **network octet**.
+4. **Add h−1** → **broadcast octet**.
+5. Set the **right-side octets** to 0 (network) / 255 (broadcast).
+6. Hosts are **network+1 … broadcast−1**.
+
+That’s the whole shortcut—fast enough to do at the whiteboard without touching binary.
+
+## 6.2 Subnetting
+
+### What it is.
+Subnetting is the act of taking one IP network (a prefix) and dividing it into smaller, non-overlapping child networks called *subnets*. In IPv4 we do this by “borrowing” host bits to extend the network prefix (e.g., turning a /16 into many /21s or /24s). Each resulting subnet has its own **network address**, **broadcast address**, and pool of **usable host addresses**. Routers forward traffic between subnets; switches keep broadcasts inside a single subnet.
+
+### Why subnet
+
+1. **Control broadcast domains & improve performance.**
+   Broadcasts (ARP, DHCP, etc.) stop at the subnet boundary. Smaller subnets = smaller broadcast domains = less unnecessary traffic and lower CPU load on endpoints.
+
+2. **Address conservation & right-sizing.**
+   With CIDR/VLSM you size each subnet to the host count you actually need (e.g., /27 for \~30 devices, /21 for \~2,000). That avoids wasting addresses.
+
+3. **Security & policy boundaries.**
+   Subnets let you apply ACLs, firewalls, and QoS per segment (e.g., finance cannot be reached directly from guest Wi-Fi).
+
+4. **Operational clarity & fault isolation.**
+   Problems are easier to localize when each building, floor, or department is its own subnet.
+
+5. **Routing scalability.**
+   Many small subnets can be summarized (aggregated) into a shorter prefix when advertised upstream, keeping routing tables compact.
+
+### Reading the diagram (1,500 hosts per spoke)
+
+Each spoke needs \~1,500 usable IPs. For a single subnet to hold ≥1,500 hosts:
+
+$$
+2^{h}-2 \ge 1500 \Rightarrow h=11 \ (\text{gives } 2046 \text{ hosts})
+$$
+
+So each LAN should be a **/21** (since /21 leaves 11 host bits). Netmask = **255.255.248.0**.
+
+If you start from, say, **10.10.0.0/16**, carve six /21s (step size = 8 in the 3rd octet for a /21 across a /16):
+
+* LAN A: **10.10.0.0/21**   (hosts .0.1 – .7.254, broadcast .7.255)
+* LAN B: **10.10.8.0/21**   (hosts .8.1 – .15.254, broadcast .15.255)
+* LAN C: **10.10.16.0/21**  (hosts .16.1 – .23.254, broadcast .23.255)
+* LAN D: **10.10.24.0/21**  (hosts .24.1 – .31.254, broadcast .31.255)
+* LAN E: **10.10.32.0/21**  (hosts .32.1 – .39.254, broadcast .39.255)
+* LAN F: **10.10.40.0/21**  (hosts .40.1 – .47.254, broadcast .47.255)
+
+Pick the first usable address in each as the default gateway (e.g., 10.10.0.1, 10.10.8.1, …).
+
+> **Rule of thumb:**
+> Choose a prefix length where the host capacity $2^{h}-2$ meets your requirement with some headroom; then allocate consecutive blocks so you can later summarize them (e.g., six /21s can be summarized as 10.10.0.0/**18** if they’re contiguous and aligned).
+
+---
+
+### One-minute IOS tie-in (example)
+
+```cisco
+! Router-on-a-stick gateways for two of the /21s
+interface g0/0.10
+ encapsulation dot1Q 10
+ ip address 10.10.0.1 255.255.248.0
+!
+interface g0/0.20
+ encapsulation dot1Q 20
+ ip address 10.10.8.1 255.255.248.0
+!
+! Optional: summarize these six /21s upstream as 10.10.0.0/18
+! (only if they are contiguous and aligned)
+```
+
+
+### To calculate the subset
+ Here’s a clean, step-by-step walkthrough of the **subnetting example in your slides (192.168.28.8/23 split into 4 groups)** and how to read those diagrams.
+
+
+### 1) What the original block means
+
+* **192.168.28.8/23** belongs to the /23 network **192.168.28.0–192.168.29.255**.
+  (/23 = 255.255.254.0 → 23 network bits, **9 host bits** total for the /23.)
+
+You want **4 groups** → that’s $2^2$ groups, so you must **borrow 2 of the 9 host bits** to use as *subnet ID* bits.
+
+ 
+
+### 2) New prefix and mask
+
+* New prefix: **/23 + 2 = /25**
+* New mask: **255.255.255.128** (block size 128 in the last octet)
+
+This exactly matches the slide where two 1’s are added to the host portion and the mask changes to **…128**.
+
+### 3) The four /25 subnets inside the /23
+
+Borrowing 2 bits yields **4 subnets** (subnet IDs 00, 01, 10, 11).
+Because the “interesting” octet is the **4th**, each /25 jumps by **128** in that octet:
+
+1. **192.168.28.0/25**
+
+   * Network: **192.168.28.0**
+   * First host: **192.168.28.1**
+   * Last host: **192.168.28.126**
+   * Broadcast: **192.168.28.127**
+
+2. **192.168.28.128/25**
+
+   * Network: **192.168.28.128**
+   * First host: **192.168.28.129**
+   * Last host: **192.168.28.254**
+   * Broadcast: **192.168.28.255**
+
+3. **192.168.29.0/25**
+
+   * Network: **192.168.29.0**
+   * First host: **192.168.29.1**
+   * Last host: **192.168.29.126**
+   * Broadcast: **192.168.29.127**
+
+4. **192.168.29.128/25**
+
+   * Network: **192.168.29.128**
+   * First host: **192.168.29.129**
+   * Last host: **192.168.29.254**
+   * Broadcast: **192.168.29.255**
+
+Each /25 has **$2^{7}-2 = 126$ usable hosts** (you had 9 host bits; after borrowing 2, **7 host bits remain**).
+
+ 
+
+### 4) Quick method you can reuse
+
+1. Decide how many groups $G$ you need → pick **b** where $2^{b} \ge G$.
+2. New prefix = old prefix + **b**.
+3. Convert new prefix to a mask (or use the *block size* table).
+4. The **block size** is $256 - \text{mask value in the interesting octet}$.
+5. Enumerate networks by adding the block size in that octet, carrying into the third octet if needed.
+6. For each subnet:
+
+   * **Network** = first address in the block
+   * **Broadcast** = last address in the block
+   * **Usable hosts** = $\text{block size} - 2$ (or $2^{\text{host bits}} - 2$)
+   * **First/last hosts** = network+1 / broadcast−1
+
+That’s exactly what your two slides are illustrating: the first slide shows borrowing the 2 bits to reach **/25**, and the second slide lists the **four resulting networks** inside the original **/23**.
