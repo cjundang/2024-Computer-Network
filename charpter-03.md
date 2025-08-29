@@ -1,4 +1,4 @@
-# Charpter 4 -  Network Devices
+# Charpter 3 -  Network Devices
 
 ## Topics
 
