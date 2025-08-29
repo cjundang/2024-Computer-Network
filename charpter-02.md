@@ -1,4 +1,4 @@
-# Charpter 02 Connecting to the World
+# Charpter 2 - Connecting to the World
 
 ## Subtopics
 
