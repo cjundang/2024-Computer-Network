@@ -7,8 +7,6 @@ After completing this chapter, you will be able to:
 
 1. Explain IPv4 addressing, notation, and special-purpose addresses; 2) design subnets using CIDR/VLSM; 3) describe router roles and interface requirements (including serial DCE/DTE); 4) configure router interfaces and verify L1/L2 readiness; 5) deploy and verify DHCP on IOS; 6) explain routing concepts (next-hop, network-specific, host-specific, default) and implement static routes. &#x20;
 
----
-
 ## 6.1 IP Address
 
 ### What you’re looking at
@@ -16,7 +14,7 @@ After completing this chapter, you will be able to:
 “Start at the top. That row of little squares is **one IPv4 address**.
 IPv4 is **32 bits** long and we group those 32 bits into four chunks of **8 bits** called **octets**.
 
-![](figure/06/ip-address.png)
+![](figure/06/ip-address.png){width=50%}
 
 
 * Each octet becomes a **decimal number** we can read easily.
@@ -37,7 +35,7 @@ IPv4 is **32 bits** long and we group those 32 bits into four chunks of **8 bits
 “Now look at the bottom picture. This is a single Ethernet segment with many PCs.
 Underneath it says **192.168.10.0/24** and *one large broadcast domain*.”
 
-![](figure/06/single-broadcast.png)
+![](figure/06/single-broadcast.png){width=50%}
 
 Explain the notation:
 
@@ -72,7 +70,7 @@ Here’s a tight, teacher-ready script for this **CIDR** slide.
 
 ## CIDR
 
-![](figure/06/cidr.png)
+![](figure/06/cidr.png){width=50%}
 
 
 * **Class / Start Bit**
@@ -146,7 +144,7 @@ Usable hosts = $2^{(32-\text{prefix})} - 2$
 
 The left box lists a contiguous set of IPv4 addresses from **205.16.37.32** to **205.16.37.47**. The right box writes the same range in **binary**. Notice that the first 28 bits (205.16.37.\*) are identical, while only the **last 4 bits** of the final octet change from **0000** (decimal 32) up to **1111** (decimal 47). That’s the signature of a **/28 CIDR block** (mask **255.255.255.240**): 28 network bits fixed, 4 host bits varying. Because 4 host bits exist, the block contains **2⁴ = 16 addresses**. In any traditional LAN, the first address is the **network address** (**205.16.37.32/28**), the last is the **broadcast address** (**205.16.37.47/28**), and the **usable host range** is **.33–.46**.
 
-![](figure/06/network-block.png)
+![](figure/06/network-block.png){width=50%}
 
 Two practical rules fall straight out of CIDR theory:
 
@@ -161,7 +159,7 @@ Why it matters operationally: planners choose block sizes to fit host counts (us
  
 A **netmask**—also called a **subnet mask**—tells a host which part of its IPv4 address identifies the **network** and which part identifies the **host**. In binary, a mask is a row of 1s followed by 0s; the 1-bits “lock in” the network portion, and the 0-bits leave room for host numbering. When we write a mask as **CIDR** (slash) notation, the number after the slash is simply the count of 1-bits. Thus `255.0.0.0` is `/8`, `255.255.0.0` is `/16`, and `255.255.255.0` is `/24`. Historically these aligned with the classful defaults A (/8), B (/16), and C (/24), as shown on the slide, but modern networks use CIDR to choose whatever prefix length best fits the design rather than being restricted to classes.
 
-![](figure/06/netmark.png)
+![](figure/06/netmark.png){width=50%}
 
 
 The mask drives two essential calculations. First, **network address**: perform a bitwise AND between the IP and the mask. For example, with `192.168.10.37` and `255.255.255.0` (`/24`), the result is `192.168.10.0`. Second, **broadcast address**: copy the network bits and set all host bits to 1, yielding `192.168.10.255` for that `/24`. The **usable host range** lies strictly between those two: `192.168.10.1–192.168.10.254`. In general, a `/n` network contains `2^(32−n)` total addresses, of which `2^(32−n) − 2` are usable for hosts (the two removed are the network and broadcast), with two common exceptions: `/31` is used on point-to-point links (both addresses usable) and `/32` represents a single host or loopback.
@@ -208,7 +206,7 @@ Copy the blue bits as-is and **force the yellow bits to 00000000**.
 ```
 
 
-![](figure/06/cal-network-address.png)
+![](figure/06/cal-network-address.png){width=50%}
 
 
 
@@ -221,17 +219,17 @@ Copy the blue bits and **force the yellow bits to 11111111**.
    192         168         56        255  → 192.168.56.255
 ```
 
-![](figure/06/cal-broadcast-address.png)
+![](figure/06/cal-broadcast-address.png){width=50%}
 
 ### 4) First and last usable host
 
 * **First host** = network + 1 → `192.168.56.1`
-![](figure/06/cal-first-address.png)
+![](figure/06/cal-first-address.png){width=50%}
 
 * **Last host** = broadcast − 1 → `192.168.56.254`
   (The **third diagram** shows those last-octet bits as `11111110`.)
 
-![](figure/06/cal-last-address.png)
+![](figure/06/cal-last-address.png){width=50%}
 **Usable range:** `192.168.56.1 – 192.168.56.254`
 
 
