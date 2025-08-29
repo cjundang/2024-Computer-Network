@@ -1,6 +1,4 @@
-<!-- \lesson{Week 4 of June 2025}{Connecting to the World} -->
-
-# Week 4 of June 2025 — Connecting to the World
+# Charpter 02 Connecting to the World
 
 ## Subtopics
 
