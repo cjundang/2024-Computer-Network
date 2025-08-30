@@ -53,7 +53,7 @@ Basic knowledge of computer systems and operating systems.
 
 ## Assessment Methods and Weighting
 
-| **Assessment Method**       | **Related CLOs**       | **Weight (%)** | **Description**                                                |
+| **Assessment Method**       | **Related CLOs**       | **Weight(%)** | **Description**                                                |
 | --------------------------- | ---------------------- | -------------: | -------------------------------------------------------------- |
 | Quizzes and Concept Reviews | CLO1.1                 |            10% | Short assessments to reinforce theoretical knowledge           |
 | Midterm Exam                | CLO1.1, CLO2.1         |            20% | Evaluation of communication theory, models, and network design |
@@ -74,6 +74,7 @@ Basic knowledge of computer systems and operating systems.
 | 4       | Network Architecture                | • OSI/TCP-IP models<br>• encapsulation <br>•  addressing <br>• routing | • Describe layered architectures (OSI, TCP/IP)<br>• Explain roles of devices/media/services/protocols<br>• Analyze encapsulation, addressing, and protocol operations | No explicit activity section, but concepts include TCP three-way handshake, routing exercises | [chapter-04.md](chapter-04.md):contentReference[oaicite:3]{index=3} |
 | 5       | LAN Design and Implementation       | • VLAN concept and benefits<br>• Creating/assigning VLANs<br>• Inter-VLAN routing<br>• Reducing broadcast domains | • Understand VLANs<br>• Configure VLANs on switches<br>• Implement inter-VLAN communication<br>• Limit broadcast domains | Cisco IOS configuration tasks: VLAN creation, port assignment, trunking, verification (`show vlan brief`, `show mac address-table`) | [chapter-05.md](chapter-05.md):contentReference[oaicite:4]{index=4} |
 | 6       | IP Addressing and Router Configuration | •  IPv4, CIDR <br>•subnetting <br>•IOS router config | • Explain IPv4 & special addresses<br>• Design subnets with CIDR/VLSM<br>• Describe router roles/interfaces<br>• Configure router interfaces & verify<br>• Deploy DHCP on IOS<br>• Implement static routes | Router config tasks (`ip address`, `encapsulation dot1Q`, DHCP setup); subnetting exercises | [chapter-06.md](chapter-06.md):contentReference[oaicite:5]{index=5} |
+| 7       | Network Design | •  Design Simple Network <br>• Implementing Simple Network   || |
 
 
 
