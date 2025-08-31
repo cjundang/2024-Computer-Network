@@ -28,7 +28,6 @@ Upon successful completion of the course, students will be able to:
 | CLO1.1  |   20% | Explain the core concepts of computer communication, OSI and TCP/IP models, and transmission techniques. | In-class discussion, quizzes | Midterm, final exam                  |
 | CLO2.1  |   20% | Analyze and design network topologies and address plans for LAN/WAN environments.                        | Hands-on design tasks        | Practical exam, design documentation |
 | CLO3.1  |   25% | Configure and troubleshoot basic network devices (switches, routers) and services (DHCP, DNS).           | Lab exercises, CLI practice  | Lab exam, configuration demo         |
-| CLO4.1  |   15% | Assess common threats and implement basic network security solutions.                                    | Case study discussions       | Scenario-based exam items            |
 | CLO5.1  |   10% | Demonstrate teamwork, responsibility, and communication in planning and presenting network projects.     | Peer feedback, rehearsals    | Final group presentation             |
 | CLO6.1  |   10% | Evaluate the suitability of network technologies and tools for real-world organizational use.            | Comparative analysis task    | Project documentation                |
 
