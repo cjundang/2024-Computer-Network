@@ -1,339 +1,472 @@
+# บทที่ 1 — บทนำสู่เครือข่ายคอมพิวเตอร์ (Introduction to Networking)
 
-# Chapter 1 — Introduction to Networking
+## หัวข้อที่ 1: บทนำ (Introduction)  
+- เครือข่ายคอมพิวเตอร์คืออะไร? (What is a Computer Network?)  
+- ทำไมเราจึงต้องการเครือข่ายคอมพิวเตอร์? (Why do we need a Computer Network?)  
+- ประเภทของเครือข่ายคอมพิวเตอร์ (Types of Computer Networks)  
+- อินเทอร์เน็ต (Internet)  
 
-## Subtopics
+## หัวข้อที่ 2: ผลลัพธ์การเรียนรู้รายวิชา (Course Learning Outcomes: LOs)
 
-* What is a computer network?
-* Why do we need a computer network
-* Types of Computer Networks
-* Internet
+## หัวข้อที่ 3: เครือข่ายคอมพิวเตอร์คืออะไร? (What is a Computer Network?)  
+- หน้าที่สำคัญของเครือข่าย (Key Functions of Networks)  
+  - การใช้ทรัพยากรร่วมกัน (Resource Sharing)  
+  - การสื่อสาร (Communication)  
+  - การเข้าถึงข้อมูลแบบรวมศูนย์ (Centralized Data Access)  
 
-## Course Learning Outcomes (LOs)
+## หัวข้อที่ 4: ทำไมเราจึงต้องการเครือข่ายคอมพิวเตอร์ (Why We Need Computer Networks)  
+- การใช้ทรัพยากรอย่างคุ้มค่า (Cost-efficient Resource Utilization)  
+- การเข้าถึงระยะไกลและการทำงานจากที่บ้าน (Remote Access and Telecommuting)  
+- การประมวลผลแบบกระจายและบริการคลาวด์ (Distributed Computing and Cloud Services)  
 
-By the end of this week, students will be able to:
+## หัวข้อที่ 5: ประเภทของเครือข่ายคอมพิวเตอร์ (Types of Computer Networks)  
+- เครือข่ายเฉพาะบุคคล (Personal Area Network: PAN)  
+- เครือข่ายท้องถิ่น (Local Area Network: LAN)  
+- เครือข่ายจัดเก็บข้อมูล (Storage Area Network: SAN)  
+- เครือข่ายมหานคร (Metropolitan Area Network: MAN)  
+- เครือข่ายบริเวณกว้าง (Wide Area Network: WAN)  
+- เครือข่ายส่วนตัวเสมือน (Virtual Private Network: VPN)  
+- เครือข่ายบริเวณวิทยาเขต (Campus Area Network: CAN)  
 
-* **LO1:** Define the concept and essential functions of a computer network.
-* **LO2:** Explain the importance of computer networks in supporting modern digital infrastructure and applications.
-* **LO3:** Differentiate between various types of computer networks (PAN, LAN, MAN, WAN, CAN, SAN, VPN) based on their characteristics and use cases.
-* **LO4:** Describe the historical development of the Internet, including key milestones and its impact on global connectivity.
+## หัวข้อที่ 6: อินเทอร์เน็ต (Internet)  
+- ประวัติ (History)  
+- เหตุการณ์สำคัญ (Milestones of Internet)  
+- อินเทอร์เน็ตในประเทศไทย (Internet in Thailand)  
 
-## What is a Computer Network?
+## หัวข้อที่ 7: บทนำสู่อุปกรณ์เครือข่าย (Introduction to Network Devices)  
+- คอมพิวเตอร์ส่วนบุคคล (Personal Computers: PCs)  
+- สวิตช์ (Switches)  
+- เราเตอร์ (Routers)  
+- เกตเวย์ (Gateways)  
+- ไฟร์วอลล์ (Firewalls)  
+- จุดเชื่อมต่อไร้สาย (Access Points: APs)  
 
-A computer network is a collection of interconnected devices that can share resources and information. This includes computers, printers, servers, and various types of networking hardware, such as switches and routers. Networks enable communication and collaboration across distances, enhancing efficiency and productivity.
+## หัวข้อที่ 8: โทโพโลยีและสถาปัตยกรรมเครือข่าย (Network Topologies and Architecture)  
+- โทโพโลยีทางกายภาพ (Physical Topologies)  
+- โทโพโลยีเชิงตรรกะ (Logical Topologies)  
+- สถาปัตยกรรมเครือข่าย (Network Architectures)  
+- โดเมนบรอดคาสต์ (Broadcast Domains)  
+- เครือข่ายท้องถิ่นเสมือน (Virtual LANs: VLANs)
 
-#### Key Functions of Networks
 
-* **Resource Sharing:** Resource sharing is one of the fundamental motivations for computer networks. In both enterprise and home settings, networking enables multiple devices to share a printer, access a shared folder, or connect to the internet through a single gateway. According to CompTIA Network+, shared resources reduce cost and improve efficiency because hardware and data do not need to be duplicated. For example, a file server on a local area network (LAN) enables centralized storage, backup, and management of permissions. This minimizes redundancy, simplifies maintenance, and ensures consistent access policies across users, especially in environments with many clients or devices.
-* **Communication:** Modern networks enable seamless communication between people and systems through email, instant messaging, VoIP, and video conferencing. CCNA emphasizes the importance of protocols like TCP/IP, which standardize how devices exchange data regardless of the underlying hardware. Communication in networks involves structured message delivery — from encoding data to segmenting it into packets, routing it across the globe, and reassembling it at the destination. Reliable communication protocols, such as TCP, ensure that all messages are delivered intact and in the correct order. This structured and reliable communication has become essential for business, education, healthcare, and personal interaction.
-* **Centralized Data Access:** Computer networks support centralized data management by storing data in dedicated file servers or databases accessible to all authorized users. This design promotes data consistency, security, and efficient backup practices. The theory behind centralized access, as discussed in textbooks like Doug Lowe’s *Networking All-in-One*, is that when users access a single version of data stored on the server, it reduces errors and duplication. Additionally, centralized authentication systems (e.g., Active Directory) ensure users are verified before they gain access. This model enhances data integrity and accountability, which are essential in regulated industries or environments that require audit trails.
+## เครือข่ายคอมพิวเตอร์คืออะไร? (What is a Computer Network?)
 
-## Why We Need Computer Networks
+เครือข่ายคอมพิวเตอร์ (Computer Network) คือ การรวมกันของอุปกรณ์หลายชนิดที่สามารถเชื่อมต่อถึงกันเพื่อแลกเปลี่ยนข้อมูลและแบ่งปันทรัพยากรได้ อุปกรณ์เหล่านี้ประกอบด้วย คอมพิวเตอร์ (Computers), เครื่องพิมพ์ (Printers), เซิร์ฟเวอร์ (Servers) และอุปกรณ์เครือข่าย (Networking Hardware) เช่น สวิตช์ (Switches) และเราเตอร์ (Routers) การมีเครือข่ายช่วยให้เกิดการสื่อสารและการทำงานร่วมกันในระยะไกล เพิ่มประสิทธิภาพและความคล่องตัวในการดำเนินงาน
 
-Computer networks support modern business operations, education, government, healthcare, and virtually all aspects of daily life. They enable:
+### หน้าที่สำคัญของเครือข่าย (Key Functions of Networks)
 
-* **Cost-efficient resource utilization:** Computer networks enable organizations to optimize their IT resources in several ways, leading to significant cost savings:
+* **การแบ่งปันทรัพยากร (Resource Sharing):**  
+  การแบ่งปันทรัพยากรเป็นหนึ่งในแรงจูงใจหลักของการพัฒนาเครือข่ายคอมพิวเตอร์ ทั้งในองค์กรและที่พักอาศัย เครือข่ายช่วยให้อุปกรณ์หลายเครื่องสามารถใช้งานเครื่องพิมพ์ร่วมกัน เข้าถึงโฟลเดอร์ที่แชร์ไว้ หรือเชื่อมต่ออินเทอร์เน็ตผ่านเกตเวย์ (Gateway) เดียว ข้อมูลจาก CompTIA Network+ ระบุว่าการใช้ทรัพยากรร่วมกันช่วยลดต้นทุนและเพิ่มประสิทธิภาพ เนื่องจากไม่จำเป็นต้องทำซ้ำฮาร์ดแวร์หรือข้อมูล ตัวอย่างเช่น เซิร์ฟเวอร์ไฟล์ (File Server) บนเครือข่ายท้องถิ่น (LAN: Local Area Network) ช่วยเก็บข้อมูลสำรองแบบรวมศูนย์และจัดการสิทธิ์การเข้าถึงอย่างมีระบบ สิ่งนี้ช่วยลดความซ้ำซ้อน ทำให้การบำรุงรักษาง่ายขึ้น และสร้างความสอดคล้องในการเข้าถึงสำหรับผู้ใช้จำนวนมาก
 
-  ![](figure/01/resource-sharing.png)
+* **การสื่อสาร (Communication):**  
+  เครือข่ายสมัยใหม่ช่วยให้เกิดการสื่อสารระหว่างบุคคลและระบบได้อย่างราบรื่น ผ่านอีเมล (Email), ข้อความโต้ตอบแบบทันที (Instant Messaging), VoIP (Voice over IP) และการประชุมทางวิดีโอ (Video Conferencing) มาตรฐาน CCNA เน้นความสำคัญของโปรโตคอล TCP/IP ที่ช่วยกำหนดรูปแบบการแลกเปลี่ยนข้อมูลระหว่างอุปกรณ์โดยไม่ขึ้นกับฮาร์ดแวร์ใด ๆ การสื่อสารบนเครือข่ายประกอบด้วยกระบวนการหลายขั้นตอน เช่น การเข้ารหัสข้อมูล การแบ่งข้อมูลเป็นแพ็กเก็ต (Packets) การกำหนดเส้นทาง (Routing) และการประกอบข้อมูลกลับ ณ ปลายทาง โปรโตคอลที่น่าเชื่อถือ เช่น TCP (Transmission Control Protocol) รับประกันว่าข้อความจะถูกส่งถึงอย่างสมบูรณ์และตามลำดับที่ถูกต้อง การสื่อสารที่มีโครงสร้างและเชื่อถือได้นี้จึงมีบทบาทสำคัญในภาคธุรกิจ การศึกษา การแพทย์ และการใช้งานส่วนบุคคล
 
-  <!-- \label{fig:wan} -->
+* **การเข้าถึงข้อมูลแบบรวมศูนย์ (Centralized Data Access):**  
+  เครือข่ายคอมพิวเตอร์สนับสนุนการจัดเก็บและเข้าถึงข้อมูลในลักษณะรวมศูนย์ โดยใช้เซิร์ฟเวอร์ไฟล์ (File Servers) หรือฐานข้อมูล (Databases) ที่ผู้ใช้ที่ได้รับอนุญาตสามารถเข้าถึงได้ การออกแบบเช่นนี้ช่วยสร้างความสม่ำเสมอของข้อมูล เพิ่มความปลอดภัย และสนับสนุนการสำรองข้อมูลอย่างมีประสิทธิภาพ ตามแนวคิดในตำรา *Networking All-in-One* โดย Doug Lowe การที่ผู้ใช้เข้าถึงข้อมูลเวอร์ชันเดียวกันจากเซิร์ฟเวอร์ช่วยลดข้อผิดพลาดและการซ้ำซ้อน นอกจากนี้ ระบบตรวจสอบสิทธิ์แบบรวมศูนย์ เช่น Active Directory ยังช่วยให้มั่นใจได้ว่าผู้ใช้ต้องผ่านการยืนยันตัวตนก่อนเข้าถึงข้อมูล ซึ่งเสริมสร้างความถูกต้อง (Data Integrity) และความน่าเชื่อถือ (Accountability) โดยเฉพาะในอุตสาหกรรมที่มีกฎเกณฑ์เข้มงวด
 
-  * **Resource Sharing:** Networks allow multiple users and devices to share expensive resources such as printers, scanners, and high-speed internet connections. This reduces the need for individual purchases for each user.
-  * **Centralized Management:** Networked systems often support centralized software management, updates, and security protocols. This reduces the administrative overhead and the need for individual maintenance on each machine.
-  * **Optimized Hardware Utilization:** Server virtualization and networked storage solutions allow organizations to consolidate their hardware, running multiple virtual servers on a single physical machine and efficiently utilizing storage capacity.
-  * **Reduced Communication Costs:** Network-based communication tools like email, instant messaging, and VoIP (Voice over IP) can significantly reduce traditional communication costs associated with phone calls, faxes, and postal services.
-  * **Scalability and Flexibility:** Networks allow organizations to scale their resources up or down as needed, adding or removing users and devices without significant infrastructure overhauls. Cloud services, in particular, offer pay-as-you-go models, ensuring you only pay for the resources you consume.
+## เหตุผลที่เราจำเป็นต้องมีเครือข่ายคอมพิวเตอร์ (Why We Need Computer Networks)
 
-* **Remote access and telecommuting:** Computer networks are the backbone of remote access and telecommuting, offering numerous benefits for both employees and organizations:
+เครือข่ายคอมพิวเตอร์ (Computer Networks) มีบทบาทสำคัญในการสนับสนุนการดำเนินงานในยุคปัจจุบัน ทั้งด้านธุรกิจ การศึกษา ภาครัฐ การสาธารณสุข และการใช้ชีวิตประจำวันในทุกมิติ โดยประโยชน์หลัก ได้แก่:
 
-  * **Increased Flexibility and Productivity:** Employees can access network resources and perform their work from anywhere with an internet connection, enhancing flexibility and potentially increasing productivity by eliminating commute times and allowing for work during peak personal productivity hours.
-  * **Wider Talent Pool:** Organizations can hire talent from a geographically diverse pool, no longer limited by the location of their physical offices.
-  * **Reduced Overhead Costs:** Telecommuting can lead to lower overhead costs for organizations, such as reduced office space, utilities, and other office-related expenses.
-  * **Improved Employee Morale and Retention:** Offering remote work options can improve employee satisfaction, work-life balance, and loyalty, leading to higher retention rates.
-  * **Business Continuity:** In emergencies or disruptions, remote access allows businesses to continue operations with minimal interruption.
-  * **Enhanced Collaboration:** Networked tools facilitate seamless communication and collaboration among remote teams through video conferencing, shared documents, and project management platforms.
 
-* **Distributed computing and cloud services:** Computer networks are essential for distributed computing and the delivery of cloud services, enabling powerful and scalable computing solutions:
+### 1. การใช้ทรัพยากรอย่างคุ้มค่า (Cost-efficient Resource Utilization)
 
-  * **Enhanced Processing Power:** Distributed computing involves dividing complex tasks across interconnected computers, allowing for parallel processing and significantly increased computational power for demanding applications like scientific simulations, data analysis, and AI/ML training.
-  * **Scalability and Elasticity:** Cloud services leverage vast networks of servers to offer highly scalable and elastic computing resources. Users can easily scale their computing power, storage, and other resources up or down based on their needs, paying only for what they use.
-  * **High Availability and Reliability:** Cloud infrastructure is typically designed with redundancy and fault tolerance, ensuring high availability and minimizing downtime for applications and services.
-  * **Accessibility and Convenience:** Cloud services provide on-demand access to a wide range of computing resources and applications over the internet, eliminating the need for organizations to invest in and manage their own extensive infrastructure. Examples include:
+เครือข่ายคอมพิวเตอร์ช่วยให้องค์กรสามารถเพิ่มประสิทธิภาพการใช้ทรัพยากรทางด้านเทคโนโลยีสารสนเทศ (IT Resources) และลดค่าใช้จ่ายโดยรวมได้หลายวิธี ดังนี้:  
 
-    * **Software as a Service (SaaS):** Applications accessed over the internet (e.g., Gmail, Salesforce, Dropbox).
-    * **Platform as a Service (PaaS):** Platforms for developing, running, and managing applications without managing the underlying infrastructure (e.g., AWS Elastic Beanstalk, Google App Engine).
-    * **Infrastructure as a Service (IaaS):** Access to fundamental computing resources like virtual machines, storage, and networks (e.g., AWS EC2, Azure Virtual Machines).
-  * **Innovation and Agility:** Cloud services provide access to cutting-edge technologies like AI, machine learning, and big data analytics, fostering innovation and allowing organizations to respond more to market changes.
+![Resource Sharing](figure/01/resource-sharing.png)  
+<!-- \label{fig:wan} -->
 
-That’s a great start to explaining the importance of computer networks! You’ve hit on some key advantages. To make it even more comprehensive, you might consider adding these points as well:
+* **การแบ่งปันทรัพยากร (Resource Sharing):**  
+  อุปกรณ์หลายเครื่องและผู้ใช้หลายคนสามารถใช้งานทรัพยากรราคาแพงร่วมกัน เช่น เครื่องพิมพ์ (Printers), เครื่องสแกน (Scanners) และการเชื่อมต่ออินเทอร์เน็ตความเร็วสูง (High-speed Internet) โดยไม่จำเป็นต้องจัดหาแยกให้แต่ละบุคคล  
 
-* **Communication and Collaboration:** Networks are fundamental for instant communication through email, messaging apps, video conferencing, and collaborative platforms, breaking geographical barriers.
-* **Information Sharing:** They allow for easy and efficient sharing of files, data, and knowledge across different devices and locations.
-* **Centralized Management and Security:** Networks often enable centralized administration of resources, security protocols, and software updates, improving efficiency and control.
-* **Entertainment and Information Access:** From streaming services and online gaming to accessing a wealth of information on the internet, networks are central to our leisure and learning.
-* **Automation and Control:** In various industries, networks facilitate automation of processes, remote monitoring, and control of machinery and systems.
+* **การจัดการแบบรวมศูนย์ (Centralized Management):**  
+  ระบบเครือข่ายช่วยให้องค์กรสามารถบริหารจัดการซอฟต์แวร์ (Software Management), การอัปเดต (Updates) และมาตรการความปลอดภัย (Security Protocols) ได้จากส่วนกลาง ซึ่งช่วยลดภาระงานในการดูแลแต่ละเครื่อง  
 
-## Types of Computer Networks
+* **การใช้ฮาร์ดแวร์อย่างมีประสิทธิภาพ (Optimized Hardware Utilization):**  
+  เทคโนโลยีเสมือนจริง (Virtualization) และระบบจัดเก็บข้อมูลบนเครือข่าย (Networked Storage) ช่วยให้องค์กรสามารถรวมเซิร์ฟเวอร์หลายเครื่องเข้ากับเครื่องจริงเพียงเครื่องเดียว หรือใช้พื้นที่จัดเก็บข้อมูลอย่างคุ้มค่า  
 
-Computer networks are categorized based on their geographical span, purpose, and scale. Here’s a breakdown of the differences between Local Area Network (LAN), Wide Area Network (WAN), Metropolitan Area Network (MAN), Storage Area Network (SAN), and Personal Area Network (PAN):
+* **ลดค่าใช้จ่ายด้านการสื่อสาร (Reduced Communication Costs):**  
+  เครื่องมือสื่อสารผ่านเครือข่าย เช่น อีเมล (Email), ข้อความโต้ตอบแบบทันที (Instant Messaging) และ VoIP (Voice over IP) ช่วยลดค่าใช้จ่ายในการสื่อสารแบบดั้งเดิม เช่น โทรศัพท์ โทรสาร และไปรษณีย์  
 
-* **Personal Area Network (PAN)**
-  A Personal Area Network (PAN) is a small-scale network organized around a person, typically within a range of a few meters. PANs are designed to connect personal devices such as smartphones, laptops, tablets, printers, headsets, and wearable electronics, enabling them to communicate directly without requiring larger network infrastructure. These networks are typically established using short-range wireless technologies such as Bluetooth, infrared (IR), or Wi-Fi Direct. Due to their limited scope and simplicity, PANs are generally easy to set up, inexpensive, and highly portable.
+* **การปรับขยายและความยืดหยุ่น (Scalability and Flexibility):**  
+  เครือข่ายช่วยให้องค์กรเพิ่มหรือลดจำนวนผู้ใช้และอุปกรณ์ได้อย่างยืดหยุ่น โดยไม่ต้องเปลี่ยนโครงสร้างพื้นฐานขนาดใหญ่ โดยเฉพาะบริการคลาวด์ (Cloud Services) ที่มีโมเดลการคิดค่าบริการแบบ “จ่ายตามการใช้งาน” (Pay-as-you-go)  
 
-  Unlike LANs, which serve multiple users and devices in a shared space, PANs are focused on an individual’s devices, often forming spontaneously or ad hoc. Data transfer rates vary depending on the protocol used, with Bluetooth offering moderate speeds that are suitable for audio and peripheral devices. In contrast, Wi-Fi Direct may provide higher bandwidth for file sharing or screen casting.
 
-  ![Example of a Personal Area Network (PAN): Interconnection of personal devices such as phones, headsets, printers, and laptops using wireless technologies.](figure/01/pan-network.png)
+### 2. การเข้าถึงระยะไกลและการทำงานจากที่บ้าน (Remote Access and Telecommuting)
 
-  <!-- \label{fig:pan-example} -->
+เครือข่ายคอมพิวเตอร์เป็นรากฐานสำคัญของการทำงานจากระยะไกล (Remote Work) และการทำงานจากที่บ้าน (Telecommuting) โดยมีข้อดี ดังนี้:  
 
-  Figure\~\ref{fig\:pan-example} illustrates a typical PAN setup in which a laptop serves as the central node, wirelessly connected to a range of personal devices including a smartphone, headset, printer, wireless mouse, and another computer. Such configurations are standard in home offices, mobile working environments, and IoT ecosystems where immediate device-to-device interaction is needed.
+* **เพิ่มความยืดหยุ่นและประสิทธิภาพ (Flexibility and Productivity):**  
+  พนักงานสามารถเข้าถึงทรัพยากรเครือข่ายและทำงานได้จากทุกที่ที่มีการเชื่อมต่ออินเทอร์เน็ต ลดเวลาเดินทางและเพิ่มช่วงเวลาที่สามารถทำงานได้อย่างมีประสิทธิภาพ  
 
-* **Local Area Network (LAN)**
-  A Local Area Network (LAN) is a type of computer network that connects devices within a limited geographical area such as a home, office, or university building. LANs are typically owned and managed by a single organization or individual and are designed to support high data transfer rates over short distances. Standard technologies used in LANs include Ethernet (wired) and Wi-Fi (wireless). Due to their limited scope, LANs are cost-effective to install and maintain compared to wide-area networks (WANs).
+* **ขยายแหล่งบุคลากร (Wider Talent Pool):**  
+  องค์กรสามารถสรรหาบุคลากรจากทั่วโลกโดยไม่ถูกจำกัดด้วยที่ตั้งของสำนักงาน  
 
-  ![](figure/01/lan-network.png)
+* **ลดค่าใช้จ่ายขององค์กร (Reduced Overhead Costs):**  
+  ช่วยลดค่าใช้จ่าย เช่น พื้นที่สำนักงาน ค่าสาธารณูปโภค และค่าใช้จ่ายที่เกี่ยวข้องกับออฟฟิศ  
 
-  <!-- \label{fig:lan-example} -->
+* **เพิ่มความพึงพอใจและการรักษาพนักงาน (Employee Morale and Retention):**  
+  การมีทางเลือกทำงานจากที่บ้านช่วยเพิ่มความสมดุลระหว่างชีวิตและการทำงาน ซึ่งส่งผลดีต่อความพึงพอใจและการอยู่กับองค์กรในระยะยาว  
 
-  Figure\~\ref{fig\:lan-example} illustrates two types of LAN configurations. On the left is a modern home LAN where devices such as smartphones, tablets, laptops, and smart TVs are connected via a wireless router. On the right is a traditional wired LAN topology, where desktop computers are assigned private IP addresses (e.g., 192.168.0.x) and interconnected through a router or switch, which in turn connects to a cable modem for Internet access. The router performs local traffic routing and Network Address Translation (NAT) to interface with external networks. These LANs serve as the foundation for communication, file sharing, and resource access within localized environments.
+* **ความต่อเนื่องของธุรกิจ (Business Continuity):**  
+  ในกรณีฉุกเฉิน เช่น ภัยธรรมชาติ หรือโรคระบาด การทำงานจากระยะไกลช่วยให้องค์กรยังคงดำเนินการได้โดยไม่สะดุด  
 
-* **Storage Area Network (SAN)**
-  A Storage Area Network (SAN) is a specialized, high-speed network that connects multiple servers to centralized storage devices, such as disk arrays or tape libraries. Unlike traditional network storage solutions that operate at the file level (e.g., NAS), a SAN provides block-level access, allowing servers to interact with storage devices as if they were locally attached drives. SANs are typically deployed in data centers where performance, scalability, and reliability are critical requirements.
+* **การทำงานร่วมกันที่มีประสิทธิภาพ (Enhanced Collaboration):**  
+  เครื่องมือเครือข่าย เช่น วิดีโอคอนเฟอเรนซ์ (Video Conferencing), เอกสารออนไลน์ (Shared Documents) และแพลตฟอร์มการจัดการโครงการ (Project Management Platforms) ทำให้ทีมที่อยู่ต่างสถานที่สามารถทำงานร่วมกันได้อย่างราบรื่น  
 
-  The architecture of a SAN is distinct in that it isolates storage traffic from general-purpose user networks, thereby reducing congestion and improving throughput. SAN technologies include Fibre Channel, iSCSI (Internet Small Computer System Interface), and emerging standards such as NVMe over Fabrics. SANs are commonly used in environments requiring fast data retrieval and transaction processing, such as enterprise databases, virtualization platforms, and high-performance computing (HPC) clusters.
 
-  ![Comparison of DAS, NAS, and SAN architectures. SAN provides block-level storage access to multiple servers over a dedicated high-speed network.](figure/01/san-network.png)
+### 3. การประมวลผลแบบกระจายและบริการคลาวด์ (Distributed Computing and Cloud Services)
 
-  <!-- \label{fig:san-compare} -->
+เครือข่ายคอมพิวเตอร์ยังเป็นรากฐานของการประมวลผลแบบกระจาย (Distributed Computing) และการให้บริการคลาวด์ (Cloud Services) ซึ่งช่วยเพิ่มขีดความสามารถในการคำนวณและความยืดหยุ่นสูง:  
 
-  Figure\~\ref{fig\:san-compare} illustrates a comparative view of Direct Attached Storage (DAS), Network Attached Storage (NAS), and SAN. In DAS, storage is directly connected to a single server. NAS introduces a shared file system accessible over a standard Ethernet network. SAN, on the other hand, bypasses the file system at the storage device and enables direct block-level communication between the storage and multiple servers through a dedicated switching fabric. This model provides enhanced scalability, redundancy, and performance to meet the demanding requirements of enterprise storage.
+* **พลังการประมวลผลที่เพิ่มขึ้น (Enhanced Processing Power):**  
+  การแบ่งงานที่ซับซ้อนให้กับคอมพิวเตอร์หลายเครื่องเพื่อประมวลผลแบบขนาน (Parallel Processing) เหมาะสำหรับการจำลองเชิงวิทยาศาสตร์ (Scientific Simulations), การวิเคราะห์ข้อมูล (Data Analysis) และการฝึกโมเดล AI/ML  
 
-* **Metropolitan Area Network (MAN)**
-  A Metropolitan Area Network (MAN) is a type of network designed to connect users and resources across a metropolitan area, such as a city or a large urban zone. It operates at a scale larger than a Local Area Network (LAN) but smaller than a Wide Area Network (WAN). MANs typically link multiple LANs through high-speed backbone infrastructure, often leveraging technologies such as fiber optics or high-bandwidth microwave links. The network may be owned and maintained by a single organization, such as a municipal authority or a university system, or it may be delivered as a service by one or more telecommunications providers.
+* **ความสามารถในการปรับขยาย (Scalability and Elasticity):**  
+  บริการคลาวด์ (Cloud Services) ใช้เซิร์ฟเวอร์ขนาดใหญ่ที่เชื่อมโยงกัน ทำให้สามารถเพิ่มหรือลดทรัพยากรได้ง่าย โดยคิดค่าบริการตามการใช้งานจริง  
 
-  In terms of performance, MANs generally provide high data transfer rates, making them suitable for real-time services such as video conferencing, large data transfers, and public wireless Internet access. The cost of establishing and maintaining a MAN is higher than that of a LAN due to its broader coverage and more complex equipment. Still, it remains significantly more affordable than deploying and managing a full-scale wide-area network (WAN).
+* **ความพร้อมใช้งานสูงและความน่าเชื่อถือ (High Availability and Reliability):**  
+  โครงสร้างพื้นฐานคลาวด์ออกแบบให้มีระบบสำรองและการป้องกันความผิดพลาด (Fault Tolerance) เพื่อลดการหยุดชะงักของบริการ  
 
-  Common examples of MANs include university campus networks that span multiple buildings within a city, city-wide broadband initiatives, and cable television infrastructure. These networks are essential for connecting public institutions, corporate branches, or service nodes efficiently across urban areas.
+* **การเข้าถึงและความสะดวก (Accessibility and Convenience):**  
+  ผู้ใช้สามารถเข้าถึงทรัพยากรและแอปพลิเคชันต่าง ๆ ผ่านอินเทอร์เน็ตได้ทันที โดยไม่จำเป็นต้องลงทุนโครงสร้างพื้นฐานเอง  
+  ตัวอย่างบริการ ได้แก่:  
+  - **ซอฟต์แวร์เป็นบริการ (SaaS: Software as a Service):** เช่น Gmail, Salesforce, Dropbox  
+  - **แพลตฟอร์มเป็นบริการ (PaaS: Platform as a Service):** เช่น AWS Elastic Beanstalk, Google App Engine  
+  - **โครงสร้างพื้นฐานเป็นบริการ (IaaS: Infrastructure as a Service):** เช่น AWS EC2, Azure Virtual Machines  
 
-* **Wide Area Network (WAN)**
-  A Wide Area Network (WAN) is a type of network that spans a large geographical area, ranging from cities and regions to countries and continents. Unlike LANs, which are typically owned and maintained by a single organization, WANs often rely on infrastructure provided by multiple external service providers such as ISPs and telecommunications companies. Data transfer speeds across WANs may be lower than those in LANs due to the long distances, shared infrastructure, and potential congestion. However, technologies like fiber optics, MPLS, and high-bandwidth satellite links are steadily improving performance. WANs are more expensive to establish and operate compared to LANs because they require leased lines, complex routing equipment, and redundancy for reliability.
+* **นวัตกรรมและความคล่องตัว (Innovation and Agility):**  
+  บริการคลาวด์เปิดโอกาสให้เข้าถึงเทคโนโลยีใหม่ ๆ เช่น ปัญญาประดิษฐ์ (AI), การเรียนรู้ของเครื่อง (Machine Learning), และการวิเคราะห์ข้อมูลขนาดใหญ่ (Big Data Analytics)  
 
-  ![Illustration of a Wide Area Network (WAN): Intercontinental interconnection of nodes across a global map.](figure/01/wan-network.png)
 
-  <!-- \label{fig:wan-diagram} -->
+### ประเด็นเพิ่มเติมที่ควรพิจารณา (Additional Considerations)
 
-  The most pervasive example of a WAN is the Internet, which connects millions of individual networks worldwide. Other examples include corporate WANs that link branch offices located in various countries. Figure\~\ref{fig\:wan-diagram} depicts a conceptual view of a WAN topology, where multiple nodes (e.g., routers or data centers) across different continents are interconnected. This global structure facilitates long-distance communication, data exchange, and access to remote services and cloud infrastructure.
+* **การสื่อสารและการทำงานร่วมกัน (Communication and Collaboration):** การสื่อสารแบบเรียลไทม์ผ่านอีเมล ข้อความทันที วิดีโอคอนเฟอเรนซ์ และแพลตฟอร์มทำงานร่วมกัน เป็นหัวใจสำคัญของโลกยุคดิจิทัล  
+* **การแบ่งปันข้อมูล (Information Sharing):** การแลกเปลี่ยนไฟล์และความรู้ระหว่างอุปกรณ์และสถานที่ต่าง ๆ ทำได้สะดวกและรวดเร็ว  
+* **การจัดการและความปลอดภัยแบบรวมศูนย์ (Centralized Management and Security):** การอัปเดตซอฟต์แวร์และนโยบายด้านความปลอดภัยจากศูนย์กลางช่วยเพิ่มความปลอดภัยและประสิทธิภาพ  
+* **ความบันเทิงและการเข้าถึงข้อมูล (Entertainment and Information Access):** เครือข่ายทำให้ผู้ใช้เข้าถึงการสตรีม (Streaming), เกมออนไลน์ (Online Gaming) และแหล่งข้อมูลขนาดใหญ่บนอินเทอร์เน็ต  
+* **ระบบอัตโนมัติและการควบคุม (Automation and Control):** เครือข่ายช่วยสนับสนุนการควบคุมระยะไกล (Remote Control) และระบบอัตโนมัติ (Automation) ในภาคอุตสาหกรรมและโครงสร้างพื้นฐาน  
 
-* **Virtual Private Network (VPN)**
-  A Virtual Private Network (VPN) is a secure communication method that allows users or organizations to establish private, encrypted connections across public networks such as the Internet. VPNs are widely used to ensure confidentiality, data integrity, and authentication in remote access scenarios or to connect geographically separated office networks securely.
+## ประเภทของเครือข่ายคอมพิวเตอร์ (Types of Computer Networks)
 
-  VPNs operate by creating a secure “tunnel” between two endpoints, encrypting the data that traverses through this tunnel to protect it from eavesdropping and tampering. This allows for secure data transmission even over untrusted networks. VPNs can be implemented using various protocols, including PPTP, L2TP, IPSec, and OpenVPN, each offering different levels of security and performance.
+เครือข่ายคอมพิวเตอร์สามารถจำแนกตามขอบเขตทางภูมิศาสตร์ วัตถุประสงค์ และขนาดได้ ดังนี้:  
 
-  ![Site-to-site Virtual Private Network (VPN) using VPN routers and encrypted tunnels across the Internet.](figure/01/vpn-network.png)
 
-  <!-- \label{fig:vpn-diagram} -->
+### เครือข่ายพื้นที่บุคคล (Personal Area Network: PAN)
 
-  Figure\~\ref{fig\:vpn-diagram} illustrates a typical site-to-site VPN configuration. Two office networks, each connected to a Netgear VPN router, communicate securely over the Internet through an encrypted VPN tunnel. Devices within each network (such as PCs, servers, and printers) operate as if they are on the same local network, despite being in physically distant locations. This architecture is commonly used in enterprises to connect branch offices to central data centers without the need for dedicated leased lines.
+เครือข่ายพื้นที่บุคคล (PAN) คือเครือข่ายขนาดเล็กที่ออกแบบมาเพื่อเชื่อมต่ออุปกรณ์ส่วนบุคคลในระยะไม่กี่เมตร อุปกรณ์ที่เชื่อมต่อใน PAN ได้แก่ สมาร์ตโฟน (Smartphones), แล็ปท็อป (Laptops), แท็บเล็ต (Tablets), เครื่องพิมพ์ (Printers), ชุดหูฟัง (Headsets) และอุปกรณ์สวมใส่อิเล็กทรอนิกส์ (Wearable Electronics)  
 
-* **Campus Area Network (CAN)**
-  A Campus Area Network (CAN) is a network infrastructure that connects multiple Local Area Networks (LANs) within a limited geographic area, such as a university campus, corporate office park, or military base. It is larger than a Local Area Network (LAN) but smaller than a Metropolitan Area Network (MAN), offering localized high-speed connectivity between buildings, departments, or clusters of LANs within a single administrative domain.
+PAN มักใช้เทคโนโลยีไร้สายระยะสั้น เช่น บลูทูธ (Bluetooth), อินฟราเรด (Infrared: IR) หรือ Wi-Fi Direct จุดเด่นคือ ติดตั้งง่าย ต้นทุนต่ำ และพกพาสะดวก  
 
-  A CAN typically relies on high-bandwidth backbone technologies such as fiber optics to link academic buildings, dormitories, libraries, and administrative offices. It provides centralized network services, including authentication, file sharing, and Internet access, while maintaining cost-effectiveness through unified management and shared infrastructure.
+แตกต่างจาก LAN ที่ออกแบบมาเพื่อผู้ใช้หลายคน PAN มุ่งเน้นไปที่อุปกรณ์ของบุคคลใดบุคคลหนึ่ง และมักเกิดขึ้นชั่วคราวแบบอะดฮอก (Ad Hoc)  
 
-  ![Illustration of a Campus Area Network (CAN): A centralized network connecting multiple LANs within an academic or organizational campus.](figure/01/can-network.png)
+![ตัวอย่างเครือข่าย PAN](figure/01/pan-network.png)  
+<!-- \label{fig:pan-example} -->
 
-  <!-- \label{fig:can-diagram} -->
+*ภาพที่ \~\ref{fig:pan-example}* แสดงการเชื่อมต่อแบบ PAN ที่แล็ปท็อปทำหน้าที่เป็นศูนย์กลางเชื่อมต่อไร้สายกับอุปกรณ์ส่วนบุคคล เช่น สมาร์ตโฟน หูฟัง เครื่องพิมพ์ เมาส์ไร้สาย และคอมพิวเตอร์อีกเครื่องหนึ่ง  
 
-  Figure\~\ref{fig\:can-diagram} illustrates a CAN topology in which multiple LANs (e.g., faculty labs, departmental offices) are interconnected to form a cohesive campus-wide network. Each LAN serves a localized group of users and devices, and the CAN aggregates them into a unified system that supports intra-campus communication and resource sharing.
 
-These network types differ primarily in their geographical coverage, purpose, ownership, data transfer rates, and cost. Understanding these distinctions is crucial for designing and managing adequate network infrastructures.
+### เครือข่ายท้องถิ่น (Local Area Network: LAN)
 
-## Internet
+เครือข่ายท้องถิ่น (LAN) ใช้เชื่อมต่ออุปกรณ์ภายในพื้นที่จำกัด เช่น บ้าน สำนักงาน หรืออาคารมหาวิทยาลัย LAN มักบริหารจัดการโดยองค์กรหรือบุคคลเดียว และรองรับอัตราการรับส่งข้อมูลสูงในระยะสั้น เทคโนโลยีที่ใช้กันมากได้แก่ อีเธอร์เน็ต (Ethernet – แบบใช้สาย) และไวไฟ (Wi-Fi – แบบไร้สาย)  
 
-### History
+LAN มีต้นทุนต่ำเมื่อเทียบกับ WAN และเป็นพื้นฐานสำคัญของการสื่อสาร การแบ่งปันไฟล์ และการเข้าถึงทรัพยากรร่วมกัน  
 
-The Internet, as we know it today, originated from a research project funded by the United States Department of Defense, known as ARPANET (Advanced Research Projects Agency Network). Initiated in the late 1960s, ARPANET was the first operational packet-switching network, serving as a pioneering platform for internetworking that allowed multiple independent networks to communicate over a shared infrastructure.
+![LAN](figure/01/lan-network.png)  
+<!-- \label{fig:lan-example} -->
 
-ARPANET was developed to enhance communication between research institutions and universities by linking their mainframe computers. The first four connected nodes in 1969 were the University of California, Los Angeles (UCLA); Stanford Research Institute (SRI); the University of California, Santa Barbara (UCSB); and the University of Utah. These institutions were connected through Interface Message Processors (IMPs), the precursors to modern-day routers. Communication relied on packet-switching principles, which broke down messages into smaller units (packets) for efficient delivery over shared lines.
+*ภาพที่ \~\ref{fig:lan-example}* แสดงการใช้งาน LAN สองรูปแบบ ได้แก่ (ซ้าย) LAN ภายในบ้านที่เชื่อมต่อสมาร์ตโฟน แท็บเล็ต แล็ปท็อป และสมาร์ตทีวี ผ่านเราเตอร์ไร้สาย (Wireless Router) และ (ขวา) LAN แบบใช้สาย ที่คอมพิวเตอร์ตั้งโต๊ะเชื่อมต่อผ่านเราเตอร์หรือสวิตช์ และเชื่อมต่อกับโมเด็มเพื่อออกสู่อินเทอร์เน็ต  
 
-![The original ARPANET (1969): The first successful packet-switched network and precursor to the Internet.](figure/01/first-internet.png)
 
+### เครือข่ายพื้นที่จัดเก็บข้อมูล (Storage Area Network: SAN)
+
+เครือข่ายพื้นที่จัดเก็บข้อมูล (SAN) เป็นเครือข่ายความเร็วสูงที่เชื่อมต่อเซิร์ฟเวอร์หลายเครื่องกับอุปกรณ์จัดเก็บข้อมูลแบบรวมศูนย์ เช่น ดิสก์อาเรย์ (Disk Arrays) หรือเทปไลบรารี (Tape Libraries) โดย SAN ทำงานในระดับบล็อก (Block-level Access) แตกต่างจาก NAS ที่ทำงานในระดับไฟล์  
+
+SAN เหมาะกับศูนย์ข้อมูล (Data Centers) ที่ต้องการประสิทธิภาพ ความเสถียร และความสามารถในการขยายสูง โดยใช้เทคโนโลยี เช่น Fibre Channel, iSCSI และ NVMe over Fabrics  
+
+![SAN vs DAS vs NAS](figure/01/san-network.png)  
+<!-- \label{fig:san-compare} -->
+
+*ภาพที่ \~\ref{fig:san-compare}* แสดงการเปรียบเทียบ DAS, NAS และ SAN โดยที่ SAN ช่วยให้หลายเซิร์ฟเวอร์สามารถเข้าถึงอุปกรณ์จัดเก็บข้อมูลได้โดยตรงผ่านโครงสร้างเครือข่ายเฉพาะ  
+
+
+### เครือข่ายพื้นที่มหานคร (Metropolitan Area Network: MAN)
+
+เครือข่ายพื้นที่มหานคร (MAN) ใช้เชื่อมต่อผู้ใช้และทรัพยากรภายในพื้นที่ขนาดเมืองหรือเขตเมืองขนาดใหญ่ ครอบคลุมพื้นที่กว้างกว่า LAN แต่เล็กกว่า WAN มักใช้โครงข่ายใยแก้วนำแสง (Fiber Optics) หรือคลื่นไมโครเวฟความเร็วสูง (High-bandwidth Microwave Links)  
+
+MAN มักถูกใช้งานในระบบเครือข่ายของมหาวิทยาลัย หรือโครงการอินเทอร์เน็ตสาธารณะระดับเมือง  
+
+
+### เครือข่ายพื้นที่กว้าง (Wide Area Network: WAN)
+
+เครือข่ายพื้นที่กว้าง (WAN) ครอบคลุมพื้นที่กว้างขวาง ตั้งแต่หลายเมืองไปจนถึงหลายทวีป WAN มักต้องพึ่งพาโครงสร้างพื้นฐานของผู้ให้บริการเครือข่าย (Telecommunication Providers) และมีต้นทุนสูงกว่า LAN  
+
+ตัวอย่างที่แพร่หลายที่สุดของ WAN คืออินเทอร์เน็ต (Internet)  
+
+![WAN](figure/01/wan-network.png)  
+<!-- \label{fig:wan-diagram} -->
+
+*ภาพที่ \~\ref{fig:wan-diagram}* แสดงโครงสร้าง WAN แบบสากล โดยมีโหนด (Nodes) หลายแห่ง เช่น เราเตอร์หรือศูนย์ข้อมูล ที่เชื่อมต่อกันข้ามทวีป  
+
+
+### เครือข่ายเสมือนส่วนบุคคล (Virtual Private Network: VPN)
+
+เครือข่ายเสมือนส่วนบุคคล (VPN) คือ วิธีการเชื่อมต่อที่ปลอดภัยผ่านเครือข่ายสาธารณะ เช่น อินเทอร์เน็ต โดยใช้การเข้ารหัส (Encryption) และการสร้างอุโมงค์ (Tunneling) เพื่อปกป้องข้อมูล  
+
+VPN มักถูกใช้งานทั้งในลักษณะการเข้าถึงจากระยะไกล (Remote Access) และการเชื่อมต่อระหว่างสาขา (Site-to-Site)  
+
+![VPN](figure/01/vpn-network.png)  
+<!-- \label{fig:vpn-diagram} -->
+
+*ภาพที่ \~\ref{fig:vpn-diagram}* แสดงการเชื่อมต่อ VPN แบบ Site-to-Site ที่สำนักงานสองแห่งเชื่อมต่อกันผ่านอุโมงค์ที่เข้ารหัสข้อมูล  
+
+
+### เครือข่ายพื้นที่มหาวิทยาลัย (Campus Area Network: CAN)
+
+เครือข่ายพื้นที่มหาวิทยาลัย (CAN) คือ เครือข่ายที่เชื่อมโยง LAN หลายเครือข่ายภายในพื้นที่จำกัด เช่น มหาวิทยาลัย (University Campus), สวนอุตสาหกรรม (Office Park) หรือฐานทัพ (Military Base)  
+
+CAN มักใช้ใยแก้วนำแสง (Fiber Optics) เป็นโครงข่ายหลัก (Backbone) เพื่อเชื่อมต่ออาคารต่าง ๆ ภายในพื้นที่เดียวกัน  
+
+![CAN](figure/01/can-network.png)  
+<!-- \label{fig:can-diagram} -->
+
+*ภาพที่ \~\ref{fig:can-diagram}* แสดง CAN ที่เชื่อมต่อ LAN หลายเครือข่าย เช่น ห้องปฏิบัติการ (Labs), สำนักงาน (Offices) และอาคารเรียน ให้กลายเป็นระบบเครือข่ายแบบรวมศูนย์ภายในพื้นที่เดียวกัน  
+
+
+### สรุป
+
+ประเภทของเครือข่ายคอมพิวเตอร์แตกต่างกันตามขอบเขตทางภูมิศาสตร์ วัตถุประสงค์ ความเป็นเจ้าของ อัตราการรับส่งข้อมูล และต้นทุน การทำความเข้าใจความแตกต่างเหล่านี้มีความสำคัญต่อการออกแบบและบริหารจัดการโครงสร้างพื้นฐานเครือข่ายที่มีประสิทธิภาพ
+
+
+## อินเทอร์เน็ต (Internet)
+
+### ประวัติ (History)
+
+อินเทอร์เน็ต (Internet) ที่เราใช้งานในปัจจุบันมีต้นกำเนิดจากโครงการวิจัยของกระทรวงกลาโหมสหรัฐอเมริกา (U.S. Department of Defense) ที่ชื่อว่า ARPANET (Advanced Research Projects Agency Network) ในช่วงปลายทศวรรษ 1960 ซึ่งถือเป็นเครือข่ายแบบ *Packet-Switching* เชิงปฏิบัติการแรกของโลก  
+
+ARPANET ถูกพัฒนาขึ้นเพื่ออำนวยความสะดวกในการสื่อสารระหว่างสถาบันการวิจัยและมหาวิทยาลัย โดยการเชื่อมโยงคอมพิวเตอร์เมนเฟรม (Mainframe Computers) เข้าด้วยกัน โหนดแรกทั้งสี่ในปี 1969 ได้แก่:  
+- มหาวิทยาลัยแคลิฟอร์เนีย ลอสแองเจลิส (UCLA)  
+- สถาบันวิจัยสแตนฟอร์ด (SRI)  
+- มหาวิทยาลัยแคลิฟอร์เนีย ซานตาบาร์บารา (UCSB)  
+- มหาวิทยาลัยยูทาห์ (University of Utah)  
+
+การสื่อสารใน ARPANET อาศัยอุปกรณ์ที่เรียกว่า *Interface Message Processors (IMPs)* ซึ่งเป็นบรรพบุรุษของเราเตอร์ (Routers) สมัยใหม่  
+
+![เครือข่าย ARPANET ดั้งเดิม (1969)](figure/01/first-internet.png)  
 <!-- \label{fig:internet-history} -->
 
-Figure\~\ref{fig\:internet-history} shows the original ARPANET topology, demonstrating how early host computers, such as the IBM 360/75 and DEC PDP-10, were connected via IMPs. This simple but revolutionary design laid the foundation for the development of TCP/IP protocols in the 1970s and the eventual emergence of the global Internet in the 1980s and 1990s.
+*ภาพที่ \~\ref{fig:internet-history}* แสดงโครงสร้าง ARPANET ดั้งเดิม โดยคอมพิวเตอร์หลัก เช่น IBM 360/75 และ DEC PDP-10 เชื่อมต่อผ่าน IMPs การออกแบบเชิงนวัตกรรมนี้ได้วางรากฐานสำหรับการพัฒนาโปรโตคอล TCP/IP ในทศวรรษ 1970 และการเกิดขึ้นของอินเทอร์เน็ตในยุค 1980–1990  
 
-Today, the Internet connects billions of devices, enabling real-time communication, information sharing, and digital innovation on a global scale. Its architecture continues to evolve with advancements in IP addressing (e.g., IPv6), high-speed fiber optics, cloud computing, and edge networking.
+### เหตุการณ์สำคัญของอินเทอร์เน็ต (Milestones of Internet)
 
-### Milestone of Internet
+อินเทอร์เน็ตเป็นระบบเครือข่ายสากลที่เกิดขึ้นจากนวัตกรรมหลายทศวรรษ ทั้งด้านการสื่อสารข้อมูล (Data Communication), โปรโตคอลเครือข่าย (Networking Protocols) และโครงสร้างพื้นฐานการประมวลผล (Computing Infrastructure)  
 
-The Internet is a vast, global system of interconnected networks that emerged from decades of innovation in data communication, networking protocols, and computing infrastructure. Its origins trace back to the ARPANET project in 1969, funded by the U.S. Department of Defense, which was the first operational packet-switched network.
+**เหตุการณ์สำคัญ (Notable Events):**  
 
-The development of the Transmission Control Protocol (TCP) in the early 1970s (with its first paper published in 1974) enabled reliable end-to-end communication between computers, laying the groundwork for the modern Internet. Over the subsequent decades, milestones such as the launch of commercial Internet service providers, the release of the World Wide Web (WWW) in 1991, and the introduction of broadband, wireless local area networks (LANs), and mobile Internet access radically expanded Internet usage.
+* **1969:** ส่งข้อมูลครั้งแรกผ่านเครือข่าย Packet-Switched (ARPANET)  
+* **1974:** เผยแพร่ข้อกำหนดของ TCP (Transmission Control Protocol) ซึ่งเป็นพื้นฐานของชุดโปรโตคอลอินเทอร์เน็ต  
+* **1990:** ผู้ให้บริการอินเทอร์เน็ตเชิงพาณิชย์รายแรกเปิดตัว (Commercial ISP)  
+* **1991:** การเปิดตัวเวิลด์ไวด์เว็บ (World Wide Web: WWW)  
+* **1995:** โทรศัพท์อินเทอร์เน็ต (VoIP) เริ่มใช้งานเชิงพาณิชย์  
+* **1999:** บริการอินเทอร์เน็ตบนมือถือ (Mobile Internet Services) เริ่มปรากฏ  
+* **2001:** เครือข่าย 3G เปิดใช้งาน สนับสนุนการรับส่งข้อมูลความเร็วสูงบนมือถือ  
+* **2005:** สมาร์ตโฟนเครื่องแรกที่รองรับ Wi-Fi เปิดตัว  
 
-Figure\~\ref{fig\:internet-timeline} summarizes key milestones in the evolution of the Internet from its early development through the rise of wireless and mobile technologies.
-
-![Timeline of major milestones in Internet and network history, from ARPANET to mobile Wi-Fi.](figure/01/milestone-internet.png)
-
+![เส้นเวลาเหตุการณ์สำคัญของอินเทอร์เน็ต](figure/01/milestone-internet.png)  
 <!-- \label{fig:internet-timeline} -->
 
-**Notable events include:**
+*ภาพที่ \~\ref{fig:internet-timeline}* สรุปเหตุการณ์สำคัญในการพัฒนาอินเทอร์เน็ต ตั้งแต่ ARPANET จนถึงการเกิดขึ้นของ Wi-Fi และ Mobile Internet  
 
-* **1969:** First data transmitted via packet-switched network (ARPANET).
-* **1974:** TCP specification published, foundational to Internet protocol suite.
-* **1990:** First commercial dial-up Internet provider launched.
-* **1991:** The World Wide Web (WWW) was released to the public.
-* **1995:** First Internet-based phone (VoIP); commercial use begins expanding.
-* **1999:** First mobile Internet services appear.
-* **2001:** 3G networks begin, supporting high-speed mobile data.
-* **2005:** First mobile phone with built-in Wi-Fi capability released.
+### อินเทอร์เน็ตในประเทศไทย (Internet in Thailand)
 
-These developments collectively enabled the transition from research-only academic networks to a public infrastructure that supports education, commerce, communication, and innovation at a global scale.
+ประวัติของอินเทอร์เน็ตในประเทศไทยเริ่มตั้งแต่ช่วงปลายทศวรรษ 1980 โดยสถาบันการศึกษาไทยเริ่มเชื่อมต่อกับเครือข่ายระหว่างประเทศเพื่อการวิจัย  
 
-### Internet in Thailand
+**วันที่ 2 มิถุนายน 1988** มีการส่งอีเมลจากมหาวิทยาลัยสงขลานครินทร์ (Prince of Songkla University: PSU) วิทยาเขตหาดใหญ่ ไปยังต่างประเทศสำเร็จ ถือเป็นการสื่อสารผ่านอินเทอร์เน็ตครั้งแรกของประเทศไทย  
 
-The history of the Internet in Thailand dates back to the late 1980s, when Thai institutions began connecting to international networks for academic collaboration. The first successful Internet-based communication in Thailand occurred on **2 June 1988**, when an email was transmitted from Prince of Songkla University (PSU), Hat Yai campus, to an international destination. This marked the beginning of Thailand’s integration into the global Internet community.
-
-Figure\~\ref{fig\:th-email} shows a copy of the first recorded email sent from Thailand, originating from the address `kre@sritrang.psu.th`. The message, although simple, symbolized a profound shift in academic communication and laid the groundwork for the country’s Internet infrastructure.
-
-![The first email sent from Thailand on 2 June 1988 by PSU’s Computing Center (Source: Prince of Songkla University).](figure/01/first-email-thailand.png)
-
+![อีเมลแรกของประเทศไทย 2 มิถุนายน 1988](figure/01/first-email-thailand.png)  
 <!-- \label{fig:th-email} -->
 
-This milestone was made possible through collaborative efforts between Thai academics and international experts. Two individuals are particularly recognized for their pioneering contributions:
+อีเมลนี้ส่งจากที่อยู่ `kre@sritrang.psu.th` ซึ่งกลายเป็นหมุดหมายสำคัญของการเข้าสู่สังคมดิจิ
 
-* **Robert Elz** (left in Figure\~\ref{fig\:th-pioneers}) – A computer scientist from the University of Melbourne, Australia, who played a key role in facilitating Thailand’s early Internet connectivity.
-* **Asst. Prof. Dr. Nittida Elz** (right in Figure\~\ref{fig\:th-pioneers}) – Then a computing expert at PSU, she was instrumental in implementing and coordinating the technical operations necessary to enable the country’s first international email exchange.
+## บทนำสู่อุปกรณ์เครือข่าย (Introduction to Network Devices)
 
-![Key pioneers of the Thai Internet: Robert Elz (left) and Asst. Prof. Dr. Nittida Elz (right).](figure/01/robert-nittida-elz.png)
+ในระบบเครือข่ายคอมพิวเตอร์ (Computer Network) มีอุปกรณ์หลายชนิดที่ทำงานร่วมกันเพื่อให้การส่ง รับ และประมวลผลข้อมูลเป็นไปอย่างถูกต้อง การเข้าใจบทบาทและหน้าที่ของอุปกรณ์เหล่านี้จึงเป็นสิ่งสำคัญ อุปกรณ์เครือข่ายถือเป็นองค์ประกอบหลักที่กำหนดเส้นทางของข้อมูล (Data Transmission), การทำงานร่วมกันระหว่างส่วนต่าง ๆ ของเครือข่าย และการให้บริการด้านความปลอดภัย การกำหนดเส้นทาง และการควบคุมการเข้าถึง  
 
-<!-- \label{fig:th-pioneers} -->
+อุปกรณ์เครือข่ายพื้นฐานประกอบด้วย: **สวิตช์ (Switches), เราเตอร์ (Routers), คอมพิวเตอร์ส่วนบุคคล (PCs), เกตเวย์ (Gateways), จุดเชื่อมต่อไร้สาย (Access Points) และไฟร์วอลล์ (Firewalls)**
 
-This early achievement at PSU represented the first step toward widespread digital connectivity in Thailand. Since then, the country has developed extensive academic, governmental, and commercial Internet infrastructure, contributing to Southeast Asia’s digital economy and knowledge society.
+### คอมพิวเตอร์ส่วนบุคคล (Personal Computers: PCs)
 
-## Introduction to Network Devices
+คอมพิวเตอร์ส่วนบุคคล (PCs) ทำหน้าที่เป็นจุดปลายทาง (Endpoints) ของเครือข่าย ทั้งในการสร้าง (Generate) และการใช้งานข้อมูล (Consume) แต่ละเครื่องมีการ์ดเชื่อมต่อเครือข่าย (Network Interface Card: NIC) ซึ่งอาจเป็นแบบสาย (Ethernet) หรือไร้สาย (Wi-Fi)  
 
-In any computer network, various devices work together to ensure the successful transmission, reception, and processing of data. Understanding the roles and functions of these devices is crucial for anyone entering the field of networking. Network devices are the building blocks that define how data travels from one point to another, how different segments of a network interact, and how services such as security, routing, and access are implemented. This section introduces the most common network devices, including switches, routers, personal computers (PCs), gateways, access points, and firewalls, providing a foundation for understanding both basic and intermediate networking concepts.
+การตั้งค่าที่สำคัญ ได้แก่:  
+- **ที่อยู่ IP (IP Address):** แบบกำหนดเอง (Static) หรือได้รับจาก DHCP (Dynamic Host Configuration Protocol)  
+- **Subnet Mask, Default Gateway และ DNS Server**  
 
-**PCs (Personal Computers)**
-Personal computers serve as endpoints in a network, responsible for both generating and consuming data. Each PC is equipped with a Network Interface Card (NIC), which may be wired (Ethernet) or wireless (Wi-Fi). Network configuration settings include an IP address (either static or assigned via DHCP), subnet mask, default gateway, and DNS server information. PCs communicate using the TCP/IP model and rely on standard diagnostic tools such as `ping` for checking connectivity, `ipconfig` (on Windows) or `ifconfig`/`ip a` (on Linux) for viewing network configurations, and `tracert` or `traceroute` for examining packet travel paths. Multiple layers of the OSI model are relevant in PC networking: the physical layer for hardware and cabling, the data link layer for MAC addressing, the network layer for IP addressing, the transport layer for protocols like TCP and UDP, and the application layer for services like HTTP, FTP, and DNS. Security best practices on PCs include enabling firewalls, using antivirus software, and ensuring operating systems and applications are regularly updated with security patches.
+เครื่องมือพื้นฐานที่ใช้ตรวจสอบการเชื่อมต่อ เช่น `ping`, `ipconfig` (Windows), `ifconfig`/`ip a` (Linux) และ `tracert`/`traceroute`  
 
-![PC as a Network Endpoint in the OSI and TCP/IP Model](figure/03/PC_Network_Endpoint.png)
+ในแง่สถาปัตยกรรม OSI Model:  
+- **Physical Layer:** ฮาร์ดแวร์และสายสัญญาณ  
+- **Data Link Layer:** ที่อยู่ MAC (MAC Addressing)  
+- **Network Layer:** การกำหนดที่อยู่ IP (IP Addressing)  
+- **Transport Layer:** โปรโตคอล TCP และ UDP  
+- **Application Layer:** บริการต่าง ๆ เช่น HTTP, FTP, DNS  
 
+**มาตรการรักษาความปลอดภัยของ PC:** เปิดใช้งานไฟร์วอลล์ (Firewall), ใช้ซอฟต์แวร์ป้องกันไวรัส (Antivirus Software) และอัปเดตระบบปฏิบัติการและแอปพลิเคชันอย่างสม่ำเสมอ  
+
+![PC as a Network Endpoint in the OSI and TCP/IP Model](figure/03/PC_Network_Endpoint.png)  
 <!-- \label{fig:pc-network-endpoint} -->
 
-**Switches**
-Switches primarily operate at Layer 2 (Data Link Layer) of the OSI model, although some advanced switches also function at Layer 3 (referred to as multilayer switches). They use MAC (Media Access Control) addresses to forward frames to specific destination ports. Each connected device is placed in a separate collision domain, significantly improving performance in LAN environments. Switches support full-duplex communication, eliminating collisions. They maintain a MAC address table (or CAM table) to learn which devices are connected to which ports. Advanced switch features include support for VLANs (Virtual Local Area Networks), port security, link aggregation (EtherChannel), and Spanning Tree Protocol (STP) to prevent network loops. Managed switches allow configuration via command-line interface (CLI), Secure Shell (SSH), or web interfaces, while unmanaged switches operate in a plug-and-play fashion.
+### สวิตช์ (Switches)
 
-![Functions and Features of a Network Switch](figure/03/Functions_and_Features_of_a_Netw.png)
+สวิตช์ (Switches) ทำงานหลักใน **ชั้นข้อมูล (Layer 2: Data Link Layer)** ของ OSI Model แม้ว่าสวิตช์บางรุ่นจะรองรับการทำงานใน **ชั้นเครือข่าย (Layer 3)** หรือที่เรียกว่า *Multilayer Switches*  
 
+หน้าที่หลัก:  
+- ใช้ที่อยู่ MAC (Media Access Control Address) เพื่อส่งต่อเฟรม (Frames) ไปยังพอร์ตที่ถูกต้อง  
+- สร้างโดเมนการชนกัน (Collision Domain) แยกกันในแต่ละพอร์ต  
+- สนับสนุนการสื่อสารแบบฟูลดูเพล็กซ์ (Full-Duplex Communication)  
+- เก็บตารางที่อยู่ MAC (MAC Address Table หรือ CAM Table) เพื่อเรียนรู้ว่าอุปกรณ์ใดเชื่อมต่อกับพอร์ตใด  
+
+คุณลักษณะขั้นสูง:  
+- รองรับ VLANs (Virtual Local Area Networks)  
+- ความปลอดภัยของพอร์ต (Port Security)  
+- การรวมลิงก์ (Link Aggregation / EtherChannel)  
+- โปรโตคอล STP (Spanning Tree Protocol) ป้องกันการเกิดลูป  
+
+สวิตช์ที่มีการจัดการ (Managed Switches) สามารถตั้งค่าผ่าน CLI, SSH หรือ Web Interface ขณะที่สวิตช์ที่ไม่มีการจัดการ (Unmanaged Switches) จะทำงานแบบ Plug-and-Play  
+
+![Functions and Features of a Network Switch](figure/03/Functions_and_Features_of_a_Netw.png)  
 <!-- \label{fig:network-switch} -->
 
-**Routers**
-Routers operate at Layer 3 (Network Layer) of the OSI model and are responsible for routing packets between different networks. They use IP addressing and subnet information to determine the best path for packet forwarding, based on a routing table. This table can be populated manually through static routing or dynamically using routing protocols. Standard dynamic routing protocols include RIP (Routing Information Protocol), a simple distance-vector protocol with a maximum hop count of 15; OSPF (Open Shortest Path First), a link-state protocol using Dijkstra’s algorithm to determine shortest paths; and EIGRP (Enhanced Interior Gateway Routing Protocol), a Cisco proprietary protocol that combines the best of distance-vector and link-state characteristics. Routers separate broadcast domains and often perform Network Address Translation (NAT), allowing multiple devices on a local area network (LAN) to share a single public IP address. They can also function as DHCP relays, apply Access Control Lists (ACLs), and support basic firewall configurations. Routers are commonly used to connect local area networks (LANs) to wide area networks (WANs), such as the Internet or other remote networks.
+### เราเตอร์ (Routers)
 
-![Functions and Features of a Router](figure/03/Functions_and_Features_of_a_Router.png)
+เราเตอร์ (Routers) ทำงานหลักใน **ชั้นเครือข่าย (Layer 3: Network Layer)** ของ OSI Model ทำหน้าที่เลือกเส้นทาง (Routing) สำหรับแพ็กเก็ต (Packets) ระหว่างเครือข่ายต่าง ๆ โดยใช้ที่อยู่ IP และข้อมูล Subnet  
 
+ตารางการกำหนดเส้นทาง (Routing Table) อาจถูกกำหนดเอง (Static Routing) หรือเรียนรู้แบบไดนามิก (Dynamic Routing) ด้วยโปรโตคอล เช่น:  
+- RIP (Routing Information Protocol) → แบบ Distance-Vector, จำกัด 15 Hops  
+- OSPF (Open Shortest Path First) → แบบ Link-State ใช้อัลกอริทึม Dijkstra  
+- EIGRP (Enhanced Interior Gateway Routing Protocol) → โปรโตคอลเฉพาะของ Cisco  
+
+คุณสมบัติอื่น ๆ:  
+- แยก Broadcast Domain  
+- ทำ NAT (Network Address Translation) ให้หลายอุปกรณ์ใช้งาน IP สาธารณะร่วมกัน  
+- ทำงานเป็น DHCP Relay  
+- กำหนด ACLs (Access Control Lists)  
+- รองรับ Firewall ขั้นพื้นฐาน  
+
+![Functions and Features of a Router](figure/03/Functions_and_Features_of_a_Router.png)  
 <!-- \label{fig:router-functions} -->
 
-**Gateways**
-A gateway is a device or node that acts as an entry and exit point to another network, often translating communication between different network protocols or architectures. A typical example is a default gateway, typically a router that forwards packets from a local subnet to destinations beyond the local network. Gateways are essential for communication between networks that use different communication protocols, for example, IP to legacy systems or internal networks to the Internet.
+### เกตเวย์ (Gateways)
 
-![Network Gateway: Entry and Exit Point for Network Traffic](figure/03/Network_Gateway.png)
+เกตเวย์ (Gateway) คืออุปกรณ์หรือโหนดที่เป็นจุดเข้าและออกของเครือข่าย (Entry/Exit Point) ทำหน้าที่แปลงการสื่อสารระหว่างโปรโตคอลหรือสถาปัตยกรรมที่แตกต่างกัน ตัวอย่างเช่น Default Gateway บนเราเตอร์ที่ส่งต่อแพ็กเก็ตออกนอกเครือข่ายท้องถิ่น  
 
+![Network Gateway: Entry and Exit Point for Network Traffic](figure/03/Network_Gateway.png)  
 <!-- \label{fig:network-gateway} -->
 
-**Firewalls**
-A firewall is a network security device that monitors and controls incoming and outgoing traffic based on predefined security rules. Firewalls can be hardware-based, software-based, or a combination of both. They operate primarily at Layer 3 and Layer 4 (Network and Transport layers), but next-generation firewalls also provide deep packet inspection at Layer 7 (Application Layer). Firewalls are used to enforce policies that prevent unauthorized access and protect against threats such as malware, intrusion attempts, and denial-of-service (DoS) attacks. They support stateful inspection, packet filtering, and can be configured with access control lists (ACLs), port forwarding, and VPN pass-through settings.
+### ไฟร์วอลล์ (Firewalls)
 
-![Firewall: Network Traffic Monitoring and Threat Protection](figure/03/Firewall_Diagram.png)
+ไฟร์วอลล์ (Firewall) คืออุปกรณ์หรือซอฟต์แวร์ที่ใช้ควบคุมและตรวจสอบการรับ–ส่งข้อมูล (Traffic) ตามกฎด้านความปลอดภัยที่กำหนดไว้  
 
+- ไฟร์วอลล์แบบพื้นฐานทำงานที่ **Layer 3 และ Layer 4 (Network และ Transport Layers)**  
+- ไฟร์วอลล์รุ่นใหม่ (Next-Generation Firewalls) รองรับการตรวจสอบเชิงลึก (Deep Packet Inspection) ถึง **Layer 7 (Application Layer)**  
+
+ความสามารถทั่วไป: Stateful Inspection, Packet Filtering, ACLs, Port Forwarding, VPN Pass-through  
+
+![Firewall: Network Traffic Monitoring and Threat Protection](figure/03/Firewall_Diagram.png)  
 <!-- \label{fig:firewall} -->
 
-**Access Points**
-An access point (AP) is a network device that enables wireless-capable devices to connect to a wired local area network (LAN). It operates at Layer 2 of the OSI model and uses Wi-Fi (IEEE 802.11) standards to transmit data over the air. Access points are commonly used in home networks, enterprise wireless networks, and public hotspots. They extend the range of a wireless network and can be either standalone or controller-managed. Essential features include SSID broadcasting, encryption (e.g., WPA3), and support for multiple clients.
+### จุดเชื่อมต่อไร้สาย (Access Points: APs)
 
-![Access Point: Layer 2 Wireless Bridge to Wired LAN (IEEE 802.11)](figure/03/Access_Point.png)
+จุดเชื่อมต่อไร้สาย (Access Points: APs) ช่วยให้อุปกรณ์ที่รองรับการสื่อสารแบบไร้สายเชื่อมต่อเข้าสู่เครือข่ายแบบใช้สาย (Wired LAN) โดยใช้มาตรฐาน Wi-Fi (IEEE 802.11)  
 
+การใช้งาน:  
+- เครือข่ายภายในบ้าน (Home Networks)  
+- เครือข่ายไร้สายในองค์กร (Enterprise Wireless Networks)  
+- จุดให้บริการสาธารณะ (Public Hotspots)  
+
+คุณสมบัติสำคัญ: SSID Broadcasting, การเข้ารหัส WPA3, รองรับผู้ใช้หลายคน, ทำงานแบบ Standalone หรือควบคุมโดย Controller  
+
+![Access Point: Layer 2 Wireless Bridge to Wired LAN (IEEE 802.11)](figure/03/Access_Point.png)  
 <!-- \label{fig:access-point} -->
 
-## Network Topologies and Architecture
 
-In computer networking, the arrangement of devices and their communication are defined by network topologies and architectures. A **network topology** refers to the physical or logical layout of devices and connections in a network. It determines how data flows and how efficiently devices communicate with each other. Understanding different types of topologies is essential for designing, troubleshooting, and optimizing networks.
+## โทโพโลยีและสถาปัตยกรรมเครือข่าย (Network Topologies and Architecture)
 
-On the other hand, **network architecture** defines the structure and design principles behind how network components operate and interact. It includes models such as peer-to-peer and client-server, as well as concepts like centralized versus distributed control. Together, topologies and architectures form the blueprint for network functionality, scalability, and resilience.
+ในระบบเครือข่ายคอมพิวเตอร์ (Computer Networking) การจัดเรียงอุปกรณ์และวิธีการสื่อสารระหว่างกันถูกกำหนดโดย **โทโพโลยีเครือข่าย (Network Topology)** และ **สถาปัตยกรรมเครือข่าย (Network Architecture)**  
 
-The following sections explain both physical and logical topologies, as well as network architecture models, highlighting their advantages, limitations, and typical use cases.
+* โทโพโลยีเครือข่าย (Network Topology): รูปแบบทางกายภาพ (Physical Layout) หรือเชิงตรรกะ (Logical Layout) ของการเชื่อมต่ออุปกรณ์ กำหนดเส้นทางของการไหลของข้อมูลและประสิทธิภาพของการสื่อสาร  
+* สถาปัตยกรรมเครือข่าย (Network Architecture): หลักการออกแบบที่กำหนดการทำงานและการโต้ตอบขององค์ประกอบในเครือข่าย เช่น แบบ Peer-to-Peer หรือ Client-Server  
 
-#### Physical Topologies
+การเข้าใจแนวคิดทั้งสองนี้มีความสำคัญต่อการออกแบบเครือข่ายที่สามารถขยายได้ (Scalable), มีความทนทาน (Resilient) และจัดการได้ง่าย (Manageable)  
 
-A **bus topology** uses a single backbone cable to connect all devices in the network. It is inexpensive and straightforward to implement, especially in small environments. However, it is highly susceptible to collisions and network failure if the backbone cable is damaged, as all devices share the same communication line.
 
-In a **star topology**, all devices are connected to a central switch or hub. This makes the network easy to manage and expand. If one cable fails, only the device it is connected to is affected. However, if the central device fails, the entire network goes down.
+### โทโพโลยีทางกายภาพ (Physical Topologies)
 
-A **ring topology** forms a closed loop in which data travels in one direction from one device to the next until it reaches its destination. This design reduces the chances of collision, but can be disrupted if any device or connection in the ring fails.
+* **บัส (Bus Topology):** ใช้สายหลัก (Backbone Cable) เพียงเส้นเดียวเชื่อมต่ออุปกรณ์ทั้งหมด ต้นทุนต่ำและติดตั้งง่าย แต่หากสายหลักเสียหายจะทำให้เครือข่ายล้มเหลวทั้งหมด  
 
-![Common Physical Network Topologies: Bus, Star, Ring, Mesh, and Hybrid](figure/03/Network_Topologies.png)
+* **สตาร์ (Star Topology):** อุปกรณ์ทั้งหมดเชื่อมต่อเข้ากับสวิตช์หรือฮับ (Switch/Hub) กลาง หากสายใดสายหนึ่งเสีย จะกระทบเฉพาะอุปกรณ์นั้น แต่หากอุปกรณ์ศูนย์กลางเสีย เครือข่ายทั้งหมดจะล่ม  
 
+* **ริง (Ring Topology):** อุปกรณ์เชื่อมต่อเป็นวงกลม ข้อมูลเดินทางในทิศทางเดียว ลดโอกาสการชนกันของข้อมูล แต่หากมีอุปกรณ์ใดขัดข้องอาจกระทบทั้งวง  
+
+* **เมช (Mesh Topology):** อุปกรณ์แต่ละเครื่องเชื่อมต่อกับทุกเครื่องอื่น ๆ มีความซ้ำซ้อนสูง (High Redundancy) และทนทาน แต่ติดตั้งยากและมีต้นทุนสูง  
+
+* **ไฮบริด (Hybrid Topology):** ผสมผสานหลายโทโพโลยีเข้าด้วยกัน เช่น Star-Bus หรือ Star-Ring เพื่อให้เหมาะสมกับความต้องการเฉพาะ  
+
+![Common Physical Network Topologies: Bus, Star, Ring, Mesh, and Hybrid](figure/03/Network_Topologies.png)  
 <!-- \label{fig:network-topologies} -->
 
-A **mesh topology** connects every device to every other device in the network. This provides high redundancy and reliability, as multiple paths exist for data to travel. It is often used in mission-critical environments, but is more complex and expensive to implement due to the number of connections required.
 
-A **hybrid topology** combines two or more different types of topologies, such as star-bus or star-ring. It allows organizations to tailor the network design to their specific needs, offering flexibility and scalability while inheriting the strengths and weaknesses of the topologies it combines.
+### โทโพโลยีเชิงตรรกะ (Logical Topologies)
 
-#### Logical Topologies
+* **บรอดคาสต์ (Broadcast Topology):** ใช้กันทั่วไปใน Ethernet LAN ทุกอุปกรณ์จะได้รับข้อมูลที่ส่งออก แม้ไม่ใช่ผู้รับปลายทาง ส่งผลให้เกิดความไร้ประสิทธิภาพเมื่อมีปริมาณข้อมูลสูง  
 
-A **broadcast topology** is commonly used in Ethernet LANs. In this topology, every device receives all network data, regardless of whether it is the intended recipient. Devices must filter out irrelevant data, which can lead to network inefficiency if traffic volume is high.
+* **การส่งต่อโทเคน (Token Passing Topology):** ใช้ในเครือข่ายวงแหวนรุ่นเก่า อุปกรณ์จะต้องได้รับโทเคน (Token) ก่อนจึงจะส่งข้อมูลได้ ลดการชนกันแต่เพิ่มความล่าช้า ปัจจุบันไม่ค่อยใช้แล้ว  
 
-**Token passing topology** is typically used in older ring networks. In this logical layout, a token — a small data packet — is passed around the network. A device must possess the token to transmit data, which helps avoid collisions. However, it may introduce delays and is considered outdated compared to modern Ethernet switching.
-
-![Logical Topologies: Broadcast (used in Ethernet LANs) and Token Passing (used in older ring networks)](figure/03/Logical_Topologies.png)
-
+![Logical Topologies: Broadcast and Token Passing](figure/03/Logical_Topologies.png)  
 <!-- \label{fig:logical-topologies} -->
 
-#### Network Architectures
 
-In a **peer-to-peer (P2P)** network architecture, each device has equal status and can both provide and consume resources without the need for a central server. This setup is simple and cost-effective, suitable for minor or temporary networks, but it lacks centralized control and scalability.
+### สถาปัตยกรรมเครือข่าย (Network Architectures)
 
-A **client-server** architecture uses one or more central servers to manage resources and services for client devices. This model supports centralized administration, scalability, and security, making it ideal for business and enterprise networks. However, it depends on server availability and typically requires more maintenance and setup.
+* **แบบเพียร์ทูเพียร์ (Peer-to-Peer: P2P):** ทุกอุปกรณ์มีสถานะเท่าเทียมกัน สามารถให้และใช้ทรัพยากรได้โดยตรง ไม่ต้องมีเซิร์ฟเวอร์กลาง เหมาะกับเครือข่ายขนาดเล็กหรือตามบ้าน แต่ขาดการควบคุมรวมศูนย์และขยายได้ยาก  
 
-![Network Architectures: Peer-to-Peer vs. Client-Server Models](figure/03/Network_Architectures.png)
+* **แบบไคลเอนต์–เซิร์ฟเวอร์ (Client-Server):** มีเซิร์ฟเวอร์กลางทำหน้าที่ให้บริการและบริหารจัดการทรัพยากร ส่วนอุปกรณ์ลูกข่าย (Clients) ขอใช้บริการ เหมาะกับองค์กร เน้นการบริหารรวมศูนย์ ความปลอดภัย และการขยายตัว แต่พึ่งพาเซิร์ฟเวอร์เป็นหลัก  
 
+![Network Architectures: Peer-to-Peer vs. Client-Server Models](figure/03/Network_Architectures.png)  
 <!-- \label{fig:network-architectures} -->
 
-The **centralized vs. distributed** model compares two broader approaches. In a **centralized network**, one central point manages all operations, making control and security easier but also creating a single point of failure. In a **distributed network**, power and resources are spread across multiple nodes, increasing resilience and fault tolerance, but often requiring more complex coordination.
+* **แบบรวมศูนย์กับแบบกระจาย (Centralized vs. Distributed):**  
+  - แบบรวมศูนย์ (Centralized): การควบคุมทั้งหมดอยู่ที่ศูนย์กลาง ง่ายต่อการจัดการและรักษาความปลอดภัย แต่มีจุดล้มเหลวเพียงจุดเดียว (Single Point of Failure)  
+  - แบบกระจาย (Distributed): การควบคุมและทรัพยากรแบ่งกระจายไปยังโหนดหลายตัว ทำให้ทนทานและมี Fault Tolerance สูง แต่มีความซับซ้อนในการประสานงาน  
 
-![Comparison of Centralized and Distributed Network Architectures](figure/03/Centralized_vs_Distributed.png)
-
+![Comparison of Centralized and Distributed Network Architectures](figure/03/Centralized_vs_Distributed.png)  
 <!-- \label{fig:centralized-distributed} -->
 
-#### Broadcast Domains
 
-A broadcast domain is a logical segment of a network in which all other devices receive any broadcast packet sent by a device within the same segment. In simpler terms, it is the set of all devices that will receive a broadcast frame originating from any one of them. Broadcast domains play a crucial role in network traffic management and performance, as broadcast messages can lead to congestion if they are not properly segmented.
+### โดเมนบรอดคาสต์ (Broadcast Domains)
 
-Switches operate at Layer 2 of the OSI model and, by default, forward broadcast traffic to all ports within the same VLAN, except the port that originated the broadcast. This means that all devices connected to the switch will receive the broadcast unless specific configurations, such as VLANs or access control mechanisms, are applied.
+**Broadcast Domain** คือ กลุ่มอุปกรณ์ในเครือข่ายที่สามารถรับแพ็กเก็ตบรอดคาสต์จากกันและกัน  
 
-![Broadcast Domains Separated by a Router: Each Switch Represents a Distinct Broadcast Domain](figure/03/Broadcast_Domains.png)
+* **สวิตช์ (Switches):** โดยค่าเริ่มต้น จะส่งต่อบรอดคาสต์ไปยังทุกพอร์ตใน VLAN เดียวกัน  
+* **เราเตอร์ (Routers):** ทำหน้าที่เป็นขอบเขต (Boundary) ของ Broadcast Domain โดยไม่ส่งต่อแพ็กเก็ตบรอดคาสต์ข้ามอินเทอร์เฟซ  
 
+![Broadcast Domains Separated by a Router](figure/03/Broadcast_Domains.png)  
 <!-- \label{fig:broadcast-domains} -->
 
-Routers, on the other hand, function at Layer 3 and do not forward broadcast traffic across different interfaces. This makes routers natural boundaries for broadcast domains. When a broadcast frame reaches a router, it is dropped unless the router is specifically configured to relay it (e.g., in DHCP relay scenarios).
 
-#### Virtual LANs (VLANs)
+### เครือข่ายท้องถิ่นเสมือน (Virtual LANs: VLANs)
 
-A Virtual Local Area Network (VLAN) is a logical grouping of devices within a network that appear to be on the same local area network (LAN), even if they are not physically connected to the same switch or segment. VLANs are used to segment broadcast domains at the data link layer (Layer 2) of the OSI model. This allows network administrators to partition a single physical switch into multiple logical networks, improving performance, security, and manageability.
+VLAN คือ การแบ่งเครือข่ายเชิงตรรกะ (Logical Segmentation) ภายในสวิตช์เดียวหรือหลายสวิตช์ เพื่อสร้าง Broadcast Domain แยกกัน แม้อุปกรณ์จะไม่ได้เชื่อมต่อสายตรงถึงกัน  
 
-When devices are assigned to different VLANs, they cannot directly communicate with each other unless routing is enabled between the VLANs, typically through a router or a Layer 3 switch. This segmentation ensures that broadcast traffic remains within the VLAN, preventing it from flooding the entire switch and affecting unrelated devices.
+คุณสมบัติ:  
+- แยกการจราจรเครือข่าย (Traffic Isolation)  
+- เพิ่มความปลอดภัย (Security)  
+- ลดปริมาณบรอดคาสต์  
+- ยืดหยุ่นต่อการจัดการ (Manageability)  
 
-VLANs are configured using VLAN IDs, and network ports on switches can be statically assigned to specific VLANs or dynamically assigned through protocols such as VLAN Management Policy Server (VMPS). Trunk ports are used to carry traffic for multiple VLANs between switches, utilizing tagging protocols such as IEEE 802.1Q.
+VLAN ระบุด้วย **VLAN ID** และพอร์ตของสวิตช์สามารถกำหนด VLAN แบบ Static หรือ Dynamic ได้ การเชื่อมต่อหลาย VLAN ผ่านสายเดียวใช้ Trunk Port และมาตรฐาน IEEE 802.1Q  
 
-![VLAN segmentation: Devices are separated into distinct broadcast domains](figure/03/VLAN_Diagram.png)
-
+![VLAN segmentation: Devices are separated into distinct broadcast domains](figure/03/VLAN_Diagram.png)  
 <!-- \label{fig:vlan-segmentation} -->
 
-**Key benefits of VLANs include:**
 
-* Enhanced network segmentation and traffic isolation
-* Improved security by separating sensitive departments or systems
-* Simplified network management and flexibility
-* Reduced broadcast traffic within each VLAN
-
-Overall, VLANs are a foundational tool in modern network design, particularly in enterprise environments, enabling efficient and scalable network segmentation without the need for physical device separation.
