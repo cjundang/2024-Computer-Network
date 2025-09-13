@@ -42,7 +42,7 @@
 
 แนวทางการรักษาความปลอดภัยที่สำคัญบนพีซี ได้แก่ การเปิดใช้งานไฟร์วอลล์ (Firewall), การใช้โปรแกรมป้องกันไวรัส (Antivirus), และการอัปเดตระบบปฏิบัติการ/แอปพลิเคชันอย่างสม่ำเสมอ
 
-![PC as a Network Endpoint in the OSI and TCP/IP Model](figure/03/PC_Network_Endpoint.png)
+![PC as a Network Endpoint in the OSI and TCP/IP Model](figure/03/PC_Network_Endpoint.png)[width=20%]
  
 ### สวิตช์ (Switches)
 
