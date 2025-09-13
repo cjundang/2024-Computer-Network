@@ -66,7 +66,7 @@
 
 สวิตช์ที่สามารถจัดการได้ (Managed Switches) อนุญาตให้ผู้ดูแลกำหนดค่าได้ผ่าน **CLI, SSH หรือ Web Interface** ในขณะที่สวิตช์ที่ไม่สามารถจัดการได้ (Unmanaged Switches) จะทำงานแบบ Plug-and-Play
 
-<img src="figure/03/Functions_and_Features_of_a_Netw.png" alt="Functions and Features of a Network Switch" style="max-width:50%; height:auto;">
+<img src="figure/03/Functions_and_Features_of_a_Netw.png" alt="Functions and Features of a Network Switch" style="width:50%; height:auto;">
 
  
 ### เราเตอร์ (Routers)
@@ -90,14 +90,14 @@
 * ทำงานเป็น NAT (Network Address Translation) เพื่อให้หลายอุปกรณ์ใช้ Public IP เดียวกันได้
 * ทำงานเป็น DHCP Relay, ACLs และไฟร์วอลล์ขั้นพื้นฐาน
 
-<img src="figure/03/Functions_and_Features_of_a_Router.png" alt="Functions and Features of a Router" style="max-width:50%; height:auto;">
+<img src="figure/03/Functions_and_Features_of_a_Router.png" alt="Functions and Features of a Router" style="width:50%; height:auto;">
 
 
 ### เกตเวย์ (Gateways)
 
 **เกตเวย์ (Gateway)** คืออุปกรณ์หรือโหนดที่ทำหน้าที่เป็น **จุดเข้าและออก (Entry/Exit Point)** ไปยังเครือข่ายอื่น มักใช้ในการแปลการสื่อสารระหว่าง **โปรโตคอลเครือข่ายที่แตกต่างกัน** เช่น การแปลงจาก **IP** ไปยังระบบแบบ Legacy หรือจากเครือข่ายภายในไปยังอินเทอร์เน็ต
 
-<img src="figure/03/Network_Gateway.png" alt="Network Gateway: Entry and Exit Point for Network Traffic" style="max-width:50%; height:auto;">
+<img src="figure/03/Network_Gateway.png" alt="Network Gateway: Entry and Exit Point for Network Traffic" style="width:50%; height:auto;">
 
 
 ### ไฟร์วอลล์ (Firewalls)
@@ -116,7 +116,7 @@
 * Port Forwarding
 * VPN Pass-through
 
-<img src="figure/03/Firewall_Diagram.png" alt="Firewall: Network Traffic Monitoring and Threat Protection" style="max-width:50%; height:auto;">
+<img src="figure/03/Firewall_Diagram.png" alt="Firewall: Network Traffic Monitoring and Threat Protection" style="width:50%; height:auto;">
 
 
 ### แอคเซสพอยต์ (Access Points)
@@ -128,7 +128,7 @@
 * ใช้ในเครือข่ายบ้าน องค์กร และฮอตสปอตสาธารณะ
 * คุณสมบัติหลัก: การกระจาย SSID, การเข้ารหัส (เช่น WPA3), รองรับการเชื่อมต่อหลายผู้ใช้งาน
 
-<img src="figure/03/Access_Point.png" alt="Access Point: Layer 2 Wireless Bridge to Wired LAN (IEEE 802.11)" style="max-width:50%; height:auto;">
+<img src="figure/03/Access_Point.png" alt="Access Point: Layer 2 Wireless Bridge to Wired LAN (IEEE 802.11)" style="width:50%; height:auto;">
 
 
 ## โทโพโลยีและสถาปัตยกรรมเครือข่าย (Network Topologies and Architecture)
@@ -148,7 +148,7 @@
 * **Mesh Topology** – อุปกรณ์ทุกตัวเชื่อมถึงกันโดยตรง มีความซ้ำซ้อนสูง (Redundancy) และเชื่อถือได้ เหมาะสำหรับงานที่ต้องการความมั่นคงสูง แต่มีต้นทุนและความซับซ้อนในการติดตั้งสูง
 * **Hybrid Topology** – การผสมผสานหลายโทโพโลยี เช่น Star-Bus หรือ Star-Ring ทำให้องค์กรสามารถปรับแต่งให้เหมาะสมกับความต้องการ
 
-<img src="figure/03/Network_Topologies.png" alt="Common Physical Network Topologies: Bus, Star, Ring, Mesh, and Hybrid" style="max-width:50%; height:auto;">
+<img src="figure/03/Network_Topologies.png" alt="Common Physical Network Topologies: Bus, Star, Ring, Mesh, and Hybrid" style="width:50%; height:auto;">
 
 
 ### โทโพโลยีตรรกะ (Logical Topologies)
@@ -156,7 +156,7 @@
 * **Broadcast Topology** – พบได้ใน Ethernet LAN อุปกรณ์ทั้งหมดจะได้รับข้อมูลทุกแพ็กเก็ตที่ส่ง แม้จะไม่ใช่ผู้รับที่ตั้งใจไว้ ส่งผลให้เกิดความไม่มีประสิทธิภาพหากมีปริมาณการรับส่งข้อมูลสูง
 * **Token Passing Topology** – ใช้ในเครือข่ายวงแหวนรุ่นเก่า อุปกรณ์ต้องถือ Token (แพ็กเก็ตเล็ก ๆ) ก่อนจึงจะส่งข้อมูลได้ ช่วยป้องกันการชนกันของข้อมูล แต่ทำให้เกิดความล่าช้าและปัจจุบันถือว่าล้าสมัยเมื่อเทียบกับ Ethernet
 
-<img src="figure/03/Logical_Topologies.png" alt="Logical Topologies: Broadcast (used in Ethernet LANs) and Token Passing (used in older ring networks)" style="max-width:50%; height:auto;">
+<img src="figure/03/Logical_Topologies.png" alt="Logical Topologies: Broadcast (used in Ethernet LANs) and Token Passing (used in older ring networks)" style="width:50%; height:auto;">
 
 
 ### สถาปัตยกรรมเครือข่าย (Network Architectures)
@@ -164,14 +164,14 @@
 * **Peer-to-Peer (P2P)** – ทุกอุปกรณ์มีสิทธิเท่ากัน สามารถให้และใช้ทรัพยากรร่วมกันได้โดยไม่ต้องมีเซิร์ฟเวอร์กลาง เหมาะกับเครือข่ายเล็กหรือตามชั่วคราว แต่ขาดการควบคุมและความสามารถในการขยาย
 * **Client-Server** – ใช้เซิร์ฟเวอร์กลางในการจัดการทรัพยากรและบริการแก่ไคลเอนต์ รองรับการบริหารจัดการ ความปลอดภัย และการขยายตัว เหมาะกับธุรกิจและองค์กร แต่พึ่งพาเซิร์ฟเวอร์และต้องการการดูแลรักษามากกว่า
 
-<img src="figure/03/Network_Architectures.png" alt="Network Architectures: Peer-to-Peer vs. Client-Server Models" style="max-width:50%; height:auto;">
+<img src="figure/03/Network_Architectures.png" alt="Network Architectures: Peer-to-Peer vs. Client-Server Models" style="width:50%; height:auto;">
 
 * **Centralized vs. Distributed** –
 
   * **Centralized Network:** จุดศูนย์กลางควบคุมการทำงานทั้งหมด ทำให้ง่ายต่อการควบคุมและการรักษาความปลอดภัย แต่มีความเสี่ยงจาก Single Point of Failure
   * **Distributed Network:** กระจายการทำงานไปยังหลายโหนด มีความทนทานสูงขึ้น แต่ซับซ้อนต่อการบริหารจัดการ
 
-<img src="figure/03/Centralized_vs_Distributed.png" alt="Comparison of Centralized and Distributed Network Architectures" style="max-width:50%; height:auto;">
+<img src="figure/03/Centralized_vs_Distributed.png" alt="Comparison of Centralized and Distributed Network Architectures" style="width:50%; height:auto;">
 
 
 ### โดเมนกระจายสัญญาณ (Broadcast Domains)
@@ -181,7 +181,7 @@
 * **Switches (Layer 2):** โดยค่าเริ่มต้นจะส่งต่อ Broadcast ไปยังทุกพอร์ตใน VLAN เดียวกัน
 * **Routers (Layer 3):** ไม่ส่งต่อ Broadcast ระหว่างเครือข่าย ทำให้เป็นเส้นแบ่งธรรมชาติของ Broadcast Domain
 
-<img src="figure/03/Broadcast_Domains.png" alt="Broadcast Domains Separated by a Router: Each Switch Represents a Distinct Broadcast Domain" style="max-width:50%; height:auto;">
+<img src="figure/03/Broadcast_Domains.png" alt="Broadcast Domains Separated by a Router: Each Switch Represents a Distinct Broadcast Domain" style="width:50%; height:auto;">
 
 
 ### เครือข่ายท้องถิ่นเสมือน (Virtual LANs: VLANs)
@@ -200,7 +200,7 @@
 * ใช้ **VLAN ID** สำหรับระบุเครือข่าย
 * พอร์ตของสวิตช์สามารถกำหนดให้เป็น VLAN เดียว หรือหลาย VLAN ผ่าน **Trunk Port** โดยใช้มาตรฐาน **IEEE 802.1Q**
 
-<img src="figure/03/VLAN_Diagram.png" alt="VLAN segmentation: Devices are separated into distinct broadcast domains" style="max-width:50%; height:auto;">
+<img src="figure/03/VLAN_Diagram.png" alt="VLAN segmentation: Devices are separated into distinct broadcast domains" style="width:50%; height:auto;">
 
 
 
