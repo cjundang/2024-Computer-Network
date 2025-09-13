@@ -6,469 +6,421 @@
 * Explain the roles of network components—such as end devices, intermediary devices, media, services, and protocols—within a structured network architecture.
 * Analyze how encapsulation, addressing, and protocol operations enable reliable end-to-end communication across diverse network systems.
 
-## Overview of Network Communication
 
-Network communication begins with the transmission of a **message**—a unit of data intended to travel from one device or individual to another. Every communication process within a network relies on three fundamental components:
+# ภาพรวมของการสื่อสารเครือข่าย (Overview of Network Communication)
 
-* **Source (Sender):** The originator of the message, which may be a person or an electronic device.
-* **Destination (Receiver):** The intended recipient that receives and interprets the transmitted message.
-* **Channel (Transmission Medium):** The physical or wireless medium through which the message travels from source to destination (e.g., copper cables, fiber optics, or wireless signals).
+การสื่อสารในเครือข่าย (Network Communication) เริ่มต้นด้วยการส่ง **ข้อความ (Message)** ซึ่งเป็นหน่วยข้อมูลที่มีจุดประสงค์ในการเคลื่อนย้ายจากอุปกรณ์หรือบุคคลหนึ่งไปยังอีกฝ่ายหนึ่ง การสื่อสารทุกกระบวนการในเครือข่ายขึ้นอยู่กับองค์ประกอบหลัก 3 ส่วน ได้แก่
 
-To enhance both **efficiency** and **reliability**, large messages are often divided into smaller, more manageable units through a process known as **segmentation**. Segmentation provides two key benefits:
+* **แหล่งกำเนิด (Source / Sender):** ผู้ส่งข้อความ ซึ่งอาจเป็นผู้ใช้งานหรืออุปกรณ์อิเล็กทรอนิกส์
+* **ปลายทาง (Destination / Receiver):** ผู้รับข้อความ ซึ่งทำหน้าที่ตีความข้อมูลที่ถูกส่งมา
+* **ช่องทาง (Channel / Transmission Medium):** สื่อกลางทางกายภาพหรือไร้สายที่ใช้ในการส่งข้อความ เช่น สายทองแดง (Copper Cables), ใยแก้วนำแสง (Fiber Optics), หรือสัญญาณไร้สาย (Wireless Signals)
 
-* **Multiplexing:** Allows multiple communication sessions to share the same network medium by interleaving message segments, improving overall resource utilization.
-* **Increased Reliability:** If a segment is lost or corrupted during transmission, only that specific segment needs to be retransmitted, rather than the entire message.
+เพื่อเพิ่ม **ประสิทธิภาพ (Efficiency)** และ **ความเชื่อถือได้ (Reliability)** ข้อความที่มีขนาดใหญ่จะถูกแบ่งออกเป็นหน่วยย่อยที่สามารถจัดการได้ง่ายขึ้น ผ่านกระบวนการที่เรียกว่า **การแบ่งส่วน (Segmentation)** โดยให้ประโยชน์สำคัญดังนี้:
 
-This segmented, layered approach to communication is foundational to modern network architecture, enabling scalable, robust, and efficient data exchange across diverse network environments.
+* **การมัลติเพล็กซ์ (Multiplexing):** อนุญาตให้หลายการสื่อสารใช้สื่อกลางเดียวกันได้ โดยการจัดเรียงสลับกันของข้อความที่ถูกแบ่งเป็นส่วน ๆ
+* **การเพิ่มความเชื่อถือได้ (Increased Reliability):** หากส่วนใดส่วนหนึ่งของข้อความสูญหายหรือเสียหาย จะต้องส่งใหม่เฉพาะส่วนนั้น ไม่จำเป็นต้องส่งทั้งข้อความซ้ำทั้งหมด
 
-## Components of a Network
+การจัดการแบบแบ่งส่วนและแบบชั้น (Layered Approach) นี้ถือเป็นรากฐานสำคัญของสถาปัตยกรรมเครือข่ายสมัยใหม่ ทำให้เกิดการแลกเปลี่ยนข้อมูลที่มีประสิทธิภาพ มีความสามารถในการขยาย (Scalability) และมีความทนทานต่อความผิดพลาด (Robustness)
 
-A computer network consists of various components that work together to enable communication between devices. These components can be categorized as follows:
 
-* **Devices:**
+## องค์ประกอบของเครือข่ายคอมพิวเตอร์ (Components of a Network)
 
-  * **End Devices:** These are devices that users interact with directly. They serve as the interface between the user and the network. Examples include desktop computers, laptops, smartphones, network printers, IP phones, and surveillance cameras.
-  * **Intermediary Devices:** These devices connect end devices to the network or connect multiple networks together. Examples include switches, routers, wireless access points, firewalls, modems, and communication servers. They manage data traffic, enforce security policies, and perform routing decisions.
+เครือข่ายคอมพิวเตอร์ (Computer Network) ประกอบด้วยองค์ประกอบหลากหลายที่ทำงานร่วมกันเพื่อให้เกิดการสื่อสารระหว่างอุปกรณ์ได้สำเร็จ โดยองค์ประกอบเหล่านี้สามารถจำแนกได้ดังนี้
 
-* **Media:**
 
-  * **Copper Cables:** Transmit data using electrical signals. Common types include unshielded twisted pair (UTP) and coaxial cables.
-  * **Fiber-Optic Cables:** Use pulses of light to transmit data over long distances with high bandwidth and low interference.
-  * **Wireless Media:** Transmit data using electromagnetic waves. Examples include Wi-Fi, Bluetooth, and cellular networks.
+### 1. อุปกรณ์ (Devices)
 
-* **Services:**
+* **อุปกรณ์ปลายทาง (End Devices):**
+  เป็นอุปกรณ์ที่ผู้ใช้งานสามารถโต้ตอบได้โดยตรง ทำหน้าที่เป็นจุดเชื่อมต่อระหว่างผู้ใช้กับเครือข่าย ตัวอย่างเช่น คอมพิวเตอร์ตั้งโต๊ะ (Desktop Computers), แล็ปท็อป (Laptops), สมาร์ตโฟน (Smartphones), เครื่องพิมพ์เครือข่าย (Network Printers), โทรศัพท์ไอพี (IP Phones), และกล้องวงจรปิด (Surveillance Cameras)
 
-  * Network services are software-based functionalities that support communication and resource sharing. Common services include email, web hosting, file sharing, and remote access. These typically run on network servers and are accessed by clients.
+* **อุปกรณ์สื่อกลาง (Intermediary Devices):**
+  เป็นอุปกรณ์ที่ทำหน้าที่เชื่อมต่ออุปกรณ์ปลายทางเข้าสู่เครือข่าย หรือเชื่อมต่อระหว่างหลายเครือข่ายเข้าด้วยกัน ตัวอย่างได้แก่ สวิตช์ (Switches), เราเตอร์ (Routers), จุดเชื่อมต่อไร้สาย (Wireless Access Points), ไฟร์วอลล์ (Firewalls), โมเด็ม (Modems), และเซิร์ฟเวอร์สื่อสาร (Communication Servers)
+  อุปกรณ์เหล่านี้มีหน้าที่จัดการการไหลของข้อมูล (Traffic Management), บังคับใช้นโยบายด้านความปลอดภัย (Security Policies), และตัดสินใจเกี่ยวกับการเส้นทาง (Routing Decisions)
 
-* **Protocols:**
+### 2. สื่อกลางการส่งข้อมูล (Media)
 
-  * Protocols are standardized rules that define how data is formatted, transmitted, and received across the network. They ensure interoperability between devices and reliable data delivery. Examples include:
+* **สายทองแดง (Copper Cables):**
+  ส่งข้อมูลผ่านสัญญาณไฟฟ้า ตัวอย่างที่ใช้บ่อยคือสายคู่บิดเกลียวแบบไม่มีฉนวนหุ้ม (Unshielded Twisted Pair – UTP) และสายโคแอกเชียล (Coaxial Cables)
 
-    * Transmission Control Protocol (TCP)
-    * Internet Protocol (IP)
-    * Hypertext Transfer Protocol (HTTP)
-    * Domain Name System (DNS)
+* **สายใยแก้วนำแสง (Fiber-Optic Cables):**
+  ใช้การส่งข้อมูลผ่านแสงพัลส์ (Pulses of Light) สามารถส่งข้อมูลได้ระยะทางไกล มีแบนด์วิธสูง และทนต่อสัญญาณรบกวนได้ดี
 
-## Network Models
+* **สื่อไร้สาย (Wireless Media):**
+  ใช้คลื่นแม่เหล็กไฟฟ้า (Electromagnetic Waves) ในการส่งข้อมูล ตัวอย่างเช่น ไวไฟ (Wi-Fi), บลูทูธ (Bluetooth), และเครือข่ายโทรศัพท์เคลื่อนที่ (Cellular Networks)
 
-To manage the complexity of modern computer networks, layered models are used to structure and standardize communication processes. These models divide network functionality into hierarchical layers, each with defined roles and protocols.
+### 3. บริการเครือข่าย (Services)
 
-* **Purpose of Layered Models:**
+บริการเครือข่าย (Network Services) เป็นฟังก์ชันที่อิงซอฟต์แวร์ ทำหน้าที่สนับสนุนการสื่อสารและการแบ่งปันทรัพยากร ตัวอย่างที่พบบ่อยได้แก่ บริการอีเมล (Email), เว็บโฮสติ้ง (Web Hosting), การแบ่งปันไฟล์ (File Sharing), และการเข้าถึงจากระยะไกล (Remote Access)
+บริการเหล่านี้มักจะทำงานบนเซิร์ฟเวอร์เครือข่าย (Network Servers) และถูกเข้าถึงโดยอุปกรณ์ลูกข่าย (Clients)
 
-  * Simplify the design, implementation, and troubleshooting of networks.
-  * Enable interoperability between different hardware and software vendors.
-  * Allow modular development, where changes in one layer do not affect others.
-  * Provide a standardized framework for describing network functions.
+### 4. โปรโตคอล (Protocols)
 
-* **Common Layered Models:**
+โปรโตคอล (Protocols) หมายถึงกฎเกณฑ์มาตรฐานที่กำหนดวิธีการจัดรูปแบบ (Format), การส่ง (Transmit), และการรับ (Receive) ข้อมูลในเครือข่าย เพื่อให้มั่นใจว่าอุปกรณ์ต่าง ๆ สามารถทำงานร่วมกันได้และมีการส่งข้อมูลอย่างเชื่อถือได้ ตัวอย่างโปรโตคอลสำคัญ ได้แก่
 
-  * **OSI Model (Open Systems Interconnection):**
+* **Transmission Control Protocol (TCP)**
+* **Internet Protocol (IP)**
+* **Hypertext Transfer Protocol (HTTP)**
+* **Domain Name System (DNS)**
 
-    * A conceptual 7-layer model used for understanding and teaching network operations.
-    * Each layer serves a specific function and communicates with adjacent layers.
-    * The layers, from lowest to highest, are:
 
-      * **Physical Layer** – Transmits raw bits over the physical medium.
-      * **Data Link Layer** – Ensures error-free node-to-node delivery.
-      * **Network Layer** – Manages logical addressing (e.g., IP) and routing.
-      * **Transport Layer** – Provides reliable or unreliable data delivery between end systems.
-      * **Session Layer** – Establishes, maintains, and terminates sessions between applications.
-      * **Presentation Layer** – Handles data formatting, encoding, and encryption.
-      * **Application Layer** – Interfaces directly with end-user applications and services.
+✦ องค์ประกอบทั้ง 4 ส่วนนี้—อุปกรณ์ (Devices), สื่อกลาง (Media), บริการ (Services), และโปรโตคอล (Protocols)—เป็นพื้นฐานสำคัญที่ทำให้เครือข่ายคอมพิวเตอร์สามารถทำงานได้อย่างมีประสิทธิภาพ
 
-```latex
-% Original LaTeX (TikZ) for OSI model diagram
-\begin{tikzpicture}[node distance=0cm, every node/.style={font=\sffamily}, text height=1.5ex, text depth=.25ex]
+## แบบจำลองเครือข่าย (Network Models)
 
-% OSI Layers with Descriptions
-\node[draw, minimum width=5cm, minimum height=1cm, fill=blue!10, anchor=north west] (app) at (0,0) {Layer 7: Application};
-\node[anchor=west] at (5.5, -0.5) {Interfaces with end-user applications};
+เพื่อจัดการกับความซับซ้อนของเครือข่ายคอมพิวเตอร์สมัยใหม่ ได้มีการพัฒนา **แบบจำลองแบบชั้น (Layered Models)** เพื่อใช้ในการจัดโครงสร้างและทำให้กระบวนการสื่อสารเป็นมาตรฐาน โดยแบบจำลองเหล่านี้แบ่งฟังก์ชันการทำงานของเครือข่ายออกเป็นลำดับชั้น (Hierarchical Layers) ที่แต่ละชั้นมีบทบาทและโปรโตคอล (Protocols) ที่ชัดเจน
 
-\node[draw, minimum width=5cm, minimum height=1cm, fill=blue!15, anchor=north west] (pres) at (0,-1) {Layer 6: Presentation};
-\node[anchor=west] at (5.5, -1.5) {Handles data encoding and encryption};
+### จุดประสงค์ของแบบจำลองแบบชั้น (Purpose of Layered Models)
 
-\node[draw, minimum width=5cm, minimum height=1cm, fill=blue!10, anchor=north west] (sess) at (0,-2) {Layer 5: Session};
-\node[anchor=west] at (5.5, -2.5) {Manages dialog control};
+* ทำให้ง่ายต่อการออกแบบ (Design), การใช้งาน (Implementation), และการแก้ปัญหา (Troubleshooting) เครือข่าย
+* ส่งเสริมการทำงานร่วมกัน (Interoperability) ระหว่างฮาร์ดแวร์และซอฟต์แวร์จากผู้ผลิตที่แตกต่างกัน
+* สนับสนุนการพัฒนาแบบแยกส่วน (Modular Development) ที่การเปลี่ยนแปลงในชั้นหนึ่งจะไม่กระทบต่อชั้นอื่น
+* จัดเตรียมกรอบการทำงานมาตรฐาน (Standardized Framework) สำหรับการอธิบายฟังก์ชันของเครือข่าย
 
-\node[draw, minimum width=5cm, minimum height=1cm, fill=blue!15, anchor=north west] (trans) at (0,-3) {Layer 4: Transport};
-\node[anchor=west] at (5.5, -3.5) {Provides reliable or unreliable data delivery};
 
-\node[draw, minimum width=5cm, minimum height=1cm, fill=blue!10, anchor=north west] (net) at (0,-4) {Layer 3: Network};
-\node[anchor=west] at (5.5, -4.5) {Manages IP addressing and routing};
+### แบบจำลองที่ใช้บ่อย (Common Layered Models)
 
-\node[draw, minimum width=5cm, minimum height=1cm, fill=blue!15, anchor=north west] (data) at (0,-5) {Layer 2: Data Link};
-\node[anchor=west] at (5.5, -5.5) {Ensures error-free node-to-node delivery};
+#### 1. แบบจำลอง OSI (Open Systems Interconnection)
 
-\node[draw, minimum width=5cm, minimum height=1cm, fill=blue!10, anchor=north west] (phys) at (0,-6) {Layer 1: Physical};
-\node[anchor=west] at (5.5, -6.5) {Transmits raw bits over physical medium};
+แบบจำลอง OSI เป็นแบบจำลองเชิงแนวคิด (Conceptual Model) ที่แบ่งการสื่อสารเครือข่ายออกเป็น **7 ชั้น (7 Layers)** โดยแต่ละชั้นจะมีหน้าที่เฉพาะและสื่อสารกับชั้นที่อยู่ติดกัน
 
-\end{tikzpicture}
-% \caption{OSI Reference Model with Layer Descriptions}
-% \label{fig:osi-model-description}
-```
+ลำดับชั้นตั้งแต่ล่างสุดจนถึงบนสุด ได้แก่:
 
-* **TCP/IP Model (Transmission Control Protocol/Internet Protocol):**
+* **Physical Layer** – ส่งบิตดิบ (Raw Bits) ผ่านสื่อกลางทางกายภาพ
+* **Data Link Layer** – รับรองการส่งข้อมูลระหว่างโหนด (Node-to-Node) ให้ปราศจากข้อผิดพลาด
+* **Network Layer** – จัดการการกำหนดที่อยู่แบบตรรกะ (Logical Addressing เช่น IP) และการกำหนดเส้นทาง (Routing)
+* **Transport Layer** – จัดหาการส่งข้อมูลที่เชื่อถือได้หรือไม่เชื่อถือได้ระหว่างระบบปลายทาง
+* **Session Layer** – สร้าง รักษา และยุติการเชื่อมต่อแบบเซสชัน (Sessions) ระหว่างแอปพลิเคชัน
+* **Presentation Layer** – จัดการการแปลงรูปแบบข้อมูล (Data Formatting), การเข้ารหัส (Encoding), และการเข้ารหัสลับ (Encryption)
+* **Application Layer** – เป็นอินเทอร์เฟซโดยตรงระหว่างแอปพลิเคชันผู้ใช้กับบริการเครือข่าย
 
-  * A 4-layer model that reflects practical protocol architecture.
-  * Widely used in real-world networks and the foundation of the Internet.
-  * Layers include:
+<img src="figure/05/osi_model.png" 
+     alt="OSI Reference Model with Layer Descriptions" 
+     style="width:50%; height:auto;">
 
-    * **Application Layer**
-    * **Transport Layer**
-    * **Internet Layer**
-    * **Network Access Layer**
 
-* **OSI and TCP/IP Layer Mapping:**
+#### 2. แบบจำลอง TCP/IP (Transmission Control Protocol / Internet Protocol)
 
-  * **Application Layer (TCP/IP)** corresponds to the OSI Application, Presentation, and Session Layers.
-  * **Transport Layer** maps directly between both models.
-  * **Internet Layer (TCP/IP)** corresponds to the OSI Network Layer.
-  * **Network Access Layer (TCP/IP)** encompasses the Data Link and Physical Layers of the OSI model.
+แบบจำลอง TCP/IP เป็นแบบจำลองที่ใช้จริงในสถาปัตยกรรมของโปรโตคอลสมัยใหม่ และเป็นรากฐานของอินเทอร์เน็ต โดยประกอบด้วย **4 ชั้น** ได้แก่:
 
-* **Benefits of Layered Design:**
+* **Application Layer**
+* **Transport Layer**
+* **Internet Layer**
+* **Network Access Layer**
 
-  * Promotes protocol specialization and flexibility.
-  * Supports standardized interfaces between layers.
-  * Facilitates easier troubleshooting and network scalability.
+### การเปรียบเทียบการแมปชั้น (OSI vs TCP/IP Layer Mapping)
 
-## Encapsulation and Protocol Data Units (PDUs)
+* **Application Layer (TCP/IP)** สอดคล้องกับชั้น Application, Presentation, และ Session ของ OSI
+* **Transport Layer** ตรงกันทั้งสองแบบจำลอง
+* **Internet Layer (TCP/IP)** สอดคล้องกับ Network Layer ของ OSI
+* **Network Access Layer (TCP/IP)** ครอบคลุม Data Link และ Physical Layers ของ OSI
 
-In network communication, **encapsulation** is the process of adding protocol-specific control information to data as it passes through the layers of the network stack. Each layer appends a header (and sometimes a trailer) to the data unit it receives from the layer above. This prepares the data for proper delivery across diverse network systems.
+### ประโยชน์ของการออกแบบแบบชั้น (Benefits of Layered Design)
 
-* **What is Encapsulation?**
+* สนับสนุนการเชี่ยวชาญเฉพาะด้านของโปรโตคอล (Protocol Specialization)
+* รองรับการทำงานผ่านอินเทอร์เฟซมาตรฐานระหว่างชั้น (Standardized Interfaces)
+* ช่วยให้การแก้ปัญหาทำได้ง่ายขึ้น (Troubleshooting) และส่งเสริมการขยายตัวของเครือข่าย (Scalability)
 
-  * Encapsulation occurs as data moves from the Application Layer down to the Physical Layer.
-  * Each layer adds its own protocol header, forming a *Protocol Data Unit (PDU)* specific to that layer.
-  * At the destination, the process is reversed through *decapsulation*, where headers are removed to reconstruct the original message.
 
-* **Purpose of Encapsulation:**
+✦ แบบจำลอง OSI และ TCP/IP ทำหน้าที่เป็นกรอบอ้างอิงที่สำคัญ นักวิชาการและผู้ปฏิบัติการเครือข่ายใช้เพื่อทำความเข้าใจ วิเคราะห์ และออกแบบระบบสื่อสารข้อมูล
 
-  * Prepares data for transmission across heterogeneous network environments.
-  * Adds necessary information such as addressing, error checking, sequencing, and delivery instructions.
-  * Enables independent protocol operation at each layer of the model.
+## การห่อหุ้มข้อมูลและหน่วยข้อมูลตามโปรโตคอล (Encapsulation and Protocol Data Units: PDUs)
 
-* **Protocol Data Units by OSI Layer:**
+ในการสื่อสารเครือข่าย **การห่อหุ้มข้อมูล (Encapsulation)** คือกระบวนการเพิ่มข้อมูลควบคุมของโปรโตคอล (Protocol Control Information) ลงในข้อมูล (Data) เมื่อมันไหลลงมาตามชั้นต่าง ๆ ของสแต็กเครือข่าย (Network Stack) แต่ละชั้นจะเพิ่ม *ส่วนหัว (Header)* และบางครั้งอาจมี *ส่วนท้าย (Trailer)* เพื่อเตรียมข้อมูลให้สามารถส่งผ่านระบบเครือข่ายที่แตกต่างกันได้อย่างถูกต้อง
 
-  * **Application Layer:** *Data* – Information generated by user applications.
-  * **Transport Layer:** *Segment* (TCP) or *Datagram* (UDP) – Contains source and destination port numbers, sequence numbers, and error-checking information.
-  * **Network Layer:** *Packet* – Includes IP addresses and routing information.
-  * **Data Link Layer:** *Frame* – Contains MAC addresses and error detection data.
-  * **Physical Layer:** *Bits* – The actual transmission of binary data as electrical, optical, or radio signals.
+### ความหมายของการห่อหุ้ม (What is Encapsulation?)
 
-Encapsulation and the use of PDUs are essential for modular communication, enabling data to travel reliably across different types of networks and systems.
+* การห่อหุ้มเกิดขึ้นเมื่อข้อมูลไหลจาก **Application Layer** ลงไปยัง **Physical Layer**
+* แต่ละชั้นจะเพิ่ม **Protocol Header** ของตนเอง จนเกิดเป็นหน่วยข้อมูลที่เรียกว่า **Protocol Data Unit (PDU)**
+* ที่ปลายทาง จะมีการทำงานในทางกลับกันคือ **การคลี่ห่อ (Decapsulation)** เพื่อถอดส่วนหัวและสร้างข้อมูลต้นฉบับกลับคืนมา
 
-## Network Addressing
 
-For data communication to be successful across a network, each device must be uniquely identifiable. This is achieved through a system of addressing at various layers of the network model. Addressing enables data to be correctly routed from source to destination, across local or wide-area networks.
+### วัตถุประสงค์ของการห่อหุ้ม (Purpose of Encapsulation)
 
-* **Purpose of Network Addressing:**
+* เตรียมข้อมูลให้สามารถส่งได้ผ่านเครือข่ายที่แตกต่างกัน (Heterogeneous Networks)
+* เพิ่มข้อมูลจำเป็น เช่น **Addressing, Error Checking, Sequencing, Delivery Instructions**
+* ช่วยให้โปรโตคอลแต่ละชั้นสามารถทำงานได้อย่างอิสระ (Independent Protocol Operation)
 
-  * Identify devices and network interfaces.
-  * Ensure data is delivered to the correct recipient.
-  * Support routing and forwarding across different networks.
+### หน่วยข้อมูลตามชั้น OSI (Protocol Data Units by OSI Layer)
 
-* **Types of Addresses Used in Network Communication:**
+* **Application Layer**: *Data* – ข้อมูลที่สร้างโดยแอปพลิเคชันผู้ใช้
+* **Transport Layer**: *Segment (TCP)* หรือ *Datagram (UDP)* – มีข้อมูลพอร์ต (Port Numbers), หมายเลขลำดับ (Sequence Numbers), และการตรวจสอบข้อผิดพลาด (Error Checking)
+* **Network Layer**: *Packet* – มีที่อยู่ IP และข้อมูลการกำหนดเส้นทาง (Routing Information)
+* **Data Link Layer**: *Frame* – มีที่อยู่ MAC และข้อมูลตรวจสอบข้อผิดพลาด
+* **Physical Layer**: *Bits* – การส่งข้อมูลจริงเป็นสัญญาณไฟฟ้า แสง หรือคลื่นวิทยุ
 
-  * **Physical Address (Layer 2):**
 
-    * Also known as the MAC (Media Access Control) address.
-    * Burned into the network interface card (NIC) of a device.
-    * Used for communication within the same local area network (LAN).
-  * **Network Address (Layer 3):**
+<img src="figure/05/encapsulation.png" 
+     alt="Encapsulation Process and PDUs across OSI Layers" 
+     style="width:50%; height:auto;">
 
-    * Typically an IP address (IPv4 or IPv6).
-    * Used to identify devices across different networks.
-    * Supports hierarchical addressing for scalable routing.
-  * **Port Number (Layer 4):**
+✨ การใช้ **Encapsulation** และ **PDU** ถือเป็นหัวใจของการสื่อสารแบบแยกชั้น (Layered Communication) ซึ่งช่วยให้ข้อมูลสามารถเดินทางได้อย่างน่าเชื่อถือและมีโครงสร้าง ผ่านเครือข่ายและระบบที่แตกต่างกัน
 
-    * Identifies specific processes or services on a host.
-    * Enables multiple applications to use the network simultaneously.
-    * Examples: HTTP (port 80), SMTP (port 25), DNS (port 53).
-  * **Socket:**
+## การกำหนดที่อยู่เครือข่าย (Network Addressing)
 
-    * Combination of an IP address and port number.
-    * Uniquely identifies a specific process-to-process communication flow.
+เพื่อให้การสื่อสารข้อมูลในเครือข่ายสำเร็จได้ อุปกรณ์ทุกตัวต้องสามารถระบุตัวตนได้อย่างชัดเจน ซึ่งทำได้ผ่านการกำหนด **ที่อยู่ (Addressing)** ในแต่ละชั้นของแบบจำลองเครือข่าย การกำหนดที่อยู่นี้ทำให้ข้อมูลถูกส่งไปยังปลายทางที่ถูกต้อง ไม่ว่าจะเป็นเครือข่ายภายใน (LAN) หรือเครือข่ายกว้าง (WAN)
 
-* **Special IP Address Types (IPv4):**
+### วัตถุประสงค์ของการกำหนดที่อยู่ (Purpose of Network Addressing)
 
-  * **Network Address:** Identifies the entire network; all host bits are set to 0.
-  * **Broadcast Address:** Used to send data to all devices on a network; all host bits are set to 1.
-  * **Host Address:** Assigned to individual end devices; must be unique within a network.
+* ระบุอุปกรณ์และอินเทอร์เฟซเครือข่าย
+* ทำให้ข้อมูลถูกส่งไปยังผู้รับที่ถูกต้อง
+* สนับสนุนการกำหนดเส้นทาง (Routing) และการส่งต่อ (Forwarding) ข้ามเครือข่าย
 
-* **Communication Modes:**
+### ประเภทของที่อยู่ในเครือข่าย (Types of Addresses)
 
-  * **Unicast:** One-to-one communication between a single sender and receiver.
-  * **Multicast:** One-to-many communication targeting a group of hosts.
-  * **Broadcast:** One-to-all communication within a local network segment.
+* **Physical Address (Layer 2)**
 
-* **Subnetting and Subnet Masks:**
+  * เรียกว่า **MAC Address (Media Access Control)**
+  * ถูกบันทึกถาวรใน **NIC (Network Interface Card)**
+  * ใช้สำหรับการสื่อสารภายในเครือข่าย LAN
 
-  * Subnetting divides a larger network into smaller, more manageable sub-networks.
-  * A **subnet mask** distinguishes the network portion from the host portion of an IP address.
-  * **ANDing** is used to calculate the network address from a given IP address and subnet mask.
-  * **VLSM (Variable Length Subnet Mask)** allows subnetworks of varying sizes for efficient IP address allocation.
+* **Network Address (Layer 3)**
 
-Understanding network addressing is critical for designing and managing IP-based networks. It enables efficient routing, resource allocation, and communication between devices across local and global networks.
+  * มักอยู่ในรูป **IP Address (IPv4/IPv6)**
+  * ใช้ในการระบุอุปกรณ์ข้ามเครือข่าย
+  * สนับสนุน **Hierarchical Addressing** เพื่อความสามารถในการขยาย (Scalability)
 
-## OSI Model
+* **Port Number (Layer 4)**
 
-### Application Layer
+  * ใช้ระบุโปรเซสหรือบริการเฉพาะบนโฮสต์
+  * อนุญาตให้หลายแอปพลิเคชันใช้เครือข่ายพร้อมกัน
+  * ตัวอย่าง: **HTTP (port 80), SMTP (port 25), DNS (port 53)**
 
-The **Application Layer** is the topmost layer in both the OSI and TCP/IP models and serves as the direct interface between user-facing software applications and the underlying network services. It plays a critical role in enabling network-aware applications—such as web browsers, email clients, and file-sharing tools—to initiate and manage communication over a network or the Internet.
+* **Socket**
 
-One of the primary responsibilities of the Application Layer is to provide a platform for user interaction with the network. This is achieved through the *application-user interface*, where services such as web browsing, email exchange, file transfers, and remote access are delivered directly to end-users. To facilitate this communication, the layer relies on a set of *application layer protocols* that define the rules and formats for exchanging data between programs running on different hosts. Examples include HTTP for web traffic, SMTP for sending email, and DNS for resolving domain names into IP addresses.
+  * คือการรวมกันระหว่าง **IP Address** และ **Port Number**
+  * ใช้เพื่อระบุการสื่อสารระหว่างโปรเซสกับโปรเซสอย่างเฉพาะเจาะจง
 
-In addition to protocols, the Application Layer includes various *application services* that support end-to-end communication. These services perform background operations such as file transfers (FTP), name resolution (DNS), and dynamic addressing (DHCP), allowing applications to function seamlessly over diverse networks.
 
-Communication at the Application Layer can follow two fundamental models: the **client–server model** and the **peer-to-peer (P2P) model**. In the client–server architecture, clients initiate service requests, while servers respond to these requests, often by running background daemon processes that continuously listen for incoming connections. This model supports centralized management and scalability, making it ideal for web services and enterprise applications. In contrast, the peer-to-peer model allows devices to act simultaneously as clients and servers. In this decentralized architecture, each node can initiate communication and provide resources such as files or processing power without relying on a central server. This model is commonly used in file-sharing networks and collaborative applications.
+### ประเภทของที่อยู่ IP (IPv4 Address Types)
 
-Overall, the Application Layer is crucial for delivering user-level services and defining the protocols and interaction patterns that govern networked application behavior.
+* **Network Address** – ระบุทั้งเครือข่าย (host bits = 0)
+* **Broadcast Address** – ส่งข้อมูลไปยังทุกอุปกรณ์ในเครือข่าย (host bits = 1)
+* **Host Address** – ระบุโฮสต์เฉพาะ ต้องไม่ซ้ำกันในเครือข่ายเดียวกัน
 
-### Presentation Layer
 
-The **Presentation Layer** (Layer 6 of the OSI model) functions as a translator between the Application Layer and the lower layers of the OSI stack. Its main responsibility is to ensure that data generated by user applications is presented in a format that can be understood by the receiving system, regardless of any differences in system architecture, encoding, or file format.
+### โหมดการสื่อสาร (Communication Modes)
 
-As illustrated in Figure \ref{fig\:presentation-layer}, the Presentation Layer performs two major functions: *translation* and *encryption*.
+* **Unicast** – การสื่อสารแบบหนึ่งต่อหนึ่ง
+* **Multicast** – การสื่อสารแบบหนึ่งต่อกลุ่ม
+* **Broadcast** – การสื่อสารแบบหนึ่งต่อทุกเครื่องในเครือข่ายย่อย
 
-**Translation** involves the standardization of application data for network transmission. This includes:
+### การแบ่งเครือข่ายย่อย (Subnetting) และ Subnet Masks
 
-* **Text encoding** — converting characters between formats such as ASCII and Unicode.
-* **Byte and bit order conversion** — ensuring the proper endianness and bit-level structure for the receiving system.
-* **File syntax adaptation** — formatting data types such as images (JPG), videos (MP4), or text documents into a standardized representation.
+* การแบ่งเครือข่ายย่อย (Subnetting) คือการแยกเครือข่ายใหญ่ให้เป็นเครือข่ายย่อยที่จัดการได้ง่าย
+* **Subnet Mask** ใช้เพื่อแยกส่วนที่อยู่เครือข่ายออกจากส่วนที่อยู่โฮสต์
+* การคำนวณ **ANDing** ใช้เพื่อหาที่อยู่เครือข่ายจาก IP Address และ Subnet Mask
+* **VLSM (Variable Length Subnet Mask)** อนุญาตให้สร้างเครือข่ายย่อยหลายขนาดเพื่อการใช้งาน IP อย่างมีประสิทธิภาพ
 
-**Encryption** ensures data confidentiality during transmission by:
 
-* Converting *plain text* into *cipher text*, making it unreadable to unauthorized entities.
-* Managing the use of *public and private keys* for secure encryption and decryption operations.
+<img src="figure/05/network_addressing.png" 
+     alt="Types of Network Addressing and IP Subnetting" 
+     style="max-width:50%; height:auto;">
 
-Together, these functions ensure that the data transmitted between systems is both compatible and secure, enabling reliable communication across diverse platforms.
+✨ ความเข้าใจเรื่อง **Network Addressing** เป็นหัวใจสำคัญของการออกแบบและจัดการเครือข่าย IP เพราะช่วยให้การกำหนดเส้นทางมีประสิทธิภาพ การสื่อสารระหว่างอุปกรณ์ถูกต้อง และการจัดสรรทรัพยากรเครือข่ายเป็นไปอย่างเหมาะสม
 
-![Functions of the Presentation Layer: Translation and Encryption](figure/05/layer6.png)
 
-<!-- \label{fig:presentation-layer} -->
+## ชั้น Network (Network Layer)
 
-### Session Layer
+ชั้น **Network (Network Layer)** ของแบบจำลอง OSI ทำหน้าที่สำคัญในการ **กำหนดที่อยู่เชิงตรรกะ (Logical Addressing)**, **การห่อหุ้มข้อมูล (Encapsulation)**, **การกำหนดเส้นทาง (Routing)** และ **การถอดห่อหุ้ม (Decapsulation)** เพื่อให้ข้อมูลสามารถเดินทางจากต้นทางไปยังปลายทางที่อยู่ต่างเครือข่ายได้อย่างถูกต้อง
 
-The **Session Layer** (Layer 5 of the OSI model) is responsible for managing and maintaining multiple communication sessions between application processes running on networked devices. A session represents a logical connection that allows data exchange between endpoints in a synchronized and organized manner.
 
-In the diagram shown below, a single host with IP address `100.1.1.1` is running multiple client applications: `Internet Explorer (IE)`, `Chrome`, and `Mail`. Each application establishes its own session with a remote server using a unique source port:
+### หน้าที่หลัก (Primary Responsibilities)
 
-* `IE` uses source port 49999 to communicate with a web server at TCP port 80.
-* `Chrome` uses source port 50000 to initiate a separate HTTP session on port 80.
-* `Mail` uses source port 50001 to connect with a mail server at TCP port 25.
+### 1. การกำหนดที่อยู่เชิงตรรกะ (Logical Addressing)
 
-Although multiple applications use the same destination services (e.g., HTTP), the Session Layer ensures that each session remains distinct and properly routed. It manages dialog control by opening, maintaining, and closing sessions and ensures data from one session does not interfere with another.
+* ใช้ **IP Address** (เช่น IPv4 หรือ IPv6) เพื่อระบุอุปกรณ์ในเครือข่าย
+* มีโครงสร้างแบบลำดับชั้น (Hierarchical) ทำให้สามารถ **Subnetting** และ **Routing** ได้อย่างมีประสิทธิภาพ
+* สนับสนุนการจัดการด้าน **Security, QoS (Quality of Service), และ Network Segmentation**
 
-This layer enables **concurrent application communication**, session tracking, and coordination across diverse services, forming a foundation for complex and interactive networked systems.
 
-![Session Layer managing multiple client-server sessions using port numbers](figure/05/layer5.png)
 
-<!-- \label{fig:session-layer} -->
+### 2. การห่อหุ้มข้อมูล (Encapsulation)
 
-### Transport Layer
+* เมื่อรับข้อมูลจาก Transport Layer จะเพิ่ม **IP Header** เพื่อสร้าง **Packet**
+* Header ประกอบด้วย **Source/Destination IP Address, TTL (Time-to-Live), Fragment Offset**
+* ทำให้ Router สามารถเลือกเส้นทางได้ถูกต้อง
 
-The **Transport Layer** (Layer 4 of the OSI model) provides logical communication between application processes running on different hosts. It ensures data is transferred reliably or efficiently depending on the protocol used (TCP or UDP), manages segmentation and reassembly, and assigns unique port numbers to identify specific services and sessions.
 
-* **Core Functions:**
+### 3. การกำหนดเส้นทาง (Routing)
 
-  * Segmentation and reassembly
-  * End-to-end communication between processes
-  * Port addressing for multiplexing
-  * Error detection and flow control
-  * Congestion avoidance
+* Router ใช้ **Routing Table** และ **Routing Protocols (OSPF, BGP, EIGRP)** เพื่อหาทางที่ดีที่สุด
+* ปัจจัยที่พิจารณา ได้แก่ **Hop Count, Bandwidth, Cost**
+* สนับสนุนการทำงานเช่น **Load Balancing, Redundancy, และ Failover**
 
-* **Main Transport Layer Protocols:**
 
-  * **Transmission Control Protocol (TCP):**
 
-    * Connection-oriented, reliable delivery (RFC 793)
-    * Features:
+### 4. การถอดห่อหุ้มข้อมูล (Decapsulation)
 
-      * Three-way handshake (SYN, SYN-ACK, ACK)
-      * Sequencing, ACKs, retransmissions
-      * Flow control (window size)
-      * Congestion control
-      * Graceful termination via FIN-ACK
-  * **User Datagram Protocol (UDP):**
+* ที่ปลายทาง Header ของ IP จะถูกตรวจสอบและนำออก
+* Packet จะถูกส่งขึ้นไปยัง Transport Layer เพื่อประกอบข้อมูลกลับคืน
 
-    * Connectionless, best-effort delivery
-    * No guarantees for ordering or reliability
-    * Useful for streaming, DNS, and real-time apps
+### การกำหนดที่อยู่ (Addressing: Internet Protocols)
 
-* **Port Numbers and Socket Identification:**
+### IPv4 (Internet Protocol version 4)
 
-  * Each transport-layer segment includes a source and destination port number.
-  * A socket is identified by: `<IP address, Port number>`
-  * Port ranges are categorized as follows:
+* ใช้ที่อยู่ขนาด **32-bit**
+* Header ประกอบด้วย **Source/Destination IP, TTL, ToS (Type of Service), Fragment Offset, Checksum**
+* เป็น **Connectionless Protocol** แบบ **Best-Effort Delivery**
+* ข้อจำกัดหลักคือ **Address Exhaustion** (การหมดของที่อยู่ IP)
 
-**Port Number Ranges Used in the Transport Layer**
+### IPv6 (Internet Protocol version 6)
 
-| **Type**              | **Range**     | **Examples**             |
-| --------------------- | ------------- | ------------------------ |
-| Well-Known Ports      | 0 — 1023      | HTTP (80), SMTP (25)     |
-| Registered Ports      | 1024 — 49151  | Assigned to applications |
-| Dynamic/Private Ports | 49152 — 65535 | Temporary client ports   |
+* ใช้ที่อยู่ขนาด **128-bit** รองรับจำนวนโหนดมหาศาล
+* Header มีโครงสร้างแบบ **Fixed Header + Extension Headers**
+* คุณสมบัติเด่น:
 
-#### TCP Three-Way Handshake
+  * รองรับ **IPsec** ในตัว
+  * **SLAAC (Stateless Address Autoconfiguration)**
+  * ไม่มี **Broadcast** → ใช้ **Multicast และ Anycast** แทน
 
-To establish a reliable connection, the **Transmission Control Protocol (TCP)** uses a three-step process called the *three-way handshake*. This process synchronizes sequence numbers and confirms that both the client and server are ready to transmit data.
+### การทำงานของ Router และ Routing Table
 
-1. **SYN:** The client initiates the connection by sending a TCP segment with the SYN (synchronize) flag set. It includes an initial sequence number (e.g., 1000).
-2. **SYN-ACK:** The server responds with a segment that has both SYN and ACK flags set. It includes its own sequence number (e.g., 3000) and acknowledges the client's sequence by sending an ACK number (1001), which is the client's sequence number plus one.
-3. **ACK:** The client completes the handshake by sending an ACK segment acknowledging the server's sequence number (e.g., 3001).
+### Router
 
-After this exchange, the connection is considered established, and data transfer can begin. When the communication ends, TCP uses a similar exchange of FIN and ACK flags to terminate the session gracefully.
+* เป็นอุปกรณ์ Layer 3 ใช้ **Routing Table** เพื่อตัดสินใจส่งต่อ **Packet**
+* รองรับ **Static Routing และ Dynamic Routing**
+* ทำงานร่วมกับ **ARP, NAT, ACL, QoS** เพื่อเพิ่มประสิทธิภาพและความปลอดภัย
 
-![TCP Three-Way Handshake, Data Transfer, and Connection Termination](figure/05/threeway.png)
+### Routing Table
 
-<!-- \label{fig:tcp-handshake} -->
+* โครงสร้างข้อมูลที่เก็บ **Destination Network, Subnet Mask, Next-Hop, Metric**
+* มีทั้งแบบ **Static** (กำหนดด้วยตนเอง) และ **Dynamic** (เรียนรู้จาก Routing Protocols)
 
-The diagram below illustrates how TCP tracks and updates sequence and acknowledgment numbers during the three-way handshake, data transfer, and connection termination.
+### ประเภทของการกำหนดเส้นทาง (Routing Types)
 
-In the handshake phase, the client sends a `SYN` segment with an initial sequence number of 1000. The server responds with a `SYN-ACK` segment, choosing a starting sequence number of 3000 and acknowledging the client's sequence with an ACK of 1001. The client finalizes the handshake with a third segment carrying sequence number 1001 and acknowledgment number 3001.
+| ประเภท (Routing Type) | คำอธิบาย (Description)                                                                    |
+| --------------------- | ----------------------------------------------------------------------------------------- |
+| **Static Routing**    | ผู้ดูแลระบบกำหนดเส้นทางด้วยตนเอง ไม่ปรับอัตโนมัติ เหมาะกับเครือข่ายเล็ก/คงที่             |
+| **Dynamic Routing**   | ใช้ **Routing Protocols (RIP, EIGRP, OSPF, BGP)** เพื่อเรียนรู้และปรับเส้นทางโดยอัตโนมัติ |
 
-Data transfer then begins, with the client sending 200 bytes of data starting at sequence number 1001. The server acknowledges this segment with ACK 1201. These numbers represent the byte-level offset for reassembling data correctly at the receiving end.
 
-Connection termination is performed using the `FIN` flag. The client sends a `FIN` at sequence number 1201. The server acknowledges it with ACK 1202 and sends its own `FIN` with sequence number 3002. The client replies with the final ACK 3003.
 
-This handshake mechanism ensures a reliable, synchronized start to communication and is critical for connection-oriented protocols like TCP.
+### ตัวอย่าง Routing Table หลาย Router
 
-#### User Datagram Protocol (UDP)
 
-The **User Datagram Protocol (UDP)**, defined in **RFC 768**, is a connectionless transport layer protocol that offers *best-effort* data delivery without establishing a formal connection between sender and receiver. Unlike TCP, UDP does not implement handshakes, acknowledgments, sequencing, or retransmission, resulting in minimal protocol overhead. This makes UDP highly efficient and faster, though less reliable, as it cannot guarantee data delivery or order. Despite its limitations, UDP is ideal for *time-sensitive applications* where speed is prioritized over reliability. Examples include **Voice over IP (VoIP)**, **live video streaming**, **online gaming**, and **Domain Name System (DNS)** lookups, where minor data loss is acceptable if overall responsiveness is maintained.
+<img src="figure/05/routing.png" 
+     alt="Routing Table Example Across Routers A, B, and C" 
+     style="max-width:50%; height:auto;">
 
-### Network Layer
 
-#### Primary Responsibilities
+* **Router A** → เชื่อมตรงกับเครือข่าย `10.1.0.0` และส่งต่อไปยังเครือข่ายอื่นผ่าน `s0/0/0`
+* **Router B** → อยู่กึ่งกลาง มีเส้นทางตรงกับ `10.2.0.0, 10.3.0.0`
+* **Router C** → เชื่อมตรงกับ `10.3.0.0, 10.4.0.0`
 
-* **Logical Addressing:** Logical addressing is the mechanism by which each device or host in a network is assigned a unique identifier—commonly an IP address. Unlike MAC addresses, which are tied to hardware, logical addresses are hierarchical and can change depending on network configuration. They enable end-to-end routing across disparate networks by allowing routers and switches to recognize and forward data correctly. Logical addressing is essential for enabling internetwork communication, facilitating subnetting, and supporting scalable growth. Additionally, network administrators use logical addresses to implement access control, quality of service policies, and network segmentation, ensuring that traffic is routed accurately and securely across complex infrastructures.
 
-* **Encapsulation:** Encapsulation at the Network Layer involves adding an IP header to the Transport Layer segment to create a packet. This header contains critical information such as source and destination IP addresses, TTL (Time-to-Live), and fragment offset. Encapsulation bridges the gap between the transport layer’s data-oriented view and the network layer’s routing responsibilities. It ensures that routers, which operate at Layer 3, can properly forward packets across multiple network segments. This process isolates higher layers from network-specific details and supports functions such as fragmentation and path MTU discovery. Upon arrival, decapsulation removes the header, passing the original segment up for further processing.
+### เกตเวย์เริ่มต้น (Default Gateway)
 
-* **Routing:** Routing is the process by which packets are directed from their origin to their destination across one or more intermediate networks. Routers maintain routing tables, which contain information on reachable networks and associated metrics, to determine the optimal path for each packet. This process involves interpreting routing protocols such as OSPF, BGP, and EIGRP, which dynamically exchange network topology information. By analyzing destination IP addresses, routers select the next-hop interface and forward the packet accordingly. Effective routing ensures resilience, load balancing, and redundancy in large-scale networks. Administrative metrics such as cost, hop count, and bandwidth also influence route selection to optimize performance and reliability.
+* ใช้สำหรับโฮสต์ที่ต้องการส่งข้อมูลไปยังเครือข่ายภายนอก
+* เป็น **First-Hop Router** ที่รับผิดชอบส่งต่อไปยังเส้นทางถัดไป
+* ใช้กันทั่วไปใน LAN เพื่อออกไปยัง Internet
 
-* **Decapsulation:** Decapsulation is the reverse of encapsulation and occurs at the final destination host. Once a packet traverses its path and arrives at the target device, the Network Layer examines its header, verifies integrity, and removes it. This process extracts the original Transport Layer segment—complete with its segment header and payload—and passes it to the appropriate socket or process based on port addressing. The Network Layer also interprets special conditions such as TTL expiration, fragmentation needs, or error flags. Decapsulation ensures that data delivered to applications is accurate, intact, and correctly reconstructed, maintaining the integrity of the layered communication model.
 
-#### Addressing: Internet Protocols
+✦ สรุป: ชั้น Network (Network Layer) เป็นกลไกหลักที่ทำให้การสื่อสาร **ข้ามเครือข่าย (Internetworking)** เกิดขึ้นได้จริง โดยอาศัย IP Address, Routing, และ Router เป็นองค์ประกอบสำคัญ
 
-* **IPv4 (Internet Protocol version 4):** IPv4 is a 32-bit, connectionless protocol that provides best-effort delivery services irrespective of the underlying physical medium. Each IPv4 packet begins with a header featuring several essential fields: source and destination addresses (each 32 bits), TTL to prevent routing loops, ToS for quality of service, and a fragment offset field for managing packet fragmentation and reassembly. The header also includes checksum information for validation. IPv4 underpins the majority of current internet communication. Despite its limitations—chiefly address exhaustion—it remains critical due to established infrastructure and wide compatibility with existing hardware and software.
+## ชั้นข้อมูลลิงก์ (Data Link Layer)
 
-* **IPv6 (Internet Protocol version 6):** IPv6, the successor to IPv4, uses 128-bit addresses to support an exponentially larger address space—enabling virtually infinite unique endpoints. Its redesigned header streamlines processing by organizing fields into a fixed header and optional extension headers. IPv6 includes improved features such as built-in IPsec support for enhanced security, stateless address autoconfiguration (SLAAC), and hierarchical addressing that simplifies aggregation and routing. The protocol eliminates IPv4’s broadcast concept and includes a larger multicast address space. It addresses scalability, performance, and security needs of modern networks, and is rapidly being adopted to alleviate IPv4 exhaustion.
+ชั้น **Data Link (Data Link Layer)** ในแบบจำลอง OSI มีหน้าที่หลักในการทำให้การส่งข้อมูลระหว่างโหนด (Node-to-Node) ภายในเครือข่ายท้องถิ่น (LAN Segment) มีความถูกต้องและเชื่อถือได้ โดยทำการจัดเตรียมแพ็กเก็ต (Packet) จากชั้น Network ให้อยู่ในรูปแบบของ **Frame** เพื่อส่งต่อผ่านสื่อกลางจริง
 
-#### Routing
 
-* **Router:** A router is a Layer 3 network device that forwards packets between different IP networks. Routers maintain and update routing tables representing the network topology. Based on destination IP addresses, they decide the most efficient route and forward packets accordingly. Routers adhere to routing protocols (e.g., OSPF, BGP) that allow them to dynamically learn paths, share information with neighbor routers, and adapt to network changes. A router typically connects networks with different prefix ranges and uses supplemental protocols (e.g., ARP) to resolve next-hop MAC addresses. By implementing access control, NAT, and QoS policies, routers also enhance network security and performance.
+### หน้าที่หลัก (Core Functions)
 
-* **Routing Table:** A routing table is a data structure within a router or host that stores information about how to reach destination networks. Each entry typically includes a destination prefix, subnet mask, next-hop IP, and metric (cost). The router selects the most appropriate path based on these metrics. Dynamic routes are learned through routing protocols and automatically updated, while static routes are manually configured. Routing tables also handle default routes for forwarding traffic to external networks. Properly configured tables are essential for correct packet forwarding, network segmentation, and redundancy, supporting failover and load balancing mechanisms.
+* **Framing (การจัดเฟรม):**
+  ห่อหุ้ม (Encapsulate) แพ็กเก็ตจากชั้น Network ด้วยส่วนหัว (Header) และส่วนท้าย (Trailer) ของ Layer 2 เพื่อสร้าง **Frame** ที่มีข้อมูลควบคุมสำหรับการซิงโครไนซ์ การตรวจสอบข้อผิดพลาด และการระบุปลายทาง
 
-##### Routing Types: Static vs. Dynamic
+* **Media Access Control (MAC):**
+  กำหนดวิธีที่อุปกรณ์บนเครือข่ายเข้าถึงสื่อกลางและเริ่มการส่งข้อมูล รวมถึงการจัดการ **MAC Address** เพื่อระบุอุปกรณ์และควบคุมการชนกันของสัญญาณ (Collision)
 
-Routing in IP networks can be categorized into two primary types: **Static Routing** and **Dynamic Routing**.
+### ชั้นย่อย (Sublayers)
 
-**Static Routing** involves manually configuring routes on a router by an administrator. These routes do not change unless manually updated, making them suitable for small or stable networks where traffic paths are predictable. Static routing is simple and has minimal overhead, but lacks the ability to adapt to network failures or topology changes.
+ชั้น Data Link แบ่งออกเป็น 2 ชั้นย่อย ได้แก่:
 
-**Dynamic Routing**, in contrast, enables routers to automatically share and update routing information through protocols. These protocols adjust to changes in network topology, reroute traffic dynamically, and improve scalability and fault tolerance. Dynamic routing is essential for larger or more complex networks.
+1. **LLC (Logical Link Control):**
+   ทำหน้าที่ติดต่อกับโปรโตคอลชั้น Network และจัดการการตรวจสอบข้อผิดพลาดและการซิงโครไนซ์ของเฟรม
+2. **MAC (Media Access Control):**
+   จัดการที่อยู่เชิงกายภาพ (Physical Address / MAC Address) และวิธีการเข้าถึงสื่อกลาง (Access Methods)
 
-**Comparison of Static and Dynamic Routing**
 
-| **Routing Type**    | **Description**                                                                                                                             |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Static Routing**  | Manually configured routes by an administrator; does not adjust automatically to network changes; best suited for small or stable networks. |
-| **Dynamic Routing** | Routers share route information and adapt to topology changes using dynamic protocols such as RIP, EIGRP, and OSPF.                         |
+### วิธีการเข้าถึงสื่อ (Access Methods)
 
-##### Common Dynamic Routing Protocols
+* **Controlled Access (การเข้าถึงแบบควบคุม):**
+  อุปกรณ์จะเข้าถึงสื่อกลางตามลำดับที่กำหนด เช่น **Token Passing**
 
-* **RIP (Routing Information Protocol)** – A distance-vector protocol that determines path selection based on hop count. It updates routing tables every 30 seconds and supports a maximum of 15 hops, making it suitable only for smaller networks. RIP is simple but converges slowly and is less scalable.
-* **EIGRP (Enhanced Interior Gateway Routing Protocol)** – A Cisco proprietary protocol that combines features of distance-vector and link-state routing. It uses the DUAL (Diffusing Update Algorithm) for rapid convergence and supports load balancing on equal and unequal-cost paths. EIGRP is efficient and responsive, particularly in Cisco-based environments.
-* **OSPF (Open Shortest Path First)** – A link-state protocol that builds a complete map of the network and calculates the shortest path using Dijkstra's algorithm. OSPF is open-standard and widely used in enterprise networks due to its scalability, hierarchical area design, and fast convergence.
+* **Contention-Based Access (การเข้าถึงแบบแข่งขัน):**
+  อุปกรณ์แข่งขันกันเพื่อใช้สื่อกลาง แบ่งออกเป็น:
 
-##### Routing Table Example Across Multiple Routers
+  * **CSMA/CD (Carrier Sense Multiple Access with Collision Detection):** ใช้ใน Ethernet แบบมีสาย
+  * **CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance):** ใช้ใน Wi-Fi (IEEE 802.11)
 
-The figure below demonstrates a basic routing scenario involving three routers—**Router A**, **Router B**, and **Router C**—connected in a serial chain. Each router maintains a routing table with entries for known networks, the interface used to reach those networks, and the corresponding metric (or hop count).
 
-![Routing Table Example Across Routers A, B, and C](figure/05/routing.png)
+### โทโพโลยีเครือข่าย (Network Topologies)
 
-<!-- \label{fig:routing-tables} -->
+* **Point-to-Point:** การเชื่อมตรงระหว่างสองโหนด
+* **Multi-Access:** อุปกรณ์หลายตัวแชร์สื่อกลางเดียวกัน เช่น Ethernet LAN
+* **Ring:** อุปกรณ์เชื่อมต่อเป็นวงกลม ข้อมูลไหลตามลำดับ
 
-* **Router A** is directly connected to the `10.1.0.0` network via `fa0/0`, and reaches the other networks (`10.2.0.0`, `10.3.0.0`, `10.4.0.0`) through its serial interface `s0/0/0`. The metric increases by 1 for each additional hop.
-* **Router B**, located in the middle of the topology, has direct connections to `10.2.0.0` and `10.3.0.0` networks via its own serial interfaces. It reaches the `10.4.0.0` and `10.1.0.0` networks through one and two hops, respectively.
-* **Router C** is directly connected to `10.3.0.0` and `10.4.0.0`, and must route through intermediate networks to reach `10.2.0.0` and `10.1.0.0`.
-* The **routing tables** shown beneath each router include three columns:
 
-  1. **Destination Network (e.g., 10.3.0.0)**
-  2. **Outgoing Interface (e.g., s0/0/1)**
-  3. **Metric (Hop Count)**
+### โปรโตคอลที่ใช้ทั่วไปในชั้น Data Link (Common Protocols)
 
-This setup exemplifies how routers build and utilize routing tables to forward packets through the best available path. It also illustrates how the routing metric increases with distance from the destination, a key concept in distance-vector routing protocols such as RIP.
+* **Ethernet (IEEE 802.2/802.3):** เทคโนโลยี LAN ที่แพร่หลายที่สุด รองรับทั้งแบบ Half-Duplex และ Full-Duplex
+* **PPP (Point-to-Point Protocol):** ใช้บนลิงก์ WAN แบบ Serial รองรับการตรวจสอบสิทธิ์ (Authentication) การบีบอัด และการตรวจสอบข้อผิดพลาด
+* **IEEE 802.11 (Wi-Fi):** มาตรฐาน LAN ไร้สาย ใช้คลื่นวิทยุและกลไก **CSMA/CA**
 
-* **Default Gateway:** A default gateway is the first-hop router to which devices send packets destined for networks outside their local subnet. When a host’s routing table lacks a specific route, the packet is forwarded to the default gateway. This gateway then uses routing logic to determine the next hop. Configuring a default gateway is essential for enabling communication with external networks, including the Internet. In enterprise environments, dual or redundant gateway configurations support high availability, load balancing, and network failover—improving reliability and resilience.
+<img src="figure/05/layer2.png" 
+     alt="Data Link Layer Functions and Sublayers" 
+     style="max-width:50%; height:auto;">
 
-### Data Link Layer
+✦ สรุป: ชั้น **Data Link Layer** ทำหน้าที่สำคัญในการ **แปลง Packet ให้เป็น Frame**, จัดการ **MAC Address**, และควบคุมการเข้าถึงสื่อกลางเพื่อให้การสื่อสารในเครือข่ายท้องถิ่นมีความถูกต้องและเสถียร
 
-The **Data Link Layer** of the OSI model is responsible for the reliable transmission of data across a single local network segment. It prepares Layer 3 packets for delivery over the physical medium and ensures that data is delivered without errors between directly connected nodes.
+## ชั้นกายภาพ (Physical Layer)
 
-#### Core Functions
+ชั้น **Physical Layer** เป็นชั้นล่างสุดของแบบจำลอง OSI ซึ่งรับผิดชอบในการส่งสัญญาณข้อมูลดิบ (Raw Bitstream) ผ่านสื่อกลางจริง เช่น สายทองแดง (Copper), ใยแก้วนำแสง (Fiber Optic), หรือคลื่นวิทยุ (Wireless). ชั้นนี้กำหนดองค์ประกอบทางกายภาพทั้งหมดของระบบเครือข่าย ไม่ว่าจะเป็นสายเคเบิล อุปกรณ์เครือข่าย การ์ดเชื่อมต่อเครือข่าย (NIC) และวิธีการเข้ารหัสสัญญาณ (Signaling).
 
-* **Framing:** Encapsulates Layer 3 packets (usually IP packets) into frames by adding a Layer 2 header and trailer. This structure helps with synchronization, addressing, and error detection.
-* **Media Access Control (MAC):** Controls how devices on the network gain access to the medium and permission to transmit data. This includes physical addressing (MAC addresses) and managing collisions or access delays.
 
-#### Sublayers
+### หน้าที่หลัก (Key Functions)
 
-The Data Link Layer is divided into two sublayers:
+* **Signal Generation (การสร้างสัญญาณ):**
+  แปลงข้อมูลไบนารี (1 และ 0) จาก **Data Link Layer** ให้เป็นสัญญาณทางกายภาพ เช่น ไฟฟ้า แสง หรือคลื่นวิทยุ เพื่อการส่งต่อ
 
-* **LLC (Logical Link Control):** Provides interface with Layer 3 protocols and handles error checking and frame synchronization. It identifies which network protocol (e.g., IP, IPX) is being used.
-* **MAC (Media Access Control):** Responsible for physical addressing, determining when the medium is available, and initiating frame transmission.
+* **Data Encoding (การเข้ารหัสข้อมูล):**
+  จัดรูปแบบข้อมูลเพื่อให้สามารถตีความและซิงโครไนซ์ได้ระหว่างการส่ง ตัวอย่างเช่น **Manchester Encoding** และ **Non-Return to Zero (NRZ)**
 
-#### Access Methods
+* **Signaling Methods (วิธีการส่งสัญญาณ):**
+  ระบุวิธีที่ค่าข้อมูลไบนารีแสดงออกทางกายภาพ เช่น ระดับแรงดันไฟฟ้า (Voltage Levels), แสงพัลส์ (Light Pulses), หรือความถี่คลื่นวิทยุ (Radio Frequencies)
 
-* **Controlled Access:** Uses a deterministic approach where devices take turns accessing the medium. Examples include token passing methods.
-* **Contention-Based Access:** A non-deterministic method where devices compete for the medium. It includes:
 
-  * **CSMA/CD (Carrier Sense Multiple Access with Collision Detection):** Used in wired Ethernet networks.
-  * **CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance):** Used in wireless networks like Wi-Fi.
+### สื่อส่งข้อมูล (Transmission Media)
 
-#### Network Topologies
+* **Copper Cables (สายทองแดง):** ใช้สัญญาณไฟฟ้า ตัวอย่างเช่น
 
-* **Point-to-Point:** A direct connection between two nodes for exclusive communication.
-* **Multi-Access:** Multiple devices share a common communication medium (e.g., Ethernet LAN).
-* **Ring:** Devices are connected in a circular fashion, with data passing sequentially from one to the next.
+  * **Unshielded Twisted Pair (UTP):** ใช้แพร่หลายที่สุดใน LAN พร้อมหัวต่อ RJ-45
+  * **Shielded Twisted Pair (STP):** ป้องกันสัญญาณรบกวนได้ดีกว่า UTP
+  * **Coaxial Cable:** ใช้สำหรับการสื่อสารบรอดแบนด์และเคเบิลทีวี
 
-#### Common Data Link Layer Protocols
+* **Fiber Optic Cables (ใยแก้วนำแสง):** ใช้พัลส์แสง ส่งข้อมูลได้ระยะไกล ความเร็วสูง และไม่ถูกรบกวนจากสัญญาณแม่เหล็กไฟฟ้า (EMI)
 
-* **Ethernet (IEEE 802.2/802.3):** The most widely used LAN technology supporting both half-duplex and full-duplex communication.
-* **PPP (Point-to-Point Protocol):** Used over serial WAN links to encapsulate Layer 3 packets and provide authentication, compression, and error detection.
-* **IEEE 802.11 (Wi-Fi):** A wireless LAN standard that operates over radio waves and employs CSMA/CA to manage access to the shared medium.
+  * **Single-Mode Fiber:** ใช้เลเซอร์ รองรับการสื่อสารระยะไกลและความจุสูง
+  * **Multimode Fiber:** ใช้ LED เหมาะสำหรับระยะสั้นแต่มีข้อจำกัดจาก **Modal Dispersion**
 
-### Physical Layer
+* **Wireless Media (สื่อไร้สาย):** ใช้คลื่นแม่เหล็กไฟฟ้า ตัวอย่างเช่น
 
-The **Physical Layer** is the lowest layer of the OSI model and is responsible for the physical transmission of raw bitstreams over a communication medium. It defines the hardware elements involved in the network, including cables, switches, network interface cards, and signaling methods.
+  * **IEEE 802.11 (Wi-Fi)**
+  * **IEEE 802.15 (Bluetooth)**
+  * **IEEE 802.16 (WiMAX)**
+  * **GSM (Global System for Mobile Communications)**
 
-#### Key Functions
 
-* **Signal Generation:** Converts binary data (1s and 0s) from the Data Link Layer into physical signals for transmission—electrical, optical, or wireless.
-* **Data Encoding:** Formats data for proper interpretation and synchronization during transmission. Common methods include Manchester Encoding and Non-Return to Zero (NRZ).
-* **Signaling Methods:** Specify how the binary values are physically represented on the medium (e.g., voltage levels, light pulses, or radio frequencies).
+### ตัวชี้วัดการส่งข้อมูล (Data Transmission Metrics)
 
-#### Transmission Media
+* **Bandwidth (แบนด์วิดท์):** ความสามารถสูงสุดเชิงทฤษฎีของสื่อกลาง วัดเป็น Mbps หรือ Gbps
+* **Throughput (ทรูพุต):** อัตราที่ข้อมูลถูกส่งสำเร็จจริง มักได้รับผลกระทบจากสภาวะเครือข่าย
+* **Goodput (กู้ดพุต):** ส่วนของ Throughput ที่มีประโยชน์จริงในชั้น Application ไม่รวม Overhead หรือการส่งซ้ำ
 
-* **Copper Cables:** Transmit electrical signals; include:
 
-  * **Unshielded Twisted Pair (UTP):** Widely used in LANs; uses RJ-45 connectors.
-  * **Shielded Twisted Pair (STP):** Offers better protection against electromagnetic interference (EMI).
-  * **Coaxial Cable:** Used for broadband connections and cable TV.
-* **Fiber Optic Cables:** Transmit data using pulses of light; immune to EMI and ideal for high-speed and long-distance transmission.
+<img src="figure/05/layer1.png" 
+     alt="Physical Layer Functions and Media" 
+     style="max-width:50%; height:auto;">
 
-  * **Single-mode Fiber:** Uses a laser light source for long-distance, high-bandwidth communication.
-  * **Multimode Fiber:** Uses LEDs and is suited for shorter distances due to modal dispersion.
-* **Wireless Media:** Uses electromagnetic waves to carry data; susceptible to interference and environmental factors.
 
-  * **IEEE 802.11 (Wi-Fi):** Wireless LAN standard.
-  * **IEEE 802.15 (Bluetooth):** Short-range device communication.
-  * **IEEE 802.16 (WiMAX):** Wireless broadband access.
-  * **GSM:** Cellular communication standard.
+✦ สรุป: ชั้น **Physical Layer** เป็นรากฐานของระบบเครือข่ายทั้งหมด ทำหน้าที่กำหนดวิธีที่ **Bits** ถูกแปลงเป็นสัญญาณกายภาพ และกำหนดคุณภาพการสื่อสารผ่านสื่อกลางต่าง ๆ
 
-#### Data Transmission Metrics
 
-* **Bandwidth:** Theoretical maximum data transfer capacity of a medium, typically measured in Mbps or Gbps.
-* **Throughput:** The actual rate at which data is successfully transmitted over the medium, often affected by network conditions.
-* **Goodput:** The portion of throughput that is useful to the application layer—excluding protocol overhead, retransmissions, and headers.
