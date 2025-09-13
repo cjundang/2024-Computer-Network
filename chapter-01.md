@@ -1,52 +1,14 @@
 # บทที่ 1 — บทนำสู่เครือข่ายคอมพิวเตอร์ (Introduction to Networking)
 
-## หัวข้อที่ 1: บทนำ (Introduction)  
+## หัวข้อ
+- บทนำ (Introduction)  
 - เครือข่ายคอมพิวเตอร์คืออะไร? (What is a Computer Network?)  
-- ทำไมเราจึงต้องการเครือข่ายคอมพิวเตอร์? (Why do we need a Computer Network?)  
+- ทำไมเราจึงต้องการเครือข่ายคอมพิวเตอร์ (Why We Need Computer Networks)  
 - ประเภทของเครือข่ายคอมพิวเตอร์ (Types of Computer Networks)  
 - อินเทอร์เน็ต (Internet)  
-
-## หัวข้อที่ 2: ผลลัพธ์การเรียนรู้รายวิชา (Course Learning Outcomes: LOs)
-
-## หัวข้อที่ 3: เครือข่ายคอมพิวเตอร์คืออะไร? (What is a Computer Network?)  
-- หน้าที่สำคัญของเครือข่าย (Key Functions of Networks)  
-  - การใช้ทรัพยากรร่วมกัน (Resource Sharing)  
-  - การสื่อสาร (Communication)  
-  - การเข้าถึงข้อมูลแบบรวมศูนย์ (Centralized Data Access)  
-
-## หัวข้อที่ 4: ทำไมเราจึงต้องการเครือข่ายคอมพิวเตอร์ (Why We Need Computer Networks)  
-- การใช้ทรัพยากรอย่างคุ้มค่า (Cost-efficient Resource Utilization)  
-- การเข้าถึงระยะไกลและการทำงานจากที่บ้าน (Remote Access and Telecommuting)  
-- การประมวลผลแบบกระจายและบริการคลาวด์ (Distributed Computing and Cloud Services)  
-
-## หัวข้อที่ 5: ประเภทของเครือข่ายคอมพิวเตอร์ (Types of Computer Networks)  
-- เครือข่ายเฉพาะบุคคล (Personal Area Network: PAN)  
-- เครือข่ายท้องถิ่น (Local Area Network: LAN)  
-- เครือข่ายจัดเก็บข้อมูล (Storage Area Network: SAN)  
-- เครือข่ายมหานคร (Metropolitan Area Network: MAN)  
-- เครือข่ายบริเวณกว้าง (Wide Area Network: WAN)  
-- เครือข่ายส่วนตัวเสมือน (Virtual Private Network: VPN)  
-- เครือข่ายบริเวณวิทยาเขต (Campus Area Network: CAN)  
-
-## หัวข้อที่ 6: อินเทอร์เน็ต (Internet)  
-- ประวัติ (History)  
-- เหตุการณ์สำคัญ (Milestones of Internet)  
-- อินเทอร์เน็ตในประเทศไทย (Internet in Thailand)  
-
-## หัวข้อที่ 7: บทนำสู่อุปกรณ์เครือข่าย (Introduction to Network Devices)  
-- คอมพิวเตอร์ส่วนบุคคล (Personal Computers: PCs)  
-- สวิตช์ (Switches)  
-- เราเตอร์ (Routers)  
-- เกตเวย์ (Gateways)  
-- ไฟร์วอลล์ (Firewalls)  
-- จุดเชื่อมต่อไร้สาย (Access Points: APs)  
-
-## หัวข้อที่ 8: โทโพโลยีและสถาปัตยกรรมเครือข่าย (Network Topologies and Architecture)  
-- โทโพโลยีทางกายภาพ (Physical Topologies)  
-- โทโพโลยีเชิงตรรกะ (Logical Topologies)  
-- สถาปัตยกรรมเครือข่าย (Network Architectures)  
-- โดเมนบรอดคาสต์ (Broadcast Domains)  
-- เครือข่ายท้องถิ่นเสมือน (Virtual LANs: VLANs)
+- บทนำสู่อุปกรณ์เครือข่าย (Introduction to Network Devices)  
+- โทโพโลยีและสถาปัตยกรรมเครือข่าย (Network Topologies and Architecture)  
+  
 
 
 ## เครือข่ายคอมพิวเตอร์คืออะไร? (What is a Computer Network?)
