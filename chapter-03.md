@@ -1,143 +1,204 @@
-# Chapter 3 -  Network Devices
+# บทที่ 3 – อุปกรณ์เครือข่าย (Network Devices)
 
-## Topics
+## หัวข้อ (Topics)
 
-* Introduction to network devices: switches, routers, PCs
-* Network topologies and architecture
+* บทนำเกี่ยวกับอุปกรณ์เครือข่าย: สวิตช์ (Switches), เราเตอร์ (Routers), คอมพิวเตอร์ส่วนบุคคล (PCs)
+* โทโพโลยีและสถาปัตยกรรมเครือข่าย (Network Topologies and Architecture)
 
-## Learning Outcomes
+## ผลลัพธ์การเรียนรู้ (Learning Outcomes)
 
-* Identify functions of common network devices
-* Build a basic network using Packet Tracer
-* Use `ipconfig` and Control Panel in Windows 11 to view network info
+* ระบุหน้าที่ของอุปกรณ์เครือข่ายทั่วไปได้ (Identify functions of common network devices)
+* สร้างเครือข่ายพื้นฐานโดยใช้แพ็กเก็ตเทรเซอร์ (Build a basic network using Packet Tracer)
+* ใช้คำสั่ง `ipconfig` และแผงควบคุม (Control Panel) ใน Windows 11 เพื่อตรวจสอบข้อมูลเครือข่าย (View network info)
+ 
+## บทนำสู่อุปกรณ์เครือข่าย (Introduction to Network Devices)
 
-## Introduction to Network Devices
+ในระบบเครือข่ายคอมพิวเตอร์ อุปกรณ์ต่าง ๆ ทำงานร่วมกันเพื่อให้การส่ง การรับ และการประมวลผลข้อมูลเป็นไปอย่างมีประสิทธิภาพ การเข้าใจบทบาทและหน้าที่ของอุปกรณ์เหล่านี้ถือเป็นสิ่งสำคัญสำหรับผู้ที่เริ่มต้นศึกษาเครือข่าย อุปกรณ์เครือข่ายเป็นส่วนประกอบหลักที่กำหนดว่าข้อมูลจะเคลื่อนที่จากจุดหนึ่งไปยังอีกจุดหนึ่งอย่างไร แต่ละส่วนของเครือข่ายจะเชื่อมต่อกันอย่างไร และบริการต่าง ๆ เช่น ความปลอดภัย (Security), การกำหนดเส้นทาง (Routing), และการควบคุมการเข้าถึง (Access) จะถูกใช้งานอย่างไร
 
-In any computer network, various devices work together to ensure the successful transmission, reception, and processing of data. Understanding the roles and functions of these devices is crucial for anyone entering the field of networking. Network devices are the building blocks that define how data travels from one point to another, how different segments of a network interact, and how services such as security, routing, and access are implemented. This section introduces the most common network devices, including switches, routers, personal computers (PCs), gateways, access points, and firewalls, providing a foundation for understanding both basic and intermediate networking concepts.
+### คอมพิวเตอร์ส่วนบุคคล (PCs: Personal Computers)
 
-**PCs (Personal Computers)**
-Personal computers serve as endpoints in a network, responsible for both generating and consuming data. Each PC is equipped with a Network Interface Card (NIC), which may be wired (Ethernet) or wireless (Wi-Fi). Network configuration settings include an IP address (either static or assigned via DHCP), subnet mask, default gateway, and DNS server information. PCs communicate using the TCP/IP model and rely on standard diagnostic tools such as `ping` for checking connectivity, `ipconfig` (on Windows) or `ifconfig`/`ip a` (on Linux) for viewing network configurations, and `tracert` or `traceroute` for examining packet travel paths. Multiple layers of the OSI model are relevant in PC networking: the physical layer for hardware and cabling, the data link layer for MAC addressing, the network layer for IP addressing, the transport layer for protocols like TCP and UDP, and the application layer for services like HTTP, FTP, and DNS. Security best practices on PCs include enabling firewalls, using antivirus software, and ensuring operating systems and applications are regularly updated with security patches.
+คอมพิวเตอร์ส่วนบุคคลทำหน้าที่เป็น **ปลายทาง (Endpoints)** ของเครือข่าย มีบทบาททั้งในการสร้างและการใช้งานข้อมูล โดยจะมี **การ์ดเชื่อมต่อเครือข่าย (Network Interface Card – NIC)** ทั้งแบบใช้สาย (Ethernet) และไร้สาย (Wi-Fi)
+
+การตั้งค่าเครือข่ายที่สำคัญ ได้แก่:
+
+* ที่อยู่ไอพี (IP Address) – แบบกำหนดเอง (Static) หรือได้รับจาก DHCP
+* มาสก์เครือข่ายย่อย (Subnet Mask)
+* เกตเวย์เริ่มต้น (Default Gateway)
+* เซิร์ฟเวอร์ DNS (DNS Server)
+
+พีซีสื่อสารโดยใช้ **โมเดล TCP/IP** และอาศัยเครื่องมือวินิจฉัย เช่น:
+
+* `ping` – ตรวจสอบการเชื่อมต่อพื้นฐาน
+* `ipconfig` (Windows) หรือ `ifconfig` / `ip a` (Linux) – ตรวจสอบการตั้งค่าเครือข่าย
+* `tracert` / `traceroute` – ตรวจสอบเส้นทางของแพ็กเก็ต
+
+ชั้นของแบบจำลอง **OSI** ที่เกี่ยวข้องกับการทำงานของพีซี ได้แก่:
+
+* ชั้นกายภาพ (Physical Layer) – ฮาร์ดแวร์และสายสัญญาณ
+* ชั้นลิงก์ข้อมูล (Data Link Layer) – การกำหนดค่า MAC Address
+* ชั้นเครือข่าย (Network Layer) – การกำหนดค่า IP Address
+* ชั้นขนส่ง (Transport Layer) – โปรโตคอล TCP/UDP
+* ชั้นประยุกต์ (Application Layer) – บริการ HTTP, FTP, DNS
+
+แนวทางการรักษาความปลอดภัยที่สำคัญบนพีซี ได้แก่ การเปิดใช้งานไฟร์วอลล์ (Firewall), การใช้โปรแกรมป้องกันไวรัส (Antivirus), และการอัปเดตระบบปฏิบัติการ/แอปพลิเคชันอย่างสม่ำเสมอ
 
 ![PC as a Network Endpoint in the OSI and TCP/IP Model](figure/03/PC_Network_Endpoint.png)
+ 
+### สวิตช์ (Switches)
 
-<!-- \label{fig:pc-network-endpoint} -->
+สวิตช์ทำงานหลักที่ **ชั้นลิงก์ข้อมูล (Data Link Layer – Layer 2)** ของแบบจำลอง OSI แต่สวิตช์ขั้นสูงบางชนิดสามารถทำงานที่ **ชั้นเครือข่าย (Layer 3)** ได้ เรียกว่า **มัลติเลเยอร์สวิตช์ (Multilayer Switches)**
 
-**Switches**
-Switches primarily operate at Layer 2 (Data Link Layer) of the OSI model, although some advanced switches also function at Layer 3 (referred to as multilayer switches). They use MAC (Media Access Control) addresses to forward frames to specific destination ports. Each connected device is placed in a separate collision domain, significantly improving performance in LAN environments. Switches support full-duplex communication, eliminating collisions. They maintain a MAC address table (or CAM table) to learn which devices are connected to which ports. Advanced switch features include support for VLANs (Virtual Local Area Networks), port security, link aggregation (EtherChannel), and Spanning Tree Protocol (STP) to prevent network loops. Managed switches allow configuration via command-line interface (CLI), Secure Shell (SSH), or web interfaces, while unmanaged switches operate in a plug-and-play fashion.
+คุณลักษณะและการทำงานที่สำคัญ:
+
+* ใช้ **MAC Address** เพื่อส่งเฟรมไปยังพอร์ตปลายทาง
+* แบ่งแต่ละอุปกรณ์ออกเป็น **โดเมนการชนกัน (Collision Domain)** แยกจากกัน
+* สนับสนุนการสื่อสารแบบฟูลดูเพล็กซ์ (Full-duplex)
+* ใช้ **MAC Address Table (หรือ CAM Table)** ในการเรียนรู้พอร์ตที่เชื่อมต่อกับอุปกรณ์ใด
+
+คุณสมบัติขั้นสูง:
+
+* การสนับสนุน VLAN (Virtual Local Area Network)
+* ความปลอดภัยของพอร์ต (Port Security)
+* การรวมลิงก์ (Link Aggregation / EtherChannel)
+* โปรโตคอล Spanning Tree (STP) ป้องกันลูปในเครือข่าย
+
+สวิตช์ที่สามารถจัดการได้ (Managed Switches) อนุญาตให้ผู้ดูแลกำหนดค่าได้ผ่าน **CLI, SSH หรือ Web Interface** ในขณะที่สวิตช์ที่ไม่สามารถจัดการได้ (Unmanaged Switches) จะทำงานแบบ Plug-and-Play
 
 ![Functions and Features of a Network Switch](figure/03/Functions_and_Features_of_a_Netw.png)
 
-<!-- \label{fig:network-switch} -->
+ 
+### เราเตอร์ (Routers)
 
-**Routers**
-Routers operate at Layer 3 (Network Layer) of the OSI model and are responsible for routing packets between different networks. They use IP addressing and subnet information to determine the best path for packet forwarding, based on a routing table. This table can be populated manually through static routing or dynamically using routing protocols. Standard dynamic routing protocols include RIP (Routing Information Protocol), a simple distance-vector protocol with a maximum hop count of 15; OSPF (Open Shortest Path First), a link-state protocol using Dijkstra’s algorithm to determine shortest paths; and EIGRP (Enhanced Interior Gateway Routing Protocol), a Cisco proprietary protocol that combines the best of distance-vector and link-state characteristics. Routers separate broadcast domains and often perform Network Address Translation (NAT), allowing multiple devices on a local area network (LAN) to share a single public IP address. They can also function as DHCP relays, apply Access Control Lists (ACLs), and support basic firewall configurations. Routers are commonly used to connect local area networks (LANs) to wide area networks (WANs), such as the Internet or other remote networks.
+เราเตอร์ทำงานที่ **ชั้นเครือข่าย (Network Layer – Layer 3)** ของแบบจำลอง OSI มีหน้าที่ในการกำหนดเส้นทาง (Routing) ของแพ็กเก็ตระหว่างเครือข่ายต่าง ๆ
+
+**การทำงานหลักของเราเตอร์:**
+
+* ใช้ที่อยู่ไอพี (IP Address) และข้อมูล Subnet ในการเลือกเส้นทาง
+* ใช้ **ตารางกำหนดเส้นทาง (Routing Table)** ซึ่งอาจถูกกำหนดแบบคงที่ (Static Routing) หรือแบบไดนามิก (Dynamic Routing)
+
+**โปรโตคอลการกำหนดเส้นทางไดนามิกที่สำคัญ:**
+
+* **RIP (Routing Information Protocol):** โปรโตคอลแบบ Distance-vector จำกัดจำนวน hop ที่ 15
+* **OSPF (Open Shortest Path First):** โปรโตคอลแบบ Link-state ใช้อัลกอริทึม Dijkstra
+* **EIGRP (Enhanced Interior Gateway Routing Protocol):** โปรโตคอลของ Cisco ที่ผสมผสานข้อดีของ Distance-vector และ Link-state
+
+นอกจากนี้เราเตอร์ยัง:
+
+* แยกโดเมนการกระจายสัญญาณ (Broadcast Domains)
+* ทำงานเป็น NAT (Network Address Translation) เพื่อให้หลายอุปกรณ์ใช้ Public IP เดียวกันได้
+* ทำงานเป็น DHCP Relay, ACLs และไฟร์วอลล์ขั้นพื้นฐาน
 
 ![Functions and Features of a Router](figure/03/Functions_and_Features_of_a_Router.png)
 
-<!-- \label{fig:router-functions} -->
 
-**Gateways**
-A gateway is a device or node that acts as an entry and exit point to another network, often translating communication between different network protocols or architectures. A typical example is a default gateway, typically a router that forwards packets from a local subnet to destinations beyond the local network. Gateways are essential for communication between networks that use different communication protocols, for example, IP to legacy systems or internal networks to the Internet.
+### เกตเวย์ (Gateways)
+
+**เกตเวย์ (Gateway)** คืออุปกรณ์หรือโหนดที่ทำหน้าที่เป็น **จุดเข้าและออก (Entry/Exit Point)** ไปยังเครือข่ายอื่น มักใช้ในการแปลการสื่อสารระหว่าง **โปรโตคอลเครือข่ายที่แตกต่างกัน** เช่น การแปลงจาก **IP** ไปยังระบบแบบ Legacy หรือจากเครือข่ายภายในไปยังอินเทอร์เน็ต
 
 ![Network Gateway: Entry and Exit Point for Network Traffic](figure/03/Network_Gateway.png)
 
-<!-- \label{fig:network-gateway} -->
 
-**Firewalls**
-A firewall is a network security device that monitors and controls incoming and outgoing traffic based on predefined security rules. Firewalls can be hardware-based, software-based, or a combination of both. They operate primarily at Layer 3 and Layer 4 (Network and Transport layers), but next-generation firewalls also provide deep packet inspection at Layer 7 (Application Layer). Firewalls are used to enforce policies that prevent unauthorized access and protect against threats such as malware, intrusion attempts, and denial-of-service (DoS) attacks. They support stateful inspection, packet filtering, and can be configured with access control lists (ACLs), port forwarding, and VPN pass-through settings.
+### ไฟร์วอลล์ (Firewalls)
+
+**ไฟร์วอลล์ (Firewall)** คืออุปกรณ์รักษาความปลอดภัยที่ควบคุมและตรวจสอบการรับส่งข้อมูลเครือข่ายตาม **กฎที่กำหนดไว้ (Security Rules)**
+
+* ทำงานหลักที่ **Layer 3 (Network Layer)** และ **Layer 4 (Transport Layer)**
+* ไฟร์วอลล์รุ่นใหม่ (Next-Generation Firewall) ยังตรวจสอบแพ็กเก็ตใน **Layer 7 (Application Layer)**
+* ป้องกันการเข้าถึงที่ไม่ได้รับอนุญาต และภัยคุกคาม เช่น มัลแวร์ การบุกรุก (Intrusion) และการโจมตีแบบ DoS
+
+คุณสมบัติทั่วไป:
+
+* Stateful Inspection
+* Packet Filtering
+* Access Control Lists (ACLs)
+* Port Forwarding
+* VPN Pass-through
 
 ![Firewall: Network Traffic Monitoring and Threat Protection](figure/03/Firewall_Diagram.png)
 
-<!-- \label{fig:firewall} -->
 
-**Access Points**
-An access point (AP) is a network device that enables wireless-capable devices to connect to a wired local area network (LAN). It operates at Layer 2 of the OSI model and uses Wi-Fi (IEEE 802.11) standards to transmit data over the air. Access points are commonly used in home networks, enterprise wireless networks, and public hotspots. They extend the range of a wireless network and can be either standalone or controller-managed. Essential features include SSID broadcasting, encryption (e.g., WPA3), and support for multiple clients.
+### แอคเซสพอยต์ (Access Points)
+
+**แอคเซสพอยต์ (Access Point – AP)** เป็นอุปกรณ์ที่ช่วยให้อุปกรณ์ที่รองรับเครือข่ายไร้สายสามารถเชื่อมต่อกับ **LAN แบบใช้สาย** ได้
+
+* ทำงานที่ **Layer 2 ของ OSI Model**
+* ใช้มาตรฐาน **IEEE 802.11 (Wi-Fi)** ในการรับส่งข้อมูล
+* ใช้ในเครือข่ายบ้าน องค์กร และฮอตสปอตสาธารณะ
+* คุณสมบัติหลัก: การกระจาย SSID, การเข้ารหัส (เช่น WPA3), รองรับการเชื่อมต่อหลายผู้ใช้งาน
 
 ![Access Point: Layer 2 Wireless Bridge to Wired LAN (IEEE 802.11)](figure/03/Access_Point.png)
 
-<!-- \label{fig:access-point} -->
 
-## Network Topologies and Architecture
+## โทโพโลยีและสถาปัตยกรรมเครือข่าย (Network Topologies and Architecture)
 
-In computer networking, the arrangement of devices and their communication are defined by network topologies and architectures. A **network topology** refers to the physical or logical layout of devices and connections in a network. It determines how data flows and how efficiently devices communicate with each other. Understanding different types of topologies is essential for designing, troubleshooting, and optimizing networks.
+ในระบบเครือข่ายคอมพิวเตอร์ การจัดวางตำแหน่งของอุปกรณ์และรูปแบบการสื่อสารเรียกว่า **โทโพโลยีของเครือข่าย (Network Topology)** ซึ่งอาจอยู่ในรูปแบบกายภาพ (Physical) หรือแบบตรรกะ (Logical) โทโพโลยีมีผลต่อการไหลของข้อมูล ประสิทธิภาพ และความง่ายในการแก้ไขปัญหา
 
-On the other hand, **network architecture** defines the structure and design principles behind how network components operate and interact. It includes models such as peer-to-peer and client-server, as well as concepts like centralized versus distributed control. Together, topologies and architectures form the blueprint for network functionality, scalability, and resilience.
+ในขณะเดียวกัน **สถาปัตยกรรมเครือข่าย (Network Architecture)** หมายถึงโครงสร้างและหลักการออกแบบที่กำหนดการทำงานและปฏิสัมพันธ์ขององค์ประกอบเครือข่าย เช่น แบบ **Peer-to-Peer (P2P)** และ **Client-Server** รวมถึงแนวคิดการควบคุมแบบ **Centralized** และ **Distributed**
 
-The following sections explain both physical and logical topologies, as well as network architecture models, highlighting their advantages, limitations, and typical use cases.
+โทโพโลยีและสถาปัตยกรรมจึงถือเป็น **พิมพ์เขียว (Blueprint)** สำหรับการทำงาน ความสามารถในการขยาย (Scalability) และความทนทานต่อความผิดพลาด (Resilience) ของเครือข่าย
 
-### Physical Topologies
 
-A **bus topology** uses a single backbone cable to connect all devices in the network. It is inexpensive and straightforward to implement, especially in small environments. However, it is highly susceptible to collisions and network failure if the backbone cable is damaged, as all devices share the same communication line.
+### โทโพโลยีกายภาพ (Physical Topologies)
 
-In a **star topology**, all devices are connected to a central switch or hub. This makes the network easy to manage and expand. If one cable fails, only the device it is connected to is affected. However, if the central device fails, the entire network goes down.
-
-A **ring topology** forms a closed loop in which data travels in one direction from one device to the next until it reaches its destination. This design reduces the chances of collision, but can be disrupted if any device or connection in the ring fails.
+* **Bus Topology** – ใช้สาย Backbone เพียงเส้นเดียวเชื่อมต่ออุปกรณ์ทั้งหมด ต้นทุนต่ำและง่ายต่อการติดตั้ง แต่มีความเสี่ยงสูงต่อการชนกันของข้อมูล (Collision) และหากสาย Backbone เสีย เครือข่ายทั้งหมดจะล้มเหลว
+* **Star Topology** – อุปกรณ์ทั้งหมดเชื่อมต่อเข้ากับสวิตช์หรือฮับกลาง เครือข่ายง่ายต่อการจัดการและขยาย หากสายของอุปกรณ์หนึ่งเสีย จะกระทบเฉพาะอุปกรณ์นั้น แต่หากอุปกรณ์ศูนย์กลางล้มเหลว เครือข่ายทั้งหมดจะหยุดทำงาน
+* **Ring Topology** – เชื่อมอุปกรณ์ในรูปวงกลม ข้อมูลเคลื่อนที่แบบทิศทางเดียว ลดโอกาสการชนกันของข้อมูล แต่หากอุปกรณ์หรือสายเส้นใดล้มเหลว จะกระทบต่อวงทั้งหมด
+* **Mesh Topology** – อุปกรณ์ทุกตัวเชื่อมถึงกันโดยตรง มีความซ้ำซ้อนสูง (Redundancy) และเชื่อถือได้ เหมาะสำหรับงานที่ต้องการความมั่นคงสูง แต่มีต้นทุนและความซับซ้อนในการติดตั้งสูง
+* **Hybrid Topology** – การผสมผสานหลายโทโพโลยี เช่น Star-Bus หรือ Star-Ring ทำให้องค์กรสามารถปรับแต่งให้เหมาะสมกับความต้องการ
 
 ![Common Physical Network Topologies: Bus, Star, Ring, Mesh, and Hybrid](figure/03/Network_Topologies.png)
 
-<!-- \label{fig:network-topologies} -->
 
-A **mesh topology** connects every device to every other device in the network. This provides high redundancy and reliability, as multiple paths exist for data to travel. It is often used in mission-critical environments, but is more complex and expensive to implement due to the number of connections required.
+### โทโพโลยีตรรกะ (Logical Topologies)
 
-A **hybrid topology** combines two or more different types of topologies, such as star-bus or star-ring. It allows organizations to tailor the network design to their specific needs, offering flexibility and scalability while inheriting the strengths and weaknesses of the topologies it combines.
-
-### Logical Topologies
-
-A **broadcast topology** is commonly used in Ethernet LANs. In this topology, every device receives all network data, regardless of whether it is the intended recipient. Devices must filter out irrelevant data, which can lead to network inefficiency if traffic volume is high.
-
-**Token passing topology** is typically used in older ring networks. In this logical layout, a token — a small data packet — is passed around the network. A device must possess the token to transmit data, which helps avoid collisions. However, it may introduce delays and is considered outdated compared to modern Ethernet switching.
+* **Broadcast Topology** – พบได้ใน Ethernet LAN อุปกรณ์ทั้งหมดจะได้รับข้อมูลทุกแพ็กเก็ตที่ส่ง แม้จะไม่ใช่ผู้รับที่ตั้งใจไว้ ส่งผลให้เกิดความไม่มีประสิทธิภาพหากมีปริมาณการรับส่งข้อมูลสูง
+* **Token Passing Topology** – ใช้ในเครือข่ายวงแหวนรุ่นเก่า อุปกรณ์ต้องถือ Token (แพ็กเก็ตเล็ก ๆ) ก่อนจึงจะส่งข้อมูลได้ ช่วยป้องกันการชนกันของข้อมูล แต่ทำให้เกิดความล่าช้าและปัจจุบันถือว่าล้าสมัยเมื่อเทียบกับ Ethernet
 
 ![Logical Topologies: Broadcast (used in Ethernet LANs) and Token Passing (used in older ring networks)](figure/03/Logical_Topologies.png)
 
-<!-- \label{fig:logical-topologies} -->
 
-### Network Architectures
+### สถาปัตยกรรมเครือข่าย (Network Architectures)
 
-In a **peer-to-peer (P2P)** network architecture, each device has equal status and can both provide and consume resources without the need for a central server. This setup is simple and cost-effective, suitable for minor or temporary networks, but it lacks centralized control and scalability.
-
-A **client-server** architecture uses one or more central servers to manage resources and services for client devices. This model supports centralized administration, scalability, and security, making it ideal for business and enterprise networks. However, it depends on server availability and typically requires more maintenance and setup.
+* **Peer-to-Peer (P2P)** – ทุกอุปกรณ์มีสิทธิเท่ากัน สามารถให้และใช้ทรัพยากรร่วมกันได้โดยไม่ต้องมีเซิร์ฟเวอร์กลาง เหมาะกับเครือข่ายเล็กหรือตามชั่วคราว แต่ขาดการควบคุมและความสามารถในการขยาย
+* **Client-Server** – ใช้เซิร์ฟเวอร์กลางในการจัดการทรัพยากรและบริการแก่ไคลเอนต์ รองรับการบริหารจัดการ ความปลอดภัย และการขยายตัว เหมาะกับธุรกิจและองค์กร แต่พึ่งพาเซิร์ฟเวอร์และต้องการการดูแลรักษามากกว่า
 
 ![Network Architectures: Peer-to-Peer vs. Client-Server Models](figure/03/Network_Architectures.png)
 
-<!-- \label{fig:network-architectures} -->
+* **Centralized vs. Distributed** –
 
-The **centralized vs. distributed** model compares two broader approaches. In a **centralized network**, one central point manages all operations, making control and security easier but also creating a single point of failure. In a **distributed network**, power and resources are spread across multiple nodes, increasing resilience and fault tolerance, but often requiring more complex coordination.
+  * **Centralized Network:** จุดศูนย์กลางควบคุมการทำงานทั้งหมด ทำให้ง่ายต่อการควบคุมและการรักษาความปลอดภัย แต่มีความเสี่ยงจาก Single Point of Failure
+  * **Distributed Network:** กระจายการทำงานไปยังหลายโหนด มีความทนทานสูงขึ้น แต่ซับซ้อนต่อการบริหารจัดการ
 
 ![Comparison of Centralized and Distributed Network Architectures](figure/03/Centralized_vs_Distributed.png)
 
-<!-- \label{fig:centralized-distributed} -->
 
-### Broadcast Domains
+### โดเมนกระจายสัญญาณ (Broadcast Domains)
 
-A broadcast domain is a logical segment of a network in which all other devices receive any broadcast packet sent by a device within the same segment. In simpler terms, it is the set of all devices that will receive a broadcast frame originating from any one of them. Broadcast domains play a crucial role in network traffic management and performance, as broadcast messages can lead to congestion if they are not properly segmented.
+**Broadcast Domain** คือกลุ่มอุปกรณ์ในเครือข่ายที่สามารถรับข้อมูลแบบ Broadcast จากกันและกัน
 
-Switches operate at Layer 2 of the OSI model and, by default, forward broadcast traffic to all ports within the same VLAN, except the port that originated the broadcast. This means that all devices connected to the switch will receive the broadcast unless specific configurations, such as VLANs or access control mechanisms, are applied.
+* **Switches (Layer 2):** โดยค่าเริ่มต้นจะส่งต่อ Broadcast ไปยังทุกพอร์ตใน VLAN เดียวกัน
+* **Routers (Layer 3):** ไม่ส่งต่อ Broadcast ระหว่างเครือข่าย ทำให้เป็นเส้นแบ่งธรรมชาติของ Broadcast Domain
 
 ![Broadcast Domains Separated by a Router: Each Switch Represents a Distinct Broadcast Domain](figure/03/Broadcast_Domains.png)
 
-<!-- \label{fig:broadcast-domains} -->
 
-Routers, on the other hand, function at Layer 3 and do not forward broadcast traffic across different interfaces. This makes routers natural boundaries for broadcast domains. When a broadcast frame reaches a router, it is dropped unless the router is specifically configured to relay it (e.g., in DHCP relay scenarios).
+### เครือข่ายท้องถิ่นเสมือน (Virtual LANs: VLANs)
 
-### Virtual LANs (VLANs)
+**VLAN (Virtual Local Area Network)** คือการแบ่งกลุ่มอุปกรณ์ในเชิงตรรกะให้เหมือนอยู่ใน LAN เดียวกัน แม้จะไม่ได้เชื่อมต่อกับสวิตช์หรือสายเดียวกัน
 
-A Virtual Local Area Network (VLAN) is a logical grouping of devices within a network that appear to be on the same local area network (LAN), even if they are not physically connected to the same switch or segment. VLANs are used to segment broadcast domains at the data link layer (Layer 2) of the OSI model. This allows network administrators to partition a single physical switch into multiple logical networks, improving performance, security, and manageability.
+คุณสมบัติหลักของ VLAN:
 
-When devices are assigned to different VLANs, they cannot directly communicate with each other unless routing is enabled between the VLANs, typically through a router or a Layer 3 switch. This segmentation ensures that broadcast traffic remains within the VLAN, preventing it from flooding the entire switch and affecting unrelated devices.
+* แบ่ง Broadcast Domain
+* เพิ่มความปลอดภัยโดยแยกกลุ่มงานหรือแผนก
+* ลดปริมาณการส่งข้อมูล Broadcast
+* บริหารจัดการเครือข่ายได้ง่ายและยืดหยุ่นมากขึ้น
 
-VLANs are configured using VLAN IDs, and network ports on switches can be statically assigned to specific VLANs or dynamically assigned through protocols such as VLAN Management Policy Server (VMPS). Trunk ports are used to carry traffic for multiple VLANs between switches, utilizing tagging protocols such as IEEE 802.1Q.
+**การกำหนดค่า:**
+
+* ใช้ **VLAN ID** สำหรับระบุเครือข่าย
+* พอร์ตของสวิตช์สามารถกำหนดให้เป็น VLAN เดียว หรือหลาย VLAN ผ่าน **Trunk Port** โดยใช้มาตรฐาน **IEEE 802.1Q**
 
 ![VLAN segmentation: Devices are separated into distinct broadcast domains](figure/03/VLAN_Diagram.png)
 
-<!-- \label{fig:vlan-segmentation} -->
 
-**Key benefits of VLANs include:**
 
-* Enhanced network segmentation and traffic isolation
-* Improved security by separating sensitive departments or systems
-* Simplified network management and flexibility
-* Reduced broadcast traffic within each VLAN
-
-Overall, VLANs are a foundational tool in modern network design, particularly in enterprise environments, enabling efficient and scalable network segmentation without the need for physical device separation.
-
----
