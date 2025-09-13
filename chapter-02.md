@@ -1,256 +1,254 @@
 # Chapter 2 - Connecting to the World
 
-## Subtopics
+## Section 1: คำจำกัดความ (Definitions)
 
-* Definitions
-* Understanding a Basic IP Networks
-* Common Network Command-line Tools
-* DHCP
+### การกำหนดที่อยู่ไอพี (IP Addressing)
 
-## Learning Objectives
+**ที่อยู่ไอพี (IP Address)** คือ ตัวระบุเชิงตัวเลขที่ถูกกำหนดให้กับอุปกรณ์แต่ละตัวในเครือข่ายเพื่อใช้ในการสื่อสาร ทุกอุปกรณ์ที่เชื่อมต่อกับเครือข่าย ไม่ว่าจะเป็นเครือข่ายท้องถิ่นหรืออินเทอร์เน็ต จำเป็นต้องมีที่อยู่ไอพีที่ไม่ซ้ำกัน
 
-* Explain and configure IPv4 addressing and subnetting.
-* Understand the function of subnet masks and calculate address ranges.
-* Define and implement DHCP and DNS services in a local network.
-* Configure gateways for routing traffic to external networks.
-* Identify and resolve common connectivity issues using industry-relevant tools.
+ปัจจุบันการกำหนดที่อยู่ไอพีมีอยู่สองเวอร์ชันหลัก ได้แก่
 
-## Definitions
+* **IPv4**: รูปแบบที่ใช้กันอย่างแพร่หลายที่สุด ประกอบด้วยเลขฐานสองขนาด 32 บิต มักเขียนในรูปแบบทศนิยมมีจุด เช่น `192.168.1.1`
+* **IPv6**: รูปแบบใหม่ที่ถูกพัฒนาขึ้นเพื่อแก้ปัญหาการขาดแคลนที่อยู่ของ IPv4 โดยมีขนาด 128 บิต และเขียนในรูปแบบฐานสิบหก เช่น `2001:db8::1`
 
-### IP Addressing
+ที่อยู่ไอพียังสามารถจำแนกตามการใช้งานและขอบเขต (scope) ได้ดังนี้
 
-**IP addresses** are numerical identifiers assigned to devices on a network to enable communication. Every device connected to a network—whether local or on the internet—requires a unique IP address.
+| **ประเภท**     | **คำอธิบาย**                                                                                     | **ตัวอย่าง** |
+| -------------- | ------------------------------------------------------------------------------------------------ | ------------ |
+| **Public IP**  | สามารถถูกกำหนดเส้นทาง (routable) บนอินเทอร์เน็ต ได้รับการจัดสรรโดยผู้ให้บริการอินเทอร์เน็ต (ISP) | 8.8.8.8      |
+| **Private IP** | ใช้ภายในเครือข่ายท้องถิ่น ไม่สามารถกำหนดเส้นทางบนอินเทอร์เน็ตได้ เช่น 192.168.x.x, 10.x.x.x      | 192.168.1.10 |
+| **APIPA**      | ที่อยู่ซึ่งระบบกำหนดให้อัตโนมัติเมื่อไม่พบ DHCP ใช้เพื่อการสื่อสารภายในเครือข่ายจำกัดเท่านั้น    | 169.254.x.x  |
+| **Loopback**   | ใช้สำหรับทดสอบการทำงานของ TCP/IP stack ภายในเครื่องตนเอง (host)                                  | 127.0.0.1    |
 
-There are two main versions of IP addressing in use:
+การทำความเข้าใจประเภทของที่อยู่เหล่านี้มีความสำคัญต่อการออกแบบและการแก้ปัญหาเครือข่าย เช่น หากอุปกรณ์ได้รับที่อยู่ APIPA แสดงว่ามีปัญหากับการทำงานของ DHCP และจะไม่สามารถเข้าถึงอินเทอร์เน็ตได้ ในขณะที่ **Public IP** มีความจำเป็นสำหรับการให้บริการที่ต้องเข้าถึงจากภายนอกเครือข่าย
 
-* **IPv4**: The most widely used version. It uses a 32-bit format, typically written in dotted decimal notation, such as `192.168.1.1`.
-* **IPv6**: A newer format designed to address the limitations of IPv4, including address exhaustion. It uses 128 bits and is written in hexadecimal notation, such as `2001:db8::1`.
+### มาสก์เครือข่ายย่อย (Subnet Mask)
 
-IP addresses are further categorized by their use and scope. Understanding these categories is essential when designing or troubleshooting a network:
+**Subnet Mask** คือ ค่าที่ใช้ในการแบ่งที่อยู่ไอพีออกเป็นสองส่วน ได้แก่
 
-| **Type**   | **Description**                                                                                                                        | **Example**  |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| Public IP  | Routable on the internet. Assigned by an ISP to allow access from outside the local network.                                           | 8.8.8.8      |
-| Private IP | Used within local networks. Not routable on the internet. Reserved ranges include 192.168.x.x, 10.x.x.x, and 172.16.x.x to 172.31.x.x. | 192.168.1.10 |
-| APIPA      | Automatically assigned when no DHCP server is available. Used for limited local communication.                                         | 169.254.x.x  |
-| Loopback   | Used to test the local TCP/IP stack. It refers to the host itself.                                                                     | 127.0.0.1    |
+1. **ส่วนเครือข่าย (Network portion)** – ใช้ระบุเครือข่ายย่อย (subnet)
+2. **ส่วนโฮสต์ (Host portion)** – ใช้ระบุอุปกรณ์ภายในเครือข่ายย่อยนั้น
 
-Understanding how these address types are used helps network administrators ensure proper configuration and troubleshoot any issues that may arise. For example, a device using an APIPA address cannot access the internet, indicating a problem with the DHCP service. A public IP address is necessary for external-facing services, while private IP addresses are ideal for internal communication within a LAN.
+การทำ subnetting ช่วยให้สามารถแบ่งเครือข่ายออกเป็นกลุ่มย่อยได้อย่างมีประสิทธิภาพ เพิ่มความเป็นระเบียบ ความปลอดภัย และลดความซับซ้อนของการจัดการเครือข่าย
 
-### Subnet Mask
+Subnet mask ทำงานร่วมกับที่อยู่ไอพีเพื่อตัดสินว่า อุปกรณ์ปลายทางอยู่ในเครือข่ายท้องถิ่นเดียวกัน หรือจำเป็นต้องส่งข้อมูลออกไปยัง **Gateway**
 
-A **subnet mask** is used in IP networking to divide an IP address into two parts: the **network portion** and the **host portion**.
-The network portion identifies the specific subnet, while the host portion identifies individual devices (hosts) within that subnet. Subnetting allows networks to be logically segmented, improving organization, efficiency, and security.
+#### การกำหนดที่อยู่แบบ Classful (Classful IP Addressing)
 
-Subnet masks work hand-in-hand with IP addresses to determine whether two devices are on the same local network or if communication must be routed through a gateway.
+ในยุคแรกของเครือข่าย ที่อยู่ไอพีถูกกำหนดโดยใช้ระบบ **Classful** ซึ่งแบ่งพื้นที่ที่อยู่ (address space) ออกเป็นคลาส แต่ละคลาสมี **Subnet Mask** มาตรฐานและช่วงการใช้งาน
 
-#### Classful IP Addressing
+| **คลาส** | **ช่วงที่อยู่**             | **Subnet Mask มาตรฐาน** | **การใช้งาน**       |
+| -------- | --------------------------- | ----------------------- | ------------------- |
+| A        | 1.0.0.0 – 126.255.255.255   | 255.0.0.0 (/8)          | เครือข่ายขนาดใหญ่   |
+| B        | 128.0.0.0 – 191.255.255.255 | 255.255.0.0 (/16)       | เครือข่ายขนาดกลาง   |
+| C        | 192.0.0.0 – 223.255.255.255 | 255.255.255.0 (/24)     | เครือข่ายขนาดเล็ก   |
+| D        | 224.0.0.0 – 239.255.255.255 | N/A                     | การส่งแบบ Multicast |
+| E        | 240.0.0.0 – 255.255.255.255 | N/A                     | ใช้เพื่อการวิจัย    |
 
-In early IP networking, IP addresses were assigned using the **classful system**, which divided address space into fixed blocks called classes. Each class had a default subnet mask and defined ranges for host allocation.
+แม้การกำหนดแบบ Classful จะช่วยจัดระบบเครือข่ายในช่วงแรก แต่ไม่ยืดหยุ่นพอและทำให้เกิดการสิ้นเปลืองที่อยู่จำนวนมาก
 
-**Classful IP Address Ranges**
+#### การกำหนดที่อยู่แบบไม่มีคลาส (Classless Addressing / CIDR)
 
-| **Class** | **Address Range**           | **Default Subnet Mask** | **Use**         |
-| --------- | --------------------------- | ----------------------- | --------------- |
-| A         | 1.0.0.0 – 126.255.255.255   | 255.0.0.0 (/8)          | Large networks  |
-| B         | 128.0.0.0 – 191.255.255.255 | 255.255.0.0 (/16)       | Medium networks |
-| C         | 192.0.0.0 – 223.255.255.255 | 255.255.255.0 (/24)     | Small networks  |
-| D         | 224.0.0.0 – 239.255.255.255 | N/A                     | Multicast       |
-| E         | 240.0.0.0 – 255.255.255.255 | N/A                     | Reserved        |
+ปัจจุบันใช้ **CIDR (Classless Inter-Domain Routing)** เพื่อแบ่งเครือข่ายได้อย่างยืดหยุ่นมากขึ้น โดยใช้สัญลักษณ์ **Slash Notation** (`/`) เพื่อบอกจำนวนบิตที่เป็นส่วนเครือข่าย
 
-While classful addressing helped organize early networks, it proved inefficient due to its fixed subnet sizes, often resulting in wasted addresses.
+เช่น `192.168.1.0/24` หมายถึง 24 บิตแรกเป็นส่วนของเครือข่าย
 
-#### Classless IP Addressing (CIDR)
+ตัวอย่าง:
 
-Modern networks use **Classless Inter-Domain Routing (CIDR)**, which enables more flexible division of IP address space.
-CIDR uses a suffix (slash notation) to indicate the number of bits used for the network portion.
-For example, `192.168.1.0/24` means the first 24 bits define the network.
+| **Subnet Mask** | **CIDR** | **จำนวนโฮสต์ที่ใช้ได้** |
+| --------------- | -------- | ----------------------: |
+| 255.255.255.0   | /24      |                     254 |
+| 255.255.255.192 | /26      |                      62 |
+| 255.255.255.255 | /32      |                       1 |
 
-This approach facilitates more efficient subnetting and aggregation, known as route summarization, which is particularly important for Internet routing and enterprise networks.
+ดังนั้น:
 
-| **Subnet Mask** | **CIDR Notation** | **Usable Hosts** |
-| --------------- | ----------------- | ---------------: |
-| 255.255.255.0   | /24               |              254 |
-| 255.255.255.192 | /26               |               62 |
-| 255.255.255.255 | /32               |                1 |
+* **/24** มี 256 ที่อยู่ (254 ใช้งานได้)
+* **/26** มี 64 ที่อยู่ (62 ใช้งานได้)
+* **/32** ใช้แทนอุปกรณ์เพียงเครื่องเดียว เช่น loopback หรือ static route
 
-In subnetting:
+CIDR ยังช่วยลดความซับซ้อนของตารางเส้นทาง (routing table) และเพิ่มประสิทธิภาพของการจัดการที่อยู่บนอินเทอร์เน็ตและองค์กรขนาดใหญ่
 
-* A **/24** subnet provides 256 total IP addresses (2<sup>8</sup>), with 254 usable for hosts.
-* A **/26** subnet provides 64 total addresses (2<sup>6</sup>), with 62 usable.
-* A **/32** represents a single host, commonly used for loopbacks or static routes.
 
-Understanding both classful and classless addressing is essential for interpreting legacy documentation, designing scalable networks, and passing exams such as the **CompTIA Network+** and **Cisco CCNA**.
+### เกตเวย์เริ่มต้น (Default Gateway)
 
-### Default Gateway
+**Default Gateway** คืออุปกรณ์เครือข่าย (โดยมากคือเราเตอร์) ที่ทำหน้าที่เป็นจุดเชื่อมต่อสำหรับการส่งข้อมูลออกจากเครือข่ายท้องถิ่นไปยังเครือข่ายอื่น เช่น อินเทอร์เน็ต
 
-The **default gateway** is a network device—typically a router—that acts as an access point or IP router allowing a host to send data to destinations outside its local subnet. When a device determines that the destination IP address is not within its network, it forwards the packet to the default gateway for routing.
-
-This is especially important for accessing external networks, such as the internet or other remote subnets, within an enterprise environment. The gateway then handles the task of routing the data toward its final destination.
-
-#### Example Scenario
-
-Consider a PC configured with the following:
+**ตัวอย่าง**:
 
 * IP Address: `192.168.1.100`
 * Subnet Mask: `255.255.255.0`
 * Default Gateway: `192.168.1.1`
 
-With this configuration, the PC identifies its local network as `192.168.1.0/24`. If the user attempts to access a website such as `www.example.com`, which resolves to an external IP like `93.184.216.34`, the destination is outside the local subnet. Therefore, the packet is sent to the **default gateway** at `192.168.1.1`, which routes the traffic toward the internet.
+อุปกรณ์จะตีความว่าอยู่ในเครือข่าย `192.168.1.0/24` หากต้องการเข้าถึงเว็บไซต์ภายนอก เช่น `93.184.216.34` ข้อมูลจะถูกส่งไปยัง Gateway (`192.168.1.1`) เพื่อทำการกำหนดเส้นทางต่อ
 
-#### Gateway in Practice
+ในเครือข่ายบ้านหรือสำนักงานขนาดเล็ก อุปกรณ์ **Router** มักทำหน้าที่ทั้งเป็น **NAT** และ **Default Gateway** ซึ่งกำหนดค่าได้ทั้งแบบ manual และผ่าน **DHCP**
 
-In most home and office networks, the router performing Network Address Translation (NAT) also acts as the default gateway. Devices receive this information either through manual configuration or dynamically via the Dynamic Host Configuration Protocol (DHCP).
 
-#### Command-line Tip
+### ระบบชื่อโดเมน (Domain Name System: DNS)
 
-On a Windows system, you can use the command `ipconfig` to verify the current default gateway:
+**DNS (Domain Name System)** เป็นบริการที่ใช้แปลงชื่อโดเมนที่มนุษย์เข้าใจได้ (เช่น `www.google.com`) ไปเป็นที่อยู่ไอพี (เช่น `142.250.190.14`) เพื่อให้คอมพิวเตอร์สามารถเชื่อมต่อได้โดยไม่ต้องจำเลขที่อยู่
 
-> `Default Gateway . . . . . . . . . : 192.168.1.1`
+#### ประเภทของ DNS Record ที่พบบ่อย
 
-Correct configuration of the default gateway is essential. If it is missing or incorrectly set, the device will be unable to reach external networks, even if local communication is functioning correctly.
+| **Record Type** | **วัตถุประสงค์**                                        |
+| --------------- | ------------------------------------------------------- |
+| **A**           | แปลงโดเมนไปยัง IPv4                                     |
+| **AAAA**        | แปลงโดเมนไปยัง IPv6                                     |
+| **CNAME**       | กำหนดชื่อแทน (alias) ให้กับโดเมนหนึ่งไปยังอีกโดเมนหนึ่ง |
+| **MX**          | ระบุเซิร์ฟเวอร์อีเมลที่รับผิดชอบการส่งเมลของโดเมนนั้น   |
 
-### DNS (Domain Name System)
+**ตัวอย่างการทำงาน**:
 
-The **Domain Name System (DNS)** is a fundamental service that resolves human-readable domain names into machine-readable IP addresses. Without DNS, users would need to remember IP addresses (such as `142.250.190.14`) to visit websites like `www.google.com`. DNS automates this translation, allowing for user-friendly internet navigation.
+1. ผู้ใช้พิมพ์ `www.example.com`
+2. เครื่องจะส่งคำถามไปยัง DNS Server (เช่น `8.8.8.8`)
+3. DNS Server ตอบกลับด้วยที่อยู่ไอพี เช่น `93.184.216.34`
+4. เบราว์เซอร์ใช้ไอพีนี้เพื่อติดต่อกับเว็บไซต์
 
-When a user enters a domain name into a web browser, the operating system queries a configured DNS server. If the server knows the IP address associated with the domain, it returns the result; otherwise, it forwards the request to other DNS servers until a response is received.
+DNS ถือเป็นโครงสร้างพื้นฐานสำคัญของอินเทอร์เน็ต หากการตั้งค่า DNS ไม่ถูกต้อง จะทำให้เกิดข้อผิดพลาดเช่น “server not found” แม้จะยังเชื่อมต่ออินเทอร์เน็ตได้อยู่
 
-#### Common DNS Record Types
+## Section 2: ความเข้าใจพื้นฐานของเครือข่ายไอพี (Understanding a Basic IP Network)
 
-| **Record Type** | **Purpose**                                                                                     |
-| --------------- | ----------------------------------------------------------------------------------------------- |
-| **A**           | Maps a domain name to an IPv4 address (e.g., `example.com` → `93.184.216.34`)                   |
-| **AAAA**        | Maps a domain name to an IPv6 address                                                           |
-| **CNAME**       | Creates an alias that maps one domain name to another (e.g., `www.example.com` → `example.com`) |
-| **MX**          | Defines the mail exchange server responsible for receiving emails for the domain                |
+ก่อนที่จะเข้าสู่ระบบเครือข่ายระดับองค์กรที่ซับซ้อน จำเป็นต้องทำความเข้าใจว่า **เครือข่ายพื้นฐาน** สามารถทำให้อุปกรณ์หนึ่งสื่อสารกับอินเทอร์เน็ตได้อย่างไร เครือข่ายขนาดเล็ก เช่น ในบ้าน ห้องเรียน หรือสำนักงานขนาดย่อม ใช้องค์ประกอบพื้นฐานเพียงไม่กี่อย่างเพื่อให้การเข้าถึงเครือข่ายเป็นไปอย่างมีประสิทธิภาพ
 
-#### Example Scenario
+องค์ประกอบหลักประกอบด้วย:
 
-If a user types `www.example.com` into a browser:
+* **ที่อยู่ไอพี (IP Address)** – ระบุตัวตนเฉพาะของอุปกรณ์
+* **มาสก์เครือข่ายย่อย (Subnet Mask)** – แยกส่วนเครือข่ายกับส่วนโฮสต์
+* **เกตเวย์เริ่มต้น (Default Gateway)** – เส้นทางออกไปยังเครือข่ายภายนอก
+* **เซิร์ฟเวอร์ DNS (Domain Name System)** – แปลงชื่อโดเมนให้เป็นที่อยู่ไอพี
 
-1. The computer sends a DNS query to the DNS server (e.g., `8.8.8.8`).
-2. The DNS server replies with the corresponding IP address, such as `93.184.216.34`.
-3. The browser then connects to this IP address to load the website.
+โครงสร้างพื้นฐานที่เรียบง่ายนี้สามารถพบได้ทั่วไป เช่น เครือข่ายที่มีคอมพิวเตอร์เครื่องลูกข่ายหนึ่งเครื่อง เราเตอร์ไร้สายที่ทำหน้าที่ทั้งเป็น **Gateway** และ **DHCP Server** รวมถึงการอ้างอิงไปยัง **DNS Server** ภายนอก (เช่น 8.8.8.8 ของ Google)
 
-#### Importance for Networking
+### ตัวอย่างการกำหนดค่าเครือข่าย
 
-DNS is a crucial component of the Internet's infrastructure. Incorrect or missing DNS settings can lead to errors like “server not found,” even if internet connectivity is otherwise functional. DNS is typically configured manually or received automatically via DHCP.
+* **IP Address:** `192.168.1.10`
+* **Subnet Mask:** `255.255.255.0`
+* **Default Gateway:** `192.168.1.1`
+* **DNS Server:** `8.8.8.8`
 
-#### Command-line Tip
+ด้วยการกำหนดค่าเช่นนี้ อุปกรณ์จะเข้าใจว่าตนอยู่ในเครือข่าย `192.168.1.0/24`
 
-To troubleshoot DNS issues, use the following command:
+* หากต้องการติดต่อกับอุปกรณ์ในเครือข่ายเดียวกัน (LAN) เช่น `192.168.1.20` การสื่อสารจะเกิดขึ้นโดยตรงภายในเครือข่าย
+* หากต้องการติดต่อกับอุปกรณ์ภายนอก เช่น เว็บไซต์ `www.example.com` ที่มีที่อยู่ไอพี `93.184.216.34` การสื่อสารจะถูกส่งไปยัง **Default Gateway (`192.168.1.1`)** ซึ่งจะกำหนดเส้นทางออกสู่อินเทอร์เน็ต
 
-> `nslookup www.example.com`
 
-This command queries the DNS server and returns the resolved IP address, helping confirm whether name resolution is working correctly.
+### บทบาทของเราเตอร์ในเครือข่ายพื้นฐาน
 
-## Understanding a Basic IP Network
+ในเครือข่ายบ้านหรือสำนักงานขนาดเล็ก เราเตอร์มักทำหน้าที่หลายอย่างพร้อมกัน ได้แก่:
 
-Before diving into complex enterprise networking, it's essential to understand how a basic network enables communication between a device and the internet. Small networks—such as those in homes, classrooms, or small offices—rely on fundamental networking components to provide reliable access. These components include an **IP address**, **subnet mask**, **default gateway**, and **DNS server**. The following diagram illustrates a simple network architecture involving a single client PC, a wireless router acting as both a gateway and a DHCP server, and a public DNS server. This setup serves as a practical example of how these components interact in real-world networking environments.
+1. **Default Gateway** – เส้นทางหลักสำหรับการเข้าถึงเครือข่ายภายนอก
+2. **DHCP Server** – แจกจ่ายที่อยู่ไอพีและการตั้งค่าเครือข่ายอัตโนมัติให้กับอุปกรณ์
+3. **NAT (Network Address Translation)** – แปลงที่อยู่ไอพีภายใน (Private IP) ให้ออกไปใช้งานได้บนอินเทอร์เน็ตผ่านที่อยู่ไอพีสาธารณะ (Public IP)
 
-```latex
-% TikZ diagram (original LaTeX)
-\begin{tikzpicture}[node distance=2cm, every node/.style={draw, align=center, font=\small}]
+### ความสำคัญต่อการเรียนรู้
 
-\node (pc) {Client PC\\IP: 192.168.1.10\\Subnet: 255.255.255.0\\GW: 192.168.1.1\\DNS: 8.8.8.8};
-\node[right=of pc] (router) {Wireless Router\\IP: 192.168.1.1\\DHCP/DNS Relay\\NAT to Internet};
-\node[right=of router] (dns) {DNS Server\\IP: 8.8.8.8\\Resolves domains};
+การเข้าใจการทำงานร่วมกันขององค์ประกอบทั้งสี่ (**IP Address, Subnet Mask, Default Gateway, DNS**) ถือเป็นพื้นฐานที่สำคัญของการแก้ปัญหาเครือข่าย หากองค์ประกอบใดองค์ประกอบหนึ่งถูกกำหนดค่าผิดพลาด อุปกรณ์อาจ:
 
-\draw[->] (pc) -- (router) node[midway, above] {LAN};
-\draw[->] (router) -- (dns) node[midway, above] {Internet};
+* ไม่สามารถเชื่อมต่อกับเครือข่ายท้องถิ่นได้
+* ไม่สามารถเข้าถึงอินเทอร์เน็ตได้
+* เข้าถึงเว็บไซต์ไม่ได้แม้จะมีการเชื่อมต่ออินเทอร์เน็ต (หาก DNS ทำงานผิดพลาด)
 
-\end{tikzpicture}
-```
+ทักษะเหล่านี้ยังเป็นหัวใจสำคัญในข้อสอบประกาศนียบัตรด้านเครือข่าย เช่น **CompTIA Network+** และ **Cisco CCNA**
 
-In a basic network setup, such as those found in homes, classrooms, or small offices, each device must be configured with several essential network parameters to communicate effectively within the local network and with the internet. These parameters include an **IP address**, **subnet mask**, **default gateway**, and **DNS server**. The **IP address** uniquely identifies the device on the network, while the **subnet mask** determines which portion of the IP address represents the network and which part designates the host. For example, a client computer might have an IP address of `192.168.1.10` with a subnet mask of `255.255.255.0`, placing it within the `192.168.1.0/24` subnet.
+## Section 3: เครื่องมือบรรทัดคำสั่งที่ใช้บ่อยในเครือข่าย (Common Network Command-line Tools)
 
-The **default gateway**, often the IP address of the local router (e.g., `192.168.1.1`), serves as the device's route to external networks. When the computer wants to communicate with devices outside its local subnet, such as a website on the internet, it sends the traffic to this gateway, which then forwards it appropriately. Additionally, the **DNS (Domain Name System)** server, such as Google's public DNS at `8.8.8.8`, resolves human-readable domain names like `www.example.com` into IP addresses that computers can understand. If DNS is not correctly configured, users may still have internet access but be unable to visit websites by name.
+เครื่องมือบรรทัดคำสั่ง (Command-line Tools) ถือเป็นเครื่องมือสำคัญในการวิเคราะห์และแก้ไขปัญหาเครือข่าย โดยสามารถให้ข้อมูลที่เกี่ยวข้องกับการทำงานในแต่ละชั้นของแบบจำลอง **OSI (Open Systems Interconnection Model)** ได้อย่างละเอียด ทั้งในระบบปฏิบัติการ **MS Windows** และ **Linux**
 
-In this architecture, the router may also serve as a **DHCP server**, automatically assigning IP addresses and other settings to devices on the network. This essential yet straightforward configuration demonstrates how four key elements—**IP address**, **subnet mask**, **gateway**, and **DNS**—work together to enable seamless communication from a local device to resources across the globe. Understanding these components is crucial for network troubleshooting and is a foundational skill tested in certifications like **CompTIA Network+** and **Cisco CCNA**.
+### เครื่องมือที่ใช้บ่อย
 
-## Common Network Command-Line Tools
-
-Several command-line tools are invaluable for diagnosing network issues by providing information related to different layers of the OSI model. Here are some simple and commonly used commands in both MS Windows and Linux:
-
-* **`ipconfig`**: Displays the current TCP/IP network configuration of a host, including IP address, subnet mask, default gateway, and DNS servers (Layer 3). The `/all` switch provides more detailed information.
+* **`ipconfig`** (Windows)
+  ใช้แสดงการกำหนดค่าปัจจุบันของเครือข่าย TCP/IP ของโฮสต์ รวมถึง **IP Address**, **Subnet Mask**, **Default Gateway** และ **DNS Server** (อยู่ในชั้นที่ 3: Network Layer)
+  คำสั่ง `/all` จะแสดงรายละเอียดเพิ่มเติม เช่น ค่า MAC Address และการตั้งค่า DHCP
 
   ```bash
   ipconfig
   ipconfig /all
   ```
 
-* **`ping`**: Sends ICMP (Internet Control Message Protocol) echo requests to a target host and listens for responses. It's used to test basic IP connectivity (Layer 3).
+* **`ping`**
+  ส่งแพ็กเก็ต ICMP (Internet Control Message Protocol) แบบ Echo Request ไปยังโฮสต์ปลายทาง และรอการตอบกลับ เพื่อทดสอบการเชื่อมต่อพื้นฐานในระดับ IP (Layer 3)
 
   ```bash
   ping <destination_ip_or_hostname>
   ```
 
-* **`tracert`** (**`traceroute`** in Linux): Traces the path taken by packets to a destination host, displaying each hop (router) along the way. It helps identify routing issues (Layer 3).
+* **`tracert`** (Windows) / **`traceroute`** (Linux)
+  ใช้ตรวจสอบเส้นทาง (Path) ของแพ็กเก็ตจากโฮสต์ต้นทางไปยังปลายทาง โดยแสดงอุปกรณ์เครือข่าย (Router) ที่แพ็กเก็ตผ่านแต่ละขั้นตอน ซึ่งช่วยระบุปัญหาที่เกี่ยวข้องกับการกำหนดเส้นทาง (Routing) (Layer 3)
 
   ```bash
   tracert <destination_ip_or_hostname>
+  traceroute <destination_ip_or_hostname>
   ```
 
-* **`netstat`**: Displays active TCP connections, listening ports, Ethernet statistics, the IP routing table, IPv4 statistics (for IP, ICMP, TCP, and UDP protocols), IPv6 statistics (for IPv6, ICMPv6, TCP over IPv6, and UDP over IPv6), and network interface statistics (Layer 3 and 4).
+* **`netstat`**
+  ใช้แสดงการเชื่อมต่อ TCP ที่กำลังทำงานอยู่, พอร์ตที่เปิดรับการเชื่อมต่อ, สถิติของ Ethernet, ตารางการกำหนดเส้นทาง (Routing Table) รวมถึงข้อมูลของโปรโตคอล IPv4/IPv6 (Layer 3 และ Layer 4)
 
   ```bash
   netstat -ano
   ```
 
-* **`nslookup`**: Queries DNS (Domain Name System) servers to resolve hostnames to IP addresses and vice versa (Layer 7, relies on lower layers).
+* **`nslookup`**
+  ใช้สอบถามเซิร์ฟเวอร์ DNS เพื่อแปลงชื่อโฮสต์ (Hostname) ไปเป็นที่อยู่ไอพี หรือกลับกัน (Layer 7 – Application Layer, อาศัยการทำงานของชั้นล่างประกอบ)
 
   ```bash
   nslookup <hostname_or_ip_address>
   ```
 
-#### Common Connectivity Issues
+### ปัญหาการเชื่อมต่อที่พบบ่อยและแนวทางแก้ไข
 
-| **Symptom**    | **Cause**                | **Solution**                |
-| -------------- | ------------------------ | --------------------------- |
-| No internet    | Wrong gateway            | Update gateway IP           |
-| DNS fails      | Misconfigured DNS server | Use public DNS like 8.8.8.8 |
-| IP conflict    | Duplicate static IP      | Change IP or use DHCP       |
-| APIPA assigned | DHCP server unreachable  | Check server and cabling    |
+| **อาการ (Symptom)**                          | **สาเหตุ (Cause)**                        | **แนวทางแก้ไข (Solution)**                  |
+| -------------------------------------------- | ----------------------------------------- | ------------------------------------------- |
+| ไม่สามารถใช้งานอินเทอร์เน็ตได้ (No Internet) | เกตเวย์กำหนดค่าไม่ถูกต้อง (Wrong Gateway) | กำหนดค่า IP ของ Gateway ใหม่ให้ถูกต้อง      |
+| การแก้ไขชื่อโดเมนล้มเหลว (DNS Fails)         | DNS Server กำหนดค่าผิด                    | ใช้ DNS สาธารณะ เช่น 8.8.8.8                |
+| ที่อยู่ IP ซ้ำกัน (IP Conflict)              | มีการตั้งค่า IP แบบ Static ซ้ำ            | เปลี่ยน IP หรือใช้ DHCP                     |
+| ได้รับที่อยู่ APIPA                          | DHCP Server ไม่ตอบสนอง                    | ตรวจสอบการทำงานของ DHCP Server และสายสัญญาณ |
 
-## DHCP (Dynamic Host Configuration Protocol)
+## Section 4: โปรโตคอลกำหนดค่าโฮสต์แบบไดนามิก (DHCP: Dynamic Host Configuration Protocol)
 
-The **Dynamic Host Configuration Protocol (DHCP)** is a network management protocol used to automatically assign IP configuration information to devices (hosts) on a network. DHCP eliminates the need for manual configuration and ensures consistency across a network, especially in environments with many devices.
+**DHCP (Dynamic Host Configuration Protocol)** คือ โปรโตคอลการจัดการเครือข่ายที่ใช้สำหรับการแจกจ่ายการตั้งค่า IP ให้กับอุปกรณ์ (Hosts) บนเครือข่ายโดยอัตโนมัติ ช่วยลดภาระในการกำหนดค่าด้วยตนเองและสร้างความสม่ำเสมอของการกำหนดค่า โดยเฉพาะในเครือข่ายที่มีอุปกรณ์จำนวนมาก
 
-#### Purpose of DHCP
+### วัตถุประสงค์ของ DHCP (Purpose of DHCP)
 
-DHCP significantly reduces configuration errors and administrative overhead by dynamically providing the following key network settings to clients:
+DHCP ช่วยลดข้อผิดพลาดจากการกำหนดค่าด้วยตนเอง และช่วยให้งานผู้ดูแลระบบ (Network Administrator) มีความสะดวกมากขึ้น โดยมอบการตั้งค่าหลักให้กับอุปกรณ์ ได้แก่:
 
-* **IP Address**
-* **Subnet Mask**
-* **Default Gateway**
-* **DNS Server(s)**
+* **IP Address (ที่อยู่ไอพี)**
+* **Subnet Mask (มาสก์เครือข่ายย่อย)**
+* **Default Gateway (เกตเวย์เริ่มต้น)**
+* **DNS Server(s) (เซิร์ฟเวอร์ DNS)**
 
-Without DHCP, each host would need to be configured manually, which increases the risk of errors such as IP address conflicts, incorrect subnetting, or invalid gateways.
+หากไม่มี DHCP ผู้ดูแลระบบจำเป็นต้องกำหนดค่าเหล่านี้ให้กับแต่ละอุปกรณ์ด้วยตนเอง ซึ่งเสี่ยงต่อการเกิดปัญหา เช่น การซ้ำกันของที่อยู่ไอพี (IP Conflict), การกำหนดค่า Subnet ไม่ถูกต้อง หรือการระบุ Gateway ที่ไม่สามารถใช้งานได้
 
-#### DHCP Operation — The DORA Process
+### กระบวนการทำงานของ DHCP — ขั้นตอน DORA
 
-When a DHCP-enabled device connects to a network, it follows a standardized four-step process to obtain its configuration. This sequence is often remembered by the acronym **DORA**:
+เมื่ออุปกรณ์ที่รองรับ DHCP เชื่อมต่อเข้าสู่เครือข่าย จะมีกระบวนการ 4 ขั้นตอนในการขอรับการกำหนดค่า ซึ่งมักถูกเรียกย่อว่า **DORA** ได้แก่:
 
-1. **Discover** – The client broadcasts a DHCP Discover packet to locate available DHCP servers on the network.
-2. **Offer** – A DHCP server replies with a DHCP Offer packet containing an available IP address and configuration options.
-3. **Request** – The client responds with a DHCP Request packet, indicating acceptance of the offered configuration.
-4. **Acknowledge** – The server sends a DHCP Acknowledgment (ACK) to finalize the lease, confirming the IP address assignment.
+1. **Discover (การค้นหา):** ไคลเอนต์ส่งแพ็กเก็ต DHCP Discover แบบ Broadcast เพื่อค้นหาเซิร์ฟเวอร์ DHCP
+2. **Offer (การเสนอ):** เซิร์ฟเวอร์ DHCP ตอบกลับด้วย DHCP Offer ที่มีที่อยู่ไอพีและการตั้งค่าอื่น ๆ ที่สามารถใช้งานได้
+3. **Request (การร้องขอ):** ไคลเอนต์ส่ง DHCP Request ตอบกลับเพื่อยืนยันการยอมรับการกำหนดค่าที่เสนอมา
+4. **Acknowledge (การยืนยัน):** เซิร์ฟเวอร์ DHCP ส่ง DHCP Acknowledgment (ACK) เพื่อยืนยันการเช่าที่อยู่ไอพี (IP Lease)
 
-#### Lease Duration and Renewal
 
-DHCP assigns IP addresses on a **lease** basis, meaning the assignment is temporary.
-Clients must renew their leases periodically. This allows networks to recycle IP addresses as devices connect and disconnect efficiently.
+### ระยะเวลาเช่าและการต่ออายุ (Lease Duration and Renewal)
 
-#### DHCP in Practice
+ที่อยู่ไอพีที่แจกจ่ายผ่าน DHCP จะถูกให้ในรูปแบบ **Lease (สัญญาเช่า)** ซึ่งมีอายุการใช้งานจำกัด เมื่อเวลาครบกำหนด อุปกรณ์ต้องทำการต่ออายุ (Renew) เพื่อรักษาการใช้งานต่อไป กลไกนี้ช่วยให้เครือข่ายสามารถนำที่อยู่ไอพีที่ไม่ได้ใช้งานกลับมาแจกจ่ายใหม่ได้อย่างมีประสิทธิภาพ
 
-In a typical home or small office setup, the wireless router acts as the DHCP server. In enterprise environments, DHCP servers are typically centralized and often utilize relay agents to service clients across different subnets.
+### การใช้งาน DHCP ในทางปฏิบัติ (DHCP in Practice)
 
-#### Command-line Tip
+* ในเครือข่ายบ้านหรือสำนักงานขนาดเล็ก **เราเตอร์ไร้สาย (Wireless Router)** มักทำหน้าที่เป็น DHCP Server โดยอัตโนมัติ
+* ในเครือข่ายระดับองค์กร (Enterprise Network) จะใช้ **DHCP Server แบบรวมศูนย์ (Centralized DHCP Server)** และอาจมี **DHCP Relay Agent** เพื่อกระจายบริการไปยังหลายเครือข่ายย่อย (Subnets)
 
-On Windows, the following commands can be used to manage and troubleshoot DHCP:
+### คำสั่งบรรทัดคำสั่งที่เกี่ยวข้อง (Command-line Tip)
+
+บนระบบปฏิบัติการ **Windows** สามารถใช้คำสั่งต่อไปนี้เพื่อตรวจสอบหรือแก้ไขปัญหาที่เกี่ยวข้องกับ DHCP ได้:
 
 ```bash
 ipconfig /release
 ipconfig /renew
 ```
+
+* `ipconfig /release` – ปล่อย (Release) ที่อยู่ไอพีที่ได้รับจาก DHCP
+* `ipconfig /renew` – ร้องขอ (Renew) ที่อยู่ไอพีใหม่จาก DHCP Server
+
+
+
